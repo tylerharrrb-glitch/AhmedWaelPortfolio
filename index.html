@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Wael Metwally — Capital Markets & Financial Analysis Professional</title>
+    <meta name="description"
+        content="Ahmed Wael Metwally is a Capital Markets & Financial Analysis Professional based in Cairo, Egypt. FMVA® and CBCA® certified. Currently Financial Officer at MCDR.">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230A0E17'/%3E%3Ctext x='32' y='40' font-family='serif' font-weight='bold' font-size='20' fill='%23C9A84C' text-anchor='middle'%3EAWM%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:wght@700;900&family=Sora:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ═══════════ DESIGN TOKENS ═══════════ */
+        :root {
+            --bg-primary: #0A0E17;
+            --bg-secondary: #0F1623;
+            --bg-card: #141B2D;
+            --accent-gold: #C9A84C;
+            --accent-blue: #3B82F6;
+            --accent-glow: #3B82F620;
+            --text-primary: #F0F4FF;
+            --text-secondary: #8892A4;
+            --text-muted: #4A5568;
+            --border: #1E2D45;
+            --gold-glow: #C9A84C15;
+            --ease: cubic-bezier(.4, 0, .2, 1);
+            --ff-display: 'Playfair Display', serif;
+            --ff-mono: 'IBM Plex Mono', monospace;
+            --ff-body: 'Sora', sans-serif;
+        }
+
+        /* ═══════════ RESET ═══════════ */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--ff-body);
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: .035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        ul {
+            list-style: none
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        /* ═══════════ UTILITY ═══════════ */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px
+        }
+
+        .section {
+            padding: 100px 0;
+            position: relative
+        }
+
+        .section-divider {
+            height: 1px;
+            background: var(--accent-gold);
+            opacity: .3;
+            margin: 0 auto;
+            max-width: 1100px
+        }
+
+        .gold {
+            color: var(--accent-gold)
+        }
+
+        .section-label {
+            font-family: var(--ff-mono);
+            font-size: .75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 12px;
+            display: block
+        }
+
+        .section-title {
+            font-family: var(--ff-display);
+            font-weight: 900;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            margin-bottom: 40px;
+            line-height: 1.2
+        }
+
+        /* reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity .7s var(--ease), transform .7s var(--ease)
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        /* ═══════════ NAVBAR ═══════════ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 14, 23, .72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(30, 45, 69, .5);
+            transition: background .3s var(--ease)
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px
+        }
+
+        .nav-logo {
+            font-family: var(--ff-display);
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--accent-gold)
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px
+        }
+
+        .nav-links a {
+            font-family: var(--ff-mono);
+            font-size: .78rem;
+            color: var(--text-secondary);
+            letter-spacing: .5px;
+            position: relative;
+            padding: 4px 0;
+            transition: color .3s var(--ease)
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1.5px;
+            background: var(--accent-gold);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform .4s var(--ease)
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-primary)
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            transform: scaleX(1);
+            transform-origin: left
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            background: none;
+            border: none
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: all .3s var(--ease)
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px)
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px)
+        }
+
+        /* ═══════════ HERO ═══════════ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            position: relative;
+            z-index: 1
+        }
+
+        .hero-greeting {
+            font-family: var(--ff-mono);
+            font-size: .85rem;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeSlideUp .8s var(--ease) .2s forwards
+        }
+
+        .hero-name {
+            font-family: var(--ff-display);
+            font-weight: 900;
+            font-size: clamp(2.8rem, 7vw, 5rem);
+            line-height: 1.05;
+            opacity: 0;
+            animation: fadeSlideUp .8s var(--ease) .4s forwards
+        }
+
+        .hero-name .last {
+            display: block;
+            color: var(--accent-gold)
+        }
+
+        .hero-role {
+            font-family: var(--ff-mono);
+            font-size: clamp(.95rem, 1.8vw, 1.15rem);
+            color: var(--text-secondary);
+            min-height: 1.6em;
+            margin-top: 8px;
+            opacity: 0;
+            animation: fadeSlideUp .8s var(--ease) .6s forwards
+        }
+
+        .hero-role .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.1em;
+            background: var(--accent-gold);
+            margin-left: 4px;
+            vertical-align: text-bottom;
+            animation: blink 1s step-end infinite
+        }
+
+        .hero-cta-row {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeSlideUp .8s var(--ease) .8s forwards
+        }
+
+        .btn {
+            font-family: var(--ff-mono);
+            font-size: .82rem;
+            padding: 12px 28px;
+            border-radius: 4px;
+            letter-spacing: .5px;
+            transition: all .35s var(--ease);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none
+        }
+
+        .btn-gold {
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            font-weight: 500
+        }
+
+        .btn-gold:hover {
+            background: #d4b35a;
+            box-shadow: 0 0 24px var(--gold-glow)
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border)
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold)
+        }
+
+        .hero-location {
+            font-family: var(--ff-mono);
+            font-size: .78rem;
+            color: var(--text-muted);
+            margin-top: 16px;
+            opacity: 0;
+            animation: fadeSlideUp .8s var(--ease) 1s forwards
+        }
+
+        /* ═══════════ STATS ═══════════ */
+        .stats {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border)
+        }
+
+        .stats .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            padding: 48px 24px
+        }
+
+        .stat-item {
+            text-align: center
+        }
+
+        .stat-number {
+            font-family: var(--ff-display);
+            font-weight: 900;
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            color: var(--accent-gold);
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 2px
+        }
+
+        .stat-number .suffix {
+            font-size: .6em;
+            color: var(--accent-gold)
+        }
+
+        .stat-label {
+            font-family: var(--ff-mono);
+            font-size: .72rem;
+            color: var(--text-secondary);
+            margin-top: 6px;
+            letter-spacing: .5px;
+            line-height: 1.5
+        }
+
+        /* ═══════════ ABOUT ═══════════ */
+        .about-text {
+            font-family: var(--ff-body);
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.9;
+            max-width: 820px
+        }
+
+        .about-text strong {
+            color: var(--text-primary);
+            font-weight: 600
+        }
+
+        /* ═══════════ EXPERIENCE ═══════════ */
+        .exp-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 36px;
+            margin-bottom: 28px;
+            position: relative;
+            transition: border-color .35s var(--ease)
+        }
+
+        .exp-card:hover {
+            border-color: rgba(201, 168, 76, .35)
+        }
+
+        .exp-card.featured {
+            border-left: 3px solid var(--accent-gold)
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 16px
+        }
+
+        .exp-role {
+            font-family: var(--ff-display);
+            font-weight: 700;
+            font-size: 1.3rem
+        }
+
+        .exp-company {
+            font-family: var(--ff-body);
+            font-size: .95rem;
+            color: var(--accent-gold);
+            margin-top: 4px
+        }
+
+        .exp-company a {
+            color: var(--accent-gold);
+            text-decoration: underline;
+            text-underline-offset: 3px
+        }
+
+        .exp-meta {
+            font-family: var(--ff-mono);
+            font-size: .75rem;
+            color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 4px;
+            white-space: nowrap
+        }
+
+        .badge {
+            font-family: var(--ff-mono);
+            font-size: .65rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500
+        }
+
+        .badge-gold {
+            background: rgba(201, 168, 76, .15);
+            color: var(--accent-gold);
+            border: 1px solid rgba(201, 168, 76, .3)
+        }
+
+        .exp-bullets {
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .exp-bullets li {
+            font-family: var(--ff-body);
+            font-size: .88rem;
+            color: var(--text-secondary);
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.7
+        }
+
+        .exp-bullets li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold)
+        }
+
+        .exp-note {
+            font-family: var(--ff-body);
+            font-size: .88rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-top: 12px;
+            font-style: italic
+        }
+
+        /* ═══════════ PROJECTS ═══════════ */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 28px
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 36px;
+            position: relative;
+            transition: all .4s var(--ease);
+            overflow: hidden
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 8px;
+            padding: 1px;
+            background: linear-gradient(135deg, transparent 40%, var(--accent-gold) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity .4s var(--ease);
+            pointer-events: none
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px)
+        }
+
+        .project-card:hover::before {
+            opacity: 1
+        }
+
+        .project-card.featured-project {
+            grid-column: 1/-1
+        }
+
+        .project-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px
+        }
+
+        .project-title {
+            font-family: var(--ff-display);
+            font-weight: 700;
+            font-size: 1.25rem
+        }
+
+        .project-subtitle {
+            font-family: var(--ff-mono);
+            font-size: .78rem;
+            color: var(--accent-gold);
+            margin-top: 4px
+        }
+
+        .badge-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--ff-mono);
+            font-size: .65rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #4ade80;
+            background: rgba(74, 222, 128, .1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(74, 222, 128, .25)
+        }
+
+        .badge-live .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #4ade80;
+            animation: pulse 2s infinite
+        }
+
+        .project-desc {
+            font-family: var(--ff-body);
+            font-size: .88rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin: 16px 0
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px
+        }
+
+        .tag {
+            font-family: var(--ff-mono);
+            font-size: .7rem;
+            color: var(--accent-blue);
+            background: rgba(59, 130, 246, .08);
+            padding: 4px 12px;
+            border-radius: 4px;
+            border: 1px solid rgba(59, 130, 246, .15)
+        }
+
+        .btn-demo {
+            font-family: var(--ff-mono);
+            font-size: .78rem;
+            padding: 10px 24px;
+            border-radius: 4px;
+            background: transparent;
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
+            cursor: pointer;
+            transition: all .3s var(--ease);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .btn-demo:hover {
+            background: rgba(201, 168, 76, .1);
+            box-shadow: 0 0 20px var(--gold-glow)
+        }
+
+        /* ═══════════ CERTIFICATIONS ═══════════ */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px
+        }
+
+        .cert-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 28px;
+            transition: border-color .35s var(--ease);
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .cert-card:hover {
+            border-color: rgba(201, 168, 76, .35)
+        }
+
+        .cert-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            background: rgba(201, 168, 76, .1);
+            color: var(--accent-gold)
+        }
+
+        .cert-name {
+            font-family: var(--ff-body);
+            font-weight: 600;
+            font-size: .92rem;
+            line-height: 1.4
+        }
+
+        .cert-issuer {
+            font-family: var(--ff-mono);
+            font-size: .72rem;
+            color: var(--text-muted)
+        }
+
+        .cert-year {
+            font-family: var(--ff-mono);
+            font-size: .72rem;
+            color: var(--accent-gold)
+        }
+
+        .cert-link {
+            font-family: var(--ff-mono);
+            font-size: .72rem;
+            color: var(--accent-blue);
+            transition: color .3s
+        }
+
+        .cert-link:hover {
+            color: var(--accent-gold)
+        }
+
+        /* ═══════════ SKILLS ═══════════ */
+        .skills-group {
+            margin-bottom: 36px
+        }
+
+        .skills-group-title {
+            font-family: var(--ff-mono);
+            font-size: .78rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 16px
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .skill-tag {
+            font-family: var(--ff-mono);
+            font-size: .78rem;
+            color: var(--text-secondary);
+            background: var(--bg-card);
+            padding: 8px 18px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            transition: all .3s var(--ease)
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            transform: translateY(-2px)
+        }
+
+        /* ═══════════ EDUCATION ═══════════ */
+        .edu-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 36px
+        }
+
+        .edu-degree {
+            font-family: var(--ff-display);
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 4px
+        }
+
+        .edu-school {
+            font-family: var(--ff-body);
+            font-size: .95rem;
+            color: var(--accent-gold);
+            margin-bottom: 12px
+        }
+
+        .edu-details {
+            font-family: var(--ff-mono);
+            font-size: .78rem;
+            color: var(--text-muted);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px
+        }
+
+        .edu-project {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            font-family: var(--ff-body);
+            font-size: .88rem;
+            color: var(--text-secondary)
+        }
+
+        .edu-project strong {
+            color: var(--text-primary)
+        }
+
+        /* ═══════════ CTA ═══════════ */
+        .cta {
+            text-align: center
+        }
+
+        .cta-headline {
+            font-family: var(--ff-display);
+            font-weight: 900;
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            margin-bottom: 16px
+        }
+
+        .cta-sub {
+            font-family: var(--ff-body);
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 36px
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap
+        }
+
+        /* ═══════════ FOOTER ═══════════ */
+        .footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border)
+        }
+
+        .footer-main {
+            font-family: var(--ff-mono);
+            font-size: .78rem;
+            color: var(--text-secondary)
+        }
+
+        .footer-sub {
+            font-family: var(--ff-mono);
+            font-size: .68rem;
+            color: var(--text-muted);
+            margin-top: 8px
+        }
+
+        /* ═══════════ KEYFRAMES ═══════════ */
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .4
+            }
+        }
+
+        /* ═══════════ RESPONSIVE ═══════════ */
+        @media(max-width:768px) {
+            .nav-links {
+                position: fixed;
+                top: 64px;
+                right: 0;
+                width: 260px;
+                height: calc(100vh - 64px);
+                background: rgba(15, 22, 35, .97);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 32px 24px;
+                gap: 24px;
+                transform: translateX(100%);
+                transition: transform .35s var(--ease)
+            }
+
+            .nav-links.open {
+                transform: translateX(0)
+            }
+
+            .hamburger {
+                display: flex
+            }
+
+            .stats .container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                padding: 36px 24px
+            }
+
+            .exp-header {
+                flex-direction: column
+            }
+
+            .exp-meta {
+                align-items: flex-start
+            }
+
+            .certs-grid {
+                grid-template-columns: 1fr
+            }
+
+            .hero-name {
+                font-size: clamp(2.2rem, 8vw, 3.2rem)
+            }
+        }
+
+        @media(max-width:480px) {
+            .section {
+                padding: 64px 0
+            }
+
+            .stats .container {
+                grid-template-columns: 1fr
+            }
+
+            .hero-cta-row {
+                flex-direction: column
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center
+            }
+
+            .cta-buttons .btn {
+                width: 100%;
+                max-width: 300px
+            }
+
+            .edu-details {
+                flex-direction: column;
+                gap: 6px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════ NAVBAR ═══════════ -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="nav-logo">AWM</a>
+            <div class="nav-links" id="navLinks">
+                <a href="#about">About</a><a href="#experience">Experience</a>
+                <a href="#projects">Projects</a><a href="#certifications">Certifications</a>
+                <a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ═══════════ HERO ═══════════ -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-greeting">CAPITAL MARKETS · CAIRO, EGYPT</span>
+                <h1 class="hero-name">Ahmed <br>Wael<span class="last"> Metwally</span></h1>
+                <div class="hero-role"><span id="typewriter"></span><span class="cursor"></span></div>
+                <div class="hero-cta-row">
+                    <a href="#contact" class="btn btn-gold">Get in Touch</a>
+                    <a href="#projects" class="btn btn-outline">View Projects</a>
+                </div>
+                <p class="hero-location"><i class="fas fa-map-marker-alt"></i>&ensp;Cairo, Egypt &ensp;·&ensp;
+                    ahmedwaelmetwally@gmail.com &ensp;·&ensp; +20 103 278 2667</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ STATS ═══════════ -->
+    <section class="stats reveal" id="stats">
+        <div class="container">
+            <div class="stat-item">
+                <div class="stat-number"><span class="counter" data-target="1">0</span><span class="suffix">+</span>
+                </div>
+                <div class="stat-label">Years at Egypt's Central Depository</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number"><span class="counter" data-target="2">0</span></div>
+                <div class="stat-label">Live Financial Platforms Built</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number"><span class="counter" data-target="6">0</span><span class="suffix">+</span>
+                </div>
+                <div class="stat-label">Professional Certifications</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number"><span class="counter" data-target="5">0</span></div>
+                <div class="stat-label">Years of Financial Projections Modeled</div>
+            </div>
+        </div>
+    </section>
+    <div class="section-divider"></div>
+
+    <!-- ═══════════ ABOUT ═══════════ -->
+    <section class="section reveal" id="about">
+        <div class="container">
+            <span class="section-label">01 — About</span>
+            <h2 class="section-title">Who I Am</h2>
+            <p class="about-text">I am a <strong>Finance &amp; Investment professional</strong> working at the
+                intersection of Egypt's capital markets infrastructure and financial analysis. Currently serving as
+                <strong>Financial Officer at MCDR</strong> — Egypt's central securities depository — I specialize in
+                portfolio compliance, regulatory reporting, and quantitative financial modeling. I build
+                institutional-grade analytical tools and hold <strong>FMVA®</strong> and <strong>CBCA®</strong>
+                designations from the Corporate Finance Institute. I am actively targeting roles at <strong>EGX</strong>
+                and <strong>FRA</strong> to contribute to the development and oversight of Egypt's securities market.
+            </p>
+        </div>
+    </section>
+    <div class="section-divider"></div>
+
+    <!-- ═══════════ EXPERIENCE ═══════════ -->
+    <section class="section reveal" id="experience">
+        <div class="container">
+            <span class="section-label">02 — Experience</span>
+            <h2 class="section-title">Career History</h2>
+
+            <div class="exp-card featured">
+                <div class="exp-header">
+                    <div>
+                        <div class="exp-role">Financial Officer</div>
+                        <div class="exp-company"><a href="https://www.mcsd.com.eg/en" target="_blank"
+                                rel="noopener noreferrer">MCDR — Misr for Central Clearing, Depository and Registry</a>
+                        </div>
+                    </div>
+                    <div class="exp-meta"><span class="badge badge-gold">Current Role</span><span>Nov 2024 –
+                            Present</span><span>Cairo, Egypt</span></div>
+                </div>
+                <ul class="exp-bullets">
+                    <li><strong>Portfolio Compliance:</strong> Monitored investment activities ensuring adherence to
+                        capital markets regulations and Egyptian securities legislation — supporting market integrity
+                        and investor protection</li>
+                    <li><strong>Financial Reporting:</strong> Prepared standalone financial statements per applicable
+                        accounting standards, reinforcing transparency and disclosure quality</li>
+                    <li><strong>SAP ERP Implementation:</strong> Co-led financial data migration and workflow
+                        integration, enhancing reporting accuracy and regulatory data integrity</li>
+                    <li><strong>Reconciliation &amp; Internal Controls:</strong> Conducted bank reconciliations and
+                        maintained rigorous internal controls aligned with non-banking financial sector requirements
+                    </li>
+                    <li><strong>Data Analysis:</strong> Applied Python and advanced Excel for historical ratio analysis,
+                        financial trend modeling, and risk assessment</li>
+                    <li><strong>Audit Support:</strong> Partnered with external auditors to ensure full regulatory
+                        compliance</li>
+                </ul>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-header">
+                    <div>
+                        <div class="exp-role">Senior Customer Service &amp; Sales Representative</div>
+                        <div class="exp-company">UFC GYM</div>
+                    </div>
+                    <div class="exp-meta"><span>Jul 2022 – Jul 2023</span><span>Sheikh Zayed, Giza</span></div>
+                </div>
+                <p class="exp-note">Client relationship management and performance-driven sales in a high-volume
+                    environment.</p>
+            </div>
+        </div>
+    </section>
+    <div class="section-divider"></div>
+
+    <!-- ═══════════ PROJECTS ═══════════ -->
+    <section class="section reveal" id="projects">
+        <div class="container">
+            <span class="section-label">03 — Projects</span>
+            <h2 class="section-title">Built for Finance</h2>
+            <div class="projects-grid">
+
+                <div class="project-card featured-project">
+                    <div class="project-top">
+                        <div>
+                            <div class="project-title">WOLF Valuation Engine</div>
+                            <div class="project-subtitle">Full-Stack Equity Valuation Platform</div>
+                        </div>
+                        <span class="badge-live"><span class="dot"></span>Live</span>
+                    </div>
+                    <p class="project-desc">An institutional-grade equity valuation platform featuring Discounted Cash
+                        Flow (DCF) analysis, Monte Carlo simulations, and Comparable Company Analysis (CCA) with
+                        automated reporting outputs in PDF and Excel formats.</p>
+                    <div class="project-tags">
+                        <span class="tag">DCF Analysis</span><span class="tag">Monte Carlo</span><span
+                            class="tag">CCA</span><span class="tag">Python</span><span class="tag">Financial
+                            Modeling</span>
+                    </div>
+                    <a href="https://wolf-valuation-engine.pages.dev/" target="_blank" rel="noopener noreferrer"
+                        class="btn-demo"><i class="fas fa-external-link-alt"></i> Live</a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-top">
+                        <div>
+                            <div class="project-title">3-Statement Financial Model Engine</div>
+                            <div class="project-subtitle">Full-Stack Financial Modeling Platform</div>
+                        </div>
+                        <span class="badge-live"><span class="dot"></span>Live</span>
+                    </div>
+                    <p class="project-desc">A fully-linked 3-statement financial model (Income Statement, Balance Sheet,
+                        Cash Flow) projecting 5 years across 3 scenarios — Base, Optimistic, and Conservative — powered
+                        by a circular-reference iterative solver ensuring complete balance sheet reconciliation and cash
+                        flow integrity across all periods.</p>
+                    <div class="project-tags">
+                        <span class="tag">3-Statement Model</span><span class="tag">Scenario Analysis</span><span
+                            class="tag">Iterative Solver</span><span class="tag">Excel</span><span class="tag">Financial
+                            Modeling</span>
+                    </div>
+                    <a href="https://3-statement-model-engine.pages.dev/" target="_blank" rel="noopener noreferrer"
+                        class="btn-demo"><i class="fas fa-external-link-alt"></i> Live</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <div class="section-divider"></div>
+
+    <!-- ═══════════ CERTIFICATIONS ═══════════ -->
+    <section class="section reveal" id="certifications">
+        <div class="container">
+            <span class="section-label">04 — Certifications</span>
+            <h2 class="section-title">Credentials</h2>
+            <div class="certs-grid">
+
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="cert-name">Financial Modeling &amp; Valuation Analyst (FMVA®)</div>
+                    <div class="cert-issuer">Corporate Finance Institute</div>
+                    <div class="cert-year">2025</div>
+                    <a href="https://www.credential.net/96cc4829-968e-462b-b284-2556c7262a40" target="_blank"
+                        rel="noopener noreferrer" class="cert-link">View Credential →</a>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-university"></i></div>
+                    <div class="cert-name">Commercial Banking &amp; Credit Analyst (CBCA®)</div>
+                    <div class="cert-issuer">Corporate Finance Institute</div>
+                    <div class="cert-year">2025</div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-database"></i></div>
+                    <div class="cert-name">Google Data Analytics Professional Certificate</div>
+                    <div class="cert-issuer">Google</div>
+                    <div class="cert-year">2024</div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-tasks"></i></div>
+                    <div class="cert-name">Google Project Management Professional Certificate</div>
+                    <div class="cert-issuer">Google</div>
+                    <div class="cert-year">2024</div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-balance-scale"></i></div>
+                    <div class="cert-name">Role of the Financial Regulatory Authority (FRA) in the Egyptian Economy
+                    </div>
+                    <div class="cert-issuer">FRA &amp; Cairo University</div>
+                    <div class="cert-year">2023</div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-language"></i></div>
+                    <div class="cert-name">TOEFL</div>
+                    <div class="cert-issuer">Center for Foreign Languages &amp; Professional Translation, Cairo</div>
+                    <div class="cert-year">2024</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <div class="section-divider"></div>
+
+    <!-- ═══════════ SKILLS ═══════════ -->
+    <section class="section reveal" id="skills">
+        <div class="container">
+            <span class="section-label">05 — Skills</span>
+            <h2 class="section-title">Expertise</h2>
+
+            <div class="skills-group">
+                <div class="skills-group-title">Capital Markets &amp; Finance</div>
+                <div class="skills-tags">
+                    <span class="skill-tag">Capital Markets Regulation</span><span class="skill-tag">Securities Market
+                        Infrastructure</span>
+                    <span class="skill-tag">Portfolio Compliance</span><span class="skill-tag">Non-Banking Financial
+                        Supervision</span>
+                    <span class="skill-tag">Financial Reporting</span><span class="skill-tag">Risk Assessment</span>
+                    <span class="skill-tag">Equity Research</span><span class="skill-tag">Financial Statement
+                        Analysis</span>
+                    <span class="skill-tag">Credit Analysis</span><span class="skill-tag">Regulatory Compliance</span>
+                </div>
+            </div>
+
+            <div class="skills-group">
+                <div class="skills-group-title">Financial Modeling</div>
+                <div class="skills-tags">
+                    <span class="skill-tag">DCF Analysis</span><span class="skill-tag">3-Statement Modeling</span>
+                    <span class="skill-tag">Monte Carlo Simulation</span><span class="skill-tag">Comparable Company
+                        Analysis (CCA)</span>
+                    <span class="skill-tag">Scenario Analysis</span><span class="skill-tag">Financial Forecasting</span>
+                    <span class="skill-tag">Valuation</span>
+                </div>
+            </div>
+
+            <div class="skills-group">
+                <div class="skills-group-title">Technical Tools</div>
+                <div class="skills-tags">
+                    <span class="skill-tag">Python</span><span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Advanced Excel</span><span class="skill-tag">Power BI</span>
+                    <span class="skill-tag">SAP ERP</span><span class="skill-tag">Bloomberg (Familiar)</span>
+                    <span class="skill-tag">Microsoft Office Suite</span>
+                </div>
+            </div>
+
+            <div class="skills-group">
+                <div class="skills-group-title">Languages</div>
+                <div class="skills-tags">
+                    <span class="skill-tag">Arabic (Native)</span><span class="skill-tag">English (Professional — TOEFL
+                        Certified)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="section-divider"></div>
+
+    <!-- ═══════════ EDUCATION ═══════════ -->
+    <section class="section reveal" id="education">
+        <div class="container">
+            <span class="section-label">06 — Education</span>
+            <h2 class="section-title">Academic Background</h2>
+            <div class="edu-card">
+                <div class="edu-degree">Bachelor of Finance &amp; Investment</div>
+                <div class="edu-school">Georgia State University Joint Program with Cairo University</div>
+                <div class="edu-details">
+                    <span><i class="fas fa-calendar-alt"></i>&ensp;2020 – 2024</span>
+                    <span><i class="fas fa-map-marker-alt"></i>&ensp;Giza, Egypt</span>
+                    <span><i class="fas fa-graduation-cap"></i>&ensp;Major: Finance &amp; Investment</span>
+                </div>
+                <div class="edu-project"><strong>Graduation Project:</strong> "Green Finance &amp; Sustainable Capital
+                    Markets"</div>
+            </div>
+        </div>
+    </section>
+    <div class="section-divider"></div>
+
+    <!-- ═══════════ CONTACT ═══════════ -->
+    <section class="section cta reveal" id="contact">
+        <div class="container">
+            <span class="section-label">07 — Contact</span>
+            <h2 class="cta-headline">Let's Build Egypt's Capital Markets Together</h2>
+            <p class="cta-sub">Open to opportunities at EGX, FRA, and leading financial institutions across Egypt and
+                the MENA region.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-gold"><i class="fas fa-download"></i> Download CV</a>
+                <a href="https://linkedin.com/in/ahmedwael7" target="_blank" rel="noopener noreferrer"
+                    class="btn btn-outline"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
+                <a href="mailto:ahmedwaelmetwally@gmail.com" class="btn btn-outline"><i class="fas fa-envelope"></i>
+                    Send an Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">Ahmed Wael Metwally © 2026 · Cairo, Egypt · Capital Markets Professional</div>
+            <div class="footer-sub">Built to stand out in Egypt's financial sector</div>
+        </div>
+    </footer>
+
+    <script>
+        /* ═══════════ TYPEWRITER ═══════════ */
+        (function () {
+            const phrases = ["Capital Markets Analyst", "Financial Modeling Expert", "Regulatory Finance Professional"];
+            const el = document.getElementById("typewriter");
+            let pi = 0, ci = 0, deleting = false;
+            function tick() {
+                const current = phrases[pi];
+                el.textContent = deleting ? current.substring(0, ci--) : current.substring(0, ci++);
+                if (!deleting && ci === current.length + 1) { setTimeout(() => { deleting = true; tick() }, 1800); return }
+                if (deleting && ci < 0) { deleting = false; pi = (pi + 1) % phrases.length; ci = 0; setTimeout(tick, 400); return }
+                setTimeout(tick, deleting ? 35 : 65);
+            }
+            tick();
+        })();
+
+        /* ═══════════ SCROLL REVEAL ═══════════ */
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target) } })
+        }, { threshold: .15 });
+        document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+        /* ═══════════ COUNTER ANIMATION ═══════════ */
+        const cio = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    document.querySelectorAll(".counter").forEach(c => {
+                        const target = +c.dataset.target, duration = 1500; let start = null;
+                        function step(ts) {
+                            if (!start) start = ts; const p = Math.min((ts - start) / duration, 1);
+                            c.textContent = Math.floor(p * target); if (p < 1) requestAnimationFrame(step); else c.textContent = target
+                        }
+                        requestAnimationFrame(step)
+                    }); cio.unobserve(e.target)
+                }
+            })
+        }, { threshold: .3 });
+        cio.observe(document.getElementById("stats"));
+
+        /* ═══════════ NAV ACTIVE LINK ═══════════ */
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".nav-links a");
+        const sio = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + e.target.id))
+                }
+            })
+        }, { threshold: .25, rootMargin: "-80px 0px -40% 0px" });
+        sections.forEach(s => sio.observe(s));
+
+        /* ═══════════ MOBILE MENU ═══════════ */
+        const hamburger = document.getElementById("hamburger");
+        const navLinksEl = document.getElementById("navLinks");
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("open"); navLinksEl.classList.toggle("open")
+        });
+        navLinksEl.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+            hamburger.classList.remove("open"); navLinksEl.classList.remove("open")
+        }));
+    </script>
+</body>
+
+</html>
