@@ -297,14 +297,9 @@
             animation: fadeSlideUp .8s var(--ease) .6s forwards
         }
 
-        .hero-role .cursor {
-            display: inline-block;
-            width: 2px;
-            height: 1.1em;
-            background: var(--accent-gold);
-            margin-left: 4px;
-            vertical-align: text-bottom;
-            animation: blink 1s step-end infinite
+        .hero-role {
+            word-wrap: break-word;
+            overflow-wrap: break-word
         }
 
         .hero-cta-row {
@@ -987,13 +982,14 @@
             <div class="hero-content">
                 <span class="hero-greeting">CAPITAL MARKETS · CAIRO, EGYPT</span>
                 <h1 class="hero-name">Ahmed <br>Wael<span class="last"> Metwally</span></h1>
-                <div class="hero-role"><span id="typewriter"></span><span class="cursor"></span></div>
+                <div class="hero-role"><span id="tagline">Capital Markets Professional · M&amp;A · Valuation · Financial Modeling</span></div>
                 <div class="hero-cta-row">
                     <a href="#contact" class="btn btn-gold">Get in Touch</a>
                     <a href="#projects" class="btn btn-outline">View Projects</a>
                 </div>
                 <p class="hero-location"><i class="fas fa-map-marker-alt"></i>&ensp;Cairo, Egypt &ensp;·&ensp;
-                    ahmedwaelmetwally@gmail.com &ensp;·&ensp; +20 103 278 2667</p>
+                    <a href="mailto:ahmedwaelmetwally@gmail.com">ahmedwaelmetwally@gmail.com</a> &ensp;·&ensp;
+                    <a href="tel:+201032782667">+20 103 278 2667</a></p>
             </div>
         </div>
     </section>
@@ -1028,15 +1024,16 @@
         <div class="container">
             <span class="section-label">01 — About</span>
             <h2 class="section-title">Who I Am</h2>
-            <p class="about-text">I am a <strong>Finance &amp; Investment professional</strong> working at the
-                intersection of Egypt's capital markets infrastructure and financial analysis. Currently serving as
-                <strong>Financial Officer at MCDR</strong> — Egypt's central securities depository — I specialize in
-                portfolio compliance, regulatory reporting, and quantitative financial modeling. I have independently
-                built <strong>three live, institutional-grade financial platforms</strong>: an M&amp;A analysis engine,
-                an equity valuation engine, and a 3-statement financial model. I hold <strong>FMVA®</strong> and
-                <strong>CBCA®</strong> designations from the Corporate Finance Institute and am actively targeting
-                roles at <strong>EGX</strong> and <strong>FRA</strong> to contribute to the development and oversight
-                of Egypt's securities market.
+            <p class="about-text"><strong>Finance &amp; Investment professional at MCDR</strong> (Egypt's central
+                securities depository) with hands-on capital markets exposure across <strong>EGX</strong>,
+                <strong>CBE</strong>, and <strong>FRA</strong> frameworks; differentiated by three live
+                institutional-grade platforms — a <strong>7-module M&amp;A engine</strong>, a <strong>sell-side
+                valuation suite</strong>, and a <strong>fully-linked 3-statement model</strong> — built and
+                stress-tested on Egyptian deal mechanics.
+            </p>
+            <p class="about-text" style="margin-top:18px"><strong>FMVA®-certified</strong> and <strong>CFA Level 1
+                Candidate</strong>. Targeting <strong>M&amp;A advisory</strong>, <strong>ECM</strong>, or
+                <strong>DCM analyst</strong> roles across Egypt and the GCC.
             </p>
         </div>
     </section>
@@ -1060,20 +1057,21 @@
                             Present</span><span>Cairo, Egypt</span></div>
                 </div>
                 <ul class="exp-bullets">
-                    <li><strong>Portfolio Compliance:</strong> Monitored investment activities ensuring adherence to
-                        capital markets regulations and Egyptian securities legislation — supporting market integrity
-                        and investor protection</li>
-                    <li><strong>Financial Reporting:</strong> Prepared standalone financial statements per applicable
-                        accounting standards, reinforcing transparency and disclosure quality</li>
-                    <li><strong>SAP ERP Implementation:</strong> Co-led financial data migration and workflow
-                        integration, enhancing reporting accuracy and regulatory data integrity</li>
-                    <li><strong>Reconciliation &amp; Internal Controls:</strong> Conducted bank reconciliations and
-                        maintained rigorous internal controls aligned with non-banking financial sector requirements
+                    <li>Monitored institutional investment portfolios against EGX, CBE, and FRA regulatory thresholds,
+                        building deep fluency in the Egyptian capital markets framework critical to cross-border deal
+                        execution.</li>
+                    <li>Prepared and analyzed standalone financial statements under EAS, isolating value drivers and
+                        KPIs directly applicable to M&amp;A due diligence, equity research, and credit underwriting.
                     </li>
-                    <li><strong>Data Analysis:</strong> Applied Python and advanced Excel for historical ratio analysis,
-                        financial trend modeling, and risk assessment</li>
-                    <li><strong>Audit Support:</strong> Partnered with external auditors to ensure full regulatory
-                        compliance</li>
+                    <li>Executed financial reconciliations and internal-controls reviews across multi-entity ledgers,
+                        building the analytical rigor transferable to buy-side and sell-side due diligence workstreams.
+                    </li>
+                    <li>Built Python- and Excel-based financial models with scenario analysis, sensitivity tables, and
+                        stress testing, replicating core IB analyst workflows used in DCF, LBO, and merger modeling.
+                    </li>
+                    <li>Partnered with external auditors through full-cycle compliance reviews, gaining direct exposure
+                        to EAS- and IFRS-aligned disclosure practices relevant to capital markets transactions and IPO
+                        readiness.</li>
                 </ul>
             </div>
 
@@ -1085,8 +1083,16 @@
                     </div>
                     <div class="exp-meta"><span>Jul 2022 – Jul 2023</span><span>Sheikh Zayed, Giza</span></div>
                 </div>
-                <p class="exp-note">Client relationship management and performance-driven sales in a high-volume
-                    environment.</p>
+                <ul class="exp-bullets">
+                    <li>Drove consultative membership sales and high-touch client service to a premium member base,
+                        sharpening the communication and stakeholder-management skills essential to IB pitch and
+                        coverage work.</li>
+                    <li>Managed retention of high-value member accounts and resolved service escalations end-to-end,
+                        demonstrating the discretion, accountability, and judgment required in client-facing finance.
+                    </li>
+                    <li>Mentored junior representatives in sales fundamentals and member engagement, building early
+                        team-leadership exposure relevant to deal-team collaboration.</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -1103,19 +1109,20 @@
                     <div class="project-top">
                         <div>
                             <div class="project-title">VALOR M&amp;A Engine</div>
-                            <div class="project-subtitle">Full-Stack M&amp;A Analysis Platform</div>
+                            <div class="project-subtitle">Full-Stack M&amp;A Analysis Platform · March 2026</div>
                         </div>
                         <span class="badge-live"><span class="dot"></span>Live</span>
                     </div>
-                    <p class="project-desc">A full-stack M&amp;A analysis engine with 7 integrated modules covering
-                        merger modeling, LBO analysis, synergy quantification, and fairness opinions — calibrated to
-                        Egyptian law, CBE rates, and FRA regulatory requirements.</p>
+                    <p class="project-desc">Institutional-grade M&amp;A engine with 7 integrated modules (merger
+                        modeling, LBO, accretion/dilution, synergy quantification, fairness opinion) calibrated to
+                        Egyptian capital markets law — CBE rates, FRA, ECA thresholds, EAS No. 19, Stamp Tax Law
+                        No. 111/1980 — with 83/83 automated financial tests passing.</p>
                     <div class="project-tags">
-                        <span class="tag">M&amp;A Modeling</span><span class="tag">LBO Analysis</span><span
-                            class="tag">Synergy Quantification</span><span class="tag">Fairness Opinion</span><span
-                            class="tag">Egyptian Law</span><span class="tag">FRA Regulations</span>
+                        <span class="tag">M&amp;A</span><span class="tag">LBO</span><span
+                            class="tag">Accretion/Dilution</span><span class="tag">Synergies</span><span
+                            class="tag">Fairness Opinion</span><span class="tag">Egyptian Capital Markets Law</span>
                     </div>
-                    <a href="https://valor-ma-engine.pages.dev/" target="_blank" rel="noopener noreferrer"
+                    <a href="https://valor-ma-engine.pages.dev" target="_blank" rel="noopener noreferrer"
                         class="btn-demo"><i class="fas fa-external-link-alt"></i> Live</a>
                 </div>
 
@@ -1123,40 +1130,42 @@
                     <div class="project-top">
                         <div>
                             <div class="project-title">WOLF Valuation Engine</div>
-                            <div class="project-subtitle">Full-Stack Equity Valuation Platform</div>
+                            <div class="project-subtitle">Full-Stack Financial Analysis Platform · February 2026</div>
                         </div>
                         <span class="badge-live"><span class="dot"></span>Live</span>
                     </div>
-                    <p class="project-desc">An institutional-grade equity valuation platform featuring Discounted Cash
-                        Flow (DCF) analysis, Monte Carlo simulations, and Comparable Company Analysis (CCA) with
-                        automated reporting outputs in PDF and Excel formats.</p>
+                    <p class="project-desc">Sell-side valuation platform integrating DCF, Comparable Company Analysis,
+                        DDM, Altman Z-Score, Piotroski F-Score, DuPont, and EVA with automated PDF/Excel export; 202+
+                        verified calculation outputs validated against a TechCorp Industries benchmark case
+                        (WACC 25.84%, blended valuation 55.72 EGP/share).</p>
                     <div class="project-tags">
-                        <span class="tag">DCF Analysis</span><span class="tag">Monte Carlo</span><span
-                            class="tag">CCA</span><span class="tag">Python</span><span class="tag">Financial
-                            Modeling</span>
+                        <span class="tag">DCF</span><span class="tag">CCA</span><span class="tag">DDM</span><span
+                            class="tag">Altman Z</span><span class="tag">Piotroski F</span><span
+                            class="tag">DuPont</span><span class="tag">EVA</span>
                     </div>
-                    <a href="https://wolf-valuation-engine.pages.dev/" target="_blank" rel="noopener noreferrer"
+                    <a href="https://wolf-valuation-engine.pages.dev" target="_blank" rel="noopener noreferrer"
                         class="btn-demo"><i class="fas fa-external-link-alt"></i> Live</a>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card featured-project">
                     <div class="project-top">
                         <div>
                             <div class="project-title">3-Statement Financial Model Engine</div>
-                            <div class="project-subtitle">Full-Stack Financial Modeling Platform</div>
+                            <div class="project-subtitle">Full-Stack Financial Modeling Platform · February 2026</div>
                         </div>
                         <span class="badge-live"><span class="dot"></span>Live</span>
                     </div>
-                    <p class="project-desc">A fully-linked 3-statement financial model (Income Statement, Balance Sheet,
-                        Cash Flow) projecting 5 years across 3 scenarios — Base, Optimistic, and Conservative — powered
-                        by a circular-reference iterative solver ensuring complete balance sheet reconciliation and cash
-                        flow integrity across all periods.</p>
+                    <p class="project-desc">Fully-linked 3-statement model projecting 5 years across Base / Optimistic
+                        / Conservative scenarios with a circular-reference iterative solver achieving complete
+                        balance-sheet reconciliation; period-indexed interest-rate architecture reflecting Egyptian
+                        corporate borrowing rates (29.5% on 2024 debt, 24.5% on 2025) — directly applicable to IB deal
+                        modeling and LBO structuring.</p>
                     <div class="project-tags">
-                        <span class="tag">3-Statement Model</span><span class="tag">Scenario Analysis</span><span
-                            class="tag">Iterative Solver</span><span class="tag">Excel</span><span class="tag">Financial
-                            Modeling</span>
+                        <span class="tag">3-Statement</span><span class="tag">5-Year Projection</span><span
+                            class="tag">Scenario Analysis</span><span class="tag">Iterative Solver</span><span
+                            class="tag">EGP Rate Schedule</span>
                     </div>
-                    <a href="https://3-statement-model-engine.pages.dev/" target="_blank" rel="noopener noreferrer"
+                    <a href="https://3-statement-model-engine.pages.dev" target="_blank" rel="noopener noreferrer"
                         class="btn-demo"><i class="fas fa-external-link-alt"></i> Live</a>
                 </div>
 
@@ -1171,6 +1180,13 @@
             <span class="section-label">04 — Certifications</span>
             <h2 class="section-title">Credentials</h2>
             <div class="certs-grid">
+
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-medal"></i></div>
+                    <div class="cert-name">CFA Level 1 Candidate</div>
+                    <div class="cert-issuer">CFA Institute</div>
+                    <div class="cert-year">In Progress</div>
+                </div>
 
                 <div class="cert-card">
                     <div class="cert-icon"><i class="fas fa-chart-line"></i></div>
@@ -1190,22 +1206,21 @@
 
                 <div class="cert-card">
                     <div class="cert-icon"><i class="fas fa-database"></i></div>
-                    <div class="cert-name">Google Data Analytics Professional Certificate</div>
+                    <div class="cert-name">Data Analytics Professional Certificate</div>
                     <div class="cert-issuer">Google</div>
                     <div class="cert-year">2024</div>
                 </div>
 
                 <div class="cert-card">
                     <div class="cert-icon"><i class="fas fa-tasks"></i></div>
-                    <div class="cert-name">Google Project Management Professional Certificate</div>
+                    <div class="cert-name">Project Management Professional Certificate</div>
                     <div class="cert-issuer">Google</div>
                     <div class="cert-year">2024</div>
                 </div>
 
                 <div class="cert-card">
                     <div class="cert-icon"><i class="fas fa-balance-scale"></i></div>
-                    <div class="cert-name">Role of the Financial Regulatory Authority (FRA) in the Egyptian Economy
-                    </div>
+                    <div class="cert-name">Role of the Financial Regulatory Authority in the Egyptian Economy</div>
                     <div class="cert-issuer">FRA &amp; Cairo University</div>
                     <div class="cert-year">2023</div>
                 </div>
@@ -1213,7 +1228,7 @@
                 <div class="cert-card">
                     <div class="cert-icon"><i class="fas fa-language"></i></div>
                     <div class="cert-name">TOEFL</div>
-                    <div class="cert-issuer">Center for Foreign Languages &amp; Professional Translation, Cairo</div>
+                    <div class="cert-issuer">The Center for Foreign Languages and Professional Translation</div>
                     <div class="cert-year">2024</div>
                 </div>
 
@@ -1229,37 +1244,30 @@
             <h2 class="section-title">Expertise</h2>
 
             <div class="skills-group">
-                <div class="skills-group-title">Capital Markets &amp; Finance</div>
+                <div class="skills-group-title">Technical</div>
                 <div class="skills-tags">
-                    <span class="skill-tag">Capital Markets Regulation</span><span class="skill-tag">Securities Market
-                        Infrastructure</span>
-                    <span class="skill-tag">Portfolio Compliance</span><span class="skill-tag">Non-Banking Financial
-                        Supervision</span>
-                    <span class="skill-tag">Financial Reporting</span><span class="skill-tag">Risk Assessment</span>
-                    <span class="skill-tag">Equity Research</span><span class="skill-tag">Financial Statement
-                        Analysis</span>
-                    <span class="skill-tag">Credit Analysis</span><span class="skill-tag">Regulatory Compliance</span>
+                    <span class="skill-tag">Microsoft Office (Advanced Excel)</span><span class="skill-tag">Power
+                        BI</span><span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span
+                        class="skill-tag">SAP ERP</span>
                 </div>
             </div>
 
             <div class="skills-group">
-                <div class="skills-group-title">Financial Modeling</div>
+                <div class="skills-group-title">Finance</div>
                 <div class="skills-tags">
-                    <span class="skill-tag">DCF Analysis</span><span class="skill-tag">3-Statement Modeling</span>
-                    <span class="skill-tag">Monte Carlo Simulation</span><span class="skill-tag">Comparable Company
-                        Analysis (CCA)</span>
-                    <span class="skill-tag">Scenario Analysis</span><span class="skill-tag">Financial Forecasting</span>
-                    <span class="skill-tag">Valuation</span>
+                    <span class="skill-tag">3-Statement Modeling</span><span class="skill-tag">M&amp;A Modeling &amp;
+                        LBO Analysis</span><span class="skill-tag">DCF &amp; Comparable Company Analysis</span><span
+                        class="skill-tag">Precedent Transaction Analysis</span><span class="skill-tag">Equity
+                        Research</span><span class="skill-tag">Financial Due Diligence</span><span
+                        class="skill-tag">Financial Statement Analysis</span>
                 </div>
             </div>
 
             <div class="skills-group">
-                <div class="skills-group-title">Technical Tools</div>
+                <div class="skills-group-title">Markets</div>
                 <div class="skills-tags">
-                    <span class="skill-tag">Python</span><span class="skill-tag">SQL</span>
-                    <span class="skill-tag">Advanced Excel</span><span class="skill-tag">Power BI</span>
-                    <span class="skill-tag">SAP ERP</span><span class="skill-tag">Bloomberg (Familiar)</span>
-                    <span class="skill-tag">Microsoft Office Suite</span>
+                    <span class="skill-tag">Capital Markets (EGX / CBE / FRA)</span><span class="skill-tag">Egyptian
+                        Capital Markets Law</span>
                 </div>
             </div>
 
@@ -1280,15 +1288,17 @@
             <span class="section-label">06 — Education</span>
             <h2 class="section-title">Academic Background</h2>
             <div class="edu-card">
-                <div class="edu-degree">Bachelor of Finance &amp; Investment</div>
+                <div class="edu-degree">Bachelor of Finance and Investment, Major in Finance &amp; Investment</div>
                 <div class="edu-school">Georgia State University Joint Program with Cairo University</div>
                 <div class="edu-details">
                     <span><i class="fas fa-calendar-alt"></i>&ensp;2020 – 2024</span>
                     <span><i class="fas fa-map-marker-alt"></i>&ensp;Giza, Egypt</span>
-                    <span><i class="fas fa-graduation-cap"></i>&ensp;Major: Finance &amp; Investment</span>
                 </div>
                 <div class="edu-project"><strong>Graduation Project:</strong> "Green Finance &amp; Sustainable Capital
-                    Markets"</div>
+                    Markets" — analyzed ESG-linked instruments and sustainable financing frameworks applicable to
+                    emerging-market capital raises and EGX issuance.</div>
+                <div class="edu-project"><strong>Relevant Coursework:</strong> Corporate Finance, Financial Statement
+                    Analysis, Investments, Capital Markets, Financial Modeling, and Econometrics.</div>
             </div>
         </div>
     </section>
@@ -1302,12 +1312,14 @@
             <p class="cta-sub">Open to opportunities at EGX, FRA, and leading financial institutions across Egypt and
                 the MENA region.</p>
             <div class="cta-buttons">
-                <a href="Ahmed Wael CV.pdf" download class="btn btn-gold" target="_blank" rel="noopener noreferrer"><i
-                        class="fas fa-download"></i> Download CV</a>
+                <a href="Ahmed_Wael_Metwally_CV.pdf" download class="btn btn-gold" target="_blank"
+                    rel="noopener noreferrer"><i class="fas fa-download"></i> Download CV</a>
                 <a href="https://linkedin.com/in/ahmedwael7" target="_blank" rel="noopener noreferrer"
                     class="btn btn-outline"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
                 <a href="mailto:ahmedwaelmetwally@gmail.com" class="btn btn-outline"><i class="fas fa-envelope"></i>
                     Send an Email</a>
+                <a href="tel:+201032782667" class="btn btn-outline"><i class="fas fa-phone"></i>
+                    Call +20 103 278 2667</a>
             </div>
         </div>
     </section>
@@ -1316,26 +1328,11 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-main">Ahmed Wael Metwally © 2026 · Cairo, Egypt · Capital Markets Professional</div>
-            <div class="footer-sub">Built to stand out in Egypt's financial sector</div>
+            <div class="footer-sub">Built by Ahmed Wael in Egypt · Bloomberg Terminal Aesthetic</div>
         </div>
     </footer>
 
     <script>
-        /* ═══════════ TYPEWRITER ═══════════ */
-        (function () {
-            const phrases = ["Capital Markets Analyst", "Financial Modeling Expert", "Regulatory Finance Professional"];
-            const el = document.getElementById("typewriter");
-            let pi = 0, ci = 0, deleting = false;
-            function tick() {
-                const current = phrases[pi];
-                el.textContent = deleting ? current.substring(0, ci--) : current.substring(0, ci++);
-                if (!deleting && ci === current.length + 1) { setTimeout(() => { deleting = true; tick() }, 1800); return }
-                if (deleting && ci < 0) { deleting = false; pi = (pi + 1) % phrases.length; ci = 0; setTimeout(tick, 400); return }
-                setTimeout(tick, deleting ? 35 : 65);
-            }
-            tick();
-        })();
-
         /* ═══════════ SCROLL REVEAL ═══════════ */
         const io = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target) } })
