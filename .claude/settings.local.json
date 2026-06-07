@@ -13,7 +13,11 @@
       "Bash(curl -s -o /dev/null -w '%{http_code} %{content_type}\\\\n' \"https://ahmedwael.pages.dev/models/Edita-EFID-Valuation-Model.xlsx\")",
       "Bash(curl -s -o /dev/null -w '%{http_code}\\\\n' \"https://ahmedwael.pages.dev/Ahmed_Wael_Metwally_-_CV.pdf\")",
       "Bash(git rm *)",
-      "Bash(curl -s -o /dev/null -w '%{http_code} %{content_type}\\\\n' \"https://ahmedwael.pages.dev/Ahmed_Wael_Metwally_-_CV.pdf\")"
+      "Bash(curl -s -o /dev/null -w '%{http_code} %{content_type}\\\\n' \"https://ahmedwael.pages.dev/Ahmed_Wael_Metwally_-_CV.pdf\")",
+      "Bash(curl -s -o /dev/null -w \"Elsewedy xlsx: %{http_code}\\\\n\" \"https://ahmedwael.pages.dev/models/Elsewedy-Electric-SWDY-Valuation-Model.xlsx\")",
+      "Bash(curl -s -o /dev/null -w \"Juhayna research pdf: %{http_code}\\\\n\" \"https://ahmedwael.pages.dev/models/Juhayna-JUFO-Equity-Research.pdf\")",
+      "Bash(curl -s -o /dev/null -w \"Juhayna pptx: %{http_code}\\\\n\" \"https://ahmedwael.pages.dev/models/Juhayna-JUFO-Equity-Research.pptx\")",
+      "Bash(curl -s -o /dev/null -w \"CV pdf: %{http_code}\\\\n\" \"https://ahmedwael.pages.dev/Ahmed_Wael_Metwally_-_CV.pdf\")"
     ]
   }
 }
