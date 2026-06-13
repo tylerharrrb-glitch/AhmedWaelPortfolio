@@ -17,7 +17,19 @@
       "Bash(curl -s -o /dev/null -w \"Elsewedy xlsx: %{http_code}\\\\n\" \"https://ahmedwael.pages.dev/models/Elsewedy-Electric-SWDY-Valuation-Model.xlsx\")",
       "Bash(curl -s -o /dev/null -w \"Juhayna research pdf: %{http_code}\\\\n\" \"https://ahmedwael.pages.dev/models/Juhayna-JUFO-Equity-Research.pdf\")",
       "Bash(curl -s -o /dev/null -w \"Juhayna pptx: %{http_code}\\\\n\" \"https://ahmedwael.pages.dev/models/Juhayna-JUFO-Equity-Research.pptx\")",
-      "Bash(curl -s -o /dev/null -w \"CV pdf: %{http_code}\\\\n\" \"https://ahmedwael.pages.dev/Ahmed_Wael_Metwally_-_CV.pdf\")"
+      "Bash(curl -s -o /dev/null -w \"CV pdf: %{http_code}\\\\n\" \"https://ahmedwael.pages.dev/Ahmed_Wael_Metwally_-_CV.pdf\")",
+      "PowerShell($html = Get-Content index.html -Raw; \\([regex]::Matches\\($html, 'class=\"model-card\"'\\)\\).Count; \\([regex]::Matches\\($html, '<div class=\"model-company\">\\([^<]+\\)</div>'\\) | ForEach-Object { $_.Groups[1].Value }\\) -join ' | ')",
+      "PowerShell(python -m http.server 8080)",
+      "PowerShell($r = Invoke-WebRequest http://localhost:8080/ -UseBasicParsing; \"index: $\\($r.StatusCode\\) \\($\\($r.RawContentLength\\) bytes\\)\"; foreach \\($f in @\\('Telecom-Egypt-ETEL-Valuation-Model.xlsx','E-finance-EFIH-Valuation-Model.xlsx','Talaat-Moustafa-TMGH-Valuation-Model.xlsx','Elsewedy-Electric-SWDY-Valuation-Model.xlsx','Fawry-FWRY-Valuation-Model.xlsx','Cleopatra-Hospital-CLHO-Valuation-Model.xlsx','Juhayna-JUFO-Valuation-Model.xlsx','Eastern-Company-EAST-Valuation-Model.xlsx','Edita-EFID-Valuation-Model.xlsx','Juhayna-JUFO-Equity-Research.pdf','Juhayna-JUFO-Equity-Research.pptx'\\)\\) { $h = Invoke-WebRequest \"http://localhost:8080/models/$f\" -UseBasicParsing -Method Head; \"$\\($h.StatusCode\\) $f\" })",
+      "PowerShell(git add *)",
+      "PowerShell(git *)",
+      "PowerShell($deadline = \\(Get-Date\\).AddMinutes\\(4\\); do { try { $r = Invoke-WebRequest 'https://ahmedwael.pages.dev/' -UseBasicParsing -Headers @{ 'Cache-Control' = 'no-cache' }; $live = $r.Content -match 'Telecom Egypt' } catch { $live = $false }; if \\(-not $live\\) { Start-Sleep -Seconds 20 } } until \\($live -or \\(Get-Date\\) -gt $deadline\\); if \\($live\\) { \"LIVE: new content deployed\"; \\([regex]::Matches\\($r.Content, '<div class=\"model-company\">\\([^<]+\\)</div>'\\) | ForEach-Object { $_.Groups[1].Value }\\) -join ' | ' } else { \"STALE: still serving old version after 4 min\" })",
+      "PowerShell(foreach \\($f in @\\('Telecom-Egypt-ETEL-Valuation-Model.xlsx','E-finance-EFIH-Valuation-Model.xlsx'\\)\\) { $h = Invoke-WebRequest \"https://ahmedwael.pages.dev/models/$f\" -UseBasicParsing -Method Head; \"$\\($h.StatusCode\\) $\\($h.Headers['Content-Length']\\) bytes  $f\" }; $c = \\(Invoke-WebRequest 'https://ahmedwael.pages.dev/' -UseBasicParsing\\).Content; \"regulated by FRA.: \" + \\($c -match 'regulated by FRA\\\\.'\\); \"FRA and CBE: \" + \\($c -match 'regulated by FRA and CBE'\\); \"nine EGX-listed: \" + \\($c -match 'nine EGX-listed companies'\\); \"seven EGX-listed: \" + \\($c -match 'seven EGX-listed'\\); \"data-target=9: \" + \\($c -match 'data-target=\"9\"'\\); \"Capital IQ: \" + \\($c -match 'Capital IQ'\\); \"model-badge: \" + \\($c -match 'model-badge'\\); \"research pdf link: \" + \\($c -match 'Juhayna-JUFO-Equity-Research\\\\.pdf'\\))",
+      "Bash(mv \"ISPH - CA.xlsx\" \"Ibnsina-Pharma-ISPH-Valuation-Model.xlsx\")",
+      "Bash(mv \"Almarai - 2280SR.xlsx\" \"Almarai-2280-Valuation-Model.xlsx\")",
+      "Bash(mv \"Qassim Cement - 3040SR.xlsx\" \"Qassim-Cement-3040-Valuation-Model.xlsx\")",
+      "Bash(mv \"SWDY Equity Research - Ahmed Wael.pdf\" \"Elsewedy-SWDY-Equity-Research.pdf\")",
+      "Bash(mv \"SWDY Equity Research - Ahmed Wael.pptx\" \"Elsewedy-SWDY-Equity-Research.pptx\")"
     ]
   }
 }

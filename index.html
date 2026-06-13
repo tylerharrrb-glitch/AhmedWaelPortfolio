@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ahmed Wael Metwally — Equity Valuation · Financial Modeling · M&A</title>
     <meta name="description"
-        content="Finance & Investment graduate and Financial Analyst at MCDR (Egypt's central securities depository). CFA Level I Candidate. Built full 3-statement models and DCF valuations from scratch for nine EGX-listed companies across seven sectors, carrying each through to a fair value, price target, and buy/hold/sell call, plus three live financial engines. Targeting investment banking, private equity, equity research, venture capital, and hedge fund analyst roles across Egypt, the GCC, and international markets.">
+        content="Finance & Investment graduate and Financial Analyst at MCDR (Egypt's central securities depository). CFA Level I Candidate. Built full 3-statement models and DCF valuations from scratch for twelve listed companies — ten on the EGX and two on Saudi Arabia's Tadawul — carrying each through to a fair value, price target, and buy/hold/sell call, with initiation-of-coverage equity research on Elsewedy and Juhayna, plus three live financial engines. Targeting investment banking, private equity, equity research, venture capital, and hedge fund analyst roles across Egypt, the GCC, and international markets.">
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230A0E17'/%3E%3Ctext x='32' y='40' font-family='serif' font-weight='bold' font-size='20' fill='%23C9A84C' text-anchor='middle'%3EAWM%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -710,25 +710,97 @@
             color: var(--border)
         }
 
-        .model-badge {
-            align-self: flex-start;
-            margin-bottom: 6px;
+        /* ═══════════ EQUITY RESEARCH SUB-BLOCK ═══════════ */
+        .research-eyebrow {
+            font-family: var(--ff-mono);
+            font-size: .7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin: 4px 0 16px
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-bottom: 8px
+        }
+
+        .research-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 20px 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            transition: border-color .3s var(--ease)
+        }
+
+        .research-card:hover {
+            border-color: rgba(201, 168, 76, .35)
+        }
+
+        .research-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px
+        }
+
+        .research-company {
+            font-family: var(--ff-body);
+            font-weight: 600;
+            font-size: .95rem;
+            color: var(--text-primary)
+        }
+
+        .research-sector {
+            font-family: var(--ff-mono);
+            font-size: .7rem;
+            color: var(--text-muted);
+            margin-top: 2px
+        }
+
+        .rating-chip {
+            flex-shrink: 0;
             font-family: var(--ff-mono);
             font-size: .6rem;
             letter-spacing: 1px;
             text-transform: uppercase;
             font-weight: 500;
-            padding: 3px 10px;
+            padding: 4px 10px;
             border-radius: 20px;
-            background: rgba(201, 168, 76, .15);
             color: var(--accent-gold);
-            border: 1px solid rgba(201, 168, 76, .3)
+            border: 1px solid var(--accent-gold);
+            background: rgba(201, 168, 76, .08)
         }
 
-        .model-research {
+        .research-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 16px;
+            margin-top: 6px;
+            font-family: var(--ff-mono);
+            font-size: .72rem;
+            color: var(--text-secondary)
+        }
+
+        .research-metrics .val {
+            color: var(--text-primary)
+        }
+
+        .research-thesis {
+            font-family: var(--ff-body);
+            font-size: .8rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-top: 4px
+        }
+
+        .research-actions {
             margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px solid var(--border);
             font-family: var(--ff-mono);
             font-size: .72rem;
             display: flex;
@@ -736,17 +808,26 @@
             gap: 10px
         }
 
-        .model-research a {
+        .research-actions a {
             color: var(--accent-gold);
             transition: color .3s var(--ease)
         }
 
-        .model-research a:hover {
+        .research-actions a:hover {
             color: #d4b35a
         }
 
-        .model-research .sep {
+        .research-actions .sep {
             color: var(--border)
+        }
+
+        .models-group-label {
+            font-family: var(--ff-mono);
+            font-size: .7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin: 24px 0 2px
         }
 
         /* ═══════════ CERTIFICATIONS ═══════════ */
@@ -1015,6 +1096,10 @@
                 grid-template-columns: 1fr
             }
 
+            .research-grid {
+                grid-template-columns: 1fr
+            }
+
             .hero-name {
                 font-size: clamp(2.2rem, 8vw, 3.2rem)
             }
@@ -1095,8 +1180,8 @@
     <section class="stats reveal" id="stats">
         <div class="container">
             <div class="stat-item">
-                <div class="stat-number"><span class="counter" data-target="9">0</span></div>
-                <div class="stat-label">EGX-Listed Companies Modeled</div>
+                <div class="stat-number"><span class="counter" data-target="12">0</span></div>
+                <div class="stat-label">Companies Modeled</div>
             </div>
             <div class="stat-item">
                 <div class="stat-number"><span class="counter" data-target="3">0</span></div>
@@ -1124,14 +1209,15 @@
                 Robinson College of Business</strong>, 2024) and <strong>Financial Analyst at MCDR</strong> — Egypt's
                 central securities depository. <strong>CFA Level I Candidate</strong>, with <strong>Wall Street Prep
                 (FMVC)</strong> and <strong>CFI (FMVA)</strong> financial modeling certifications. Built full
-                <strong>3-statement models and DCF valuations from scratch for nine EGX-listed companies across seven
-                sectors</strong> — carrying each through to a <strong>fair value, price target, and buy/hold/sell
-                call</strong>, including a
-                full <strong>equity research report on Juhayna</strong> — alongside three live financial engines spanning
-                <strong>multi-method valuation</strong>, <strong>M&amp;A modeling</strong>, and <strong>integrated
-                3-statement modeling</strong>. Targeting analyst roles in <strong>investment banking</strong>,
-                <strong>private equity</strong>, <strong>equity research</strong>, <strong>venture capital</strong>, and
-                <strong>hedge funds</strong> across Egypt, the GCC, and international markets.
+                <strong>3-statement models and DCF valuations from scratch for twelve listed companies</strong> — ten on
+                the <strong>EGX</strong> across seven sectors and two on Saudi Arabia's <strong>Tadawul</strong> —
+                carrying each through to a <strong>fair value, price target, and buy/hold/sell call</strong>, and
+                publishing <strong>initiation-of-coverage equity research</strong> on Elsewedy and Juhayna — alongside
+                three live financial engines spanning <strong>multi-method valuation</strong>, <strong>M&amp;A
+                modeling</strong>, and <strong>integrated 3-statement modeling</strong>. Targeting analyst roles in
+                <strong>investment banking</strong>, <strong>private equity</strong>, <strong>equity research</strong>,
+                <strong>venture capital</strong>, and <strong>hedge funds</strong> across Egypt, the GCC, and
+                international markets.
             </p>
         </div>
     </section>
@@ -1182,14 +1268,71 @@
                 <div class="project-card featured-project" id="equity-models">
                     <div class="project-top">
                         <div>
-                            <div class="project-title">Equity Valuation &amp; 3-Statement Models — EGX-Listed Companies</div>
+                            <div class="project-title">Equity Valuation &amp; 3-Statement Models — EGX &amp; Tadawul-Listed Companies</div>
                         </div>
                     </div>
-                    <p class="project-desc">Built full 3-statement models and DCF valuations from scratch for nine
+                    <p class="project-desc">Built full 3-statement models and DCF valuations from scratch for ten
                         EGX-listed companies across seven sectors, with NAV/RNAV added for the real-estate developer.</p>
+                    <p class="project-desc">Applied the same from-scratch approach to two Saudi companies on Tadawul
+                        (TASI), recalibrating WACC and assumptions to the Saudi market.</p>
                     <p class="project-desc">Carried each model through to a fair value, a price target, and a
                         buy/hold/sell call against the prevailing market price.</p>
+
+                    <div class="research-eyebrow">Equity Research — Initiation of Coverage</div>
+                    <div class="research-grid">
+                        <div class="research-card">
+                            <div class="research-head">
+                                <div>
+                                    <div class="research-company">Elsewedy Electric · SWDY.CA</div>
+                                    <div class="research-sector">Cables, Energy &amp; EPC Infrastructure</div>
+                                </div>
+                                <span class="rating-chip">Underweight</span>
+                            </div>
+                            <div class="research-metrics">
+                                <span>Price Target <span class="val">EGP 71</span></span>
+                                <span>Current <span class="val">EGP 91.19</span></span>
+                                <span>Downside <span class="val">(22.3)%</span></span>
+                            </div>
+                            <p class="research-thesis">At 91 EGP the market prices &gt;12% perpetual FCF growth — above
+                                Egypt's nominal GDP; our DCF supports 71 EGP.</p>
+                            <div class="research-actions">
+                                <a href="/models/Elsewedy-SWDY-Equity-Research.pdf" target="_blank" rel="noopener noreferrer">Read Report</a>
+                                <span class="sep">·</span>
+                                <a href="/models/Elsewedy-SWDY-Equity-Research.pptx" download>Slides</a>
+                            </div>
+                        </div>
+                        <div class="research-card">
+                            <div class="research-head">
+                                <div>
+                                    <div class="research-company">Juhayna Food Industries · JUFO.CA</div>
+                                    <div class="research-sector">Dairy &amp; Beverage</div>
+                                </div>
+                                <span class="rating-chip">Underweight</span>
+                            </div>
+                            <div class="research-metrics">
+                                <span>Price Target <span class="val">EGP 22</span></span>
+                                <span>Current <span class="val">EGP 28.09</span></span>
+                                <span>Downside <span class="val">(21.7)%</span></span>
+                            </div>
+                            <div class="research-actions">
+                                <a href="/models/Juhayna-JUFO-Equity-Research.pdf" target="_blank" rel="noopener noreferrer">Read Report</a>
+                                <span class="sep">·</span>
+                                <a href="/models/Juhayna-JUFO-Equity-Research.pptx" download>Slides</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="models-group-label">EGX — Cairo</div>
                     <div class="models-grid">
+                        <div class="model-card">
+                            <div class="model-company">Ibnsina Pharma</div>
+                            <div class="model-meta">ISPH.CA · Healthcare / Pharma Distribution</div>
+                            <div class="model-actions">
+                                <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fahmedwael.pages.dev%2Fmodels%2FIbnsina-Pharma-ISPH-Valuation-Model.xlsx" target="_blank" rel="noopener noreferrer">Preview</a>
+                                <span class="sep">·</span>
+                                <a href="/models/Ibnsina-Pharma-ISPH-Valuation-Model.xlsx" download>Download</a>
+                            </div>
+                        </div>
                         <div class="model-card">
                             <div class="model-company">Telecom Egypt</div>
                             <div class="model-meta">ETEL.CA · Telecom</div>
@@ -1245,18 +1388,12 @@
                             </div>
                         </div>
                         <div class="model-card">
-                            <span class="model-badge">Equity Research</span>
                             <div class="model-company">Juhayna Food Industries</div>
                             <div class="model-meta">JUFO.CA · Consumer Staples</div>
                             <div class="model-actions">
                                 <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fahmedwael.pages.dev%2Fmodels%2FJuhayna-JUFO-Valuation-Model.xlsx" target="_blank" rel="noopener noreferrer">Preview</a>
                                 <span class="sep">·</span>
                                 <a href="/models/Juhayna-JUFO-Valuation-Model.xlsx" download>Download</a>
-                            </div>
-                            <div class="model-research">
-                                <a href="/models/Juhayna-JUFO-Equity-Research.pdf" target="_blank" rel="noopener noreferrer">Read Equity Research</a>
-                                <span class="sep">·</span>
-                                <a href="/models/Juhayna-JUFO-Equity-Research.pptx" download>Slides (PPTX)</a>
                             </div>
                         </div>
                         <div class="model-card">
@@ -1275,6 +1412,28 @@
                                 <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fahmedwael.pages.dev%2Fmodels%2FEdita-EFID-Valuation-Model.xlsx" target="_blank" rel="noopener noreferrer">Preview</a>
                                 <span class="sep">·</span>
                                 <a href="/models/Edita-EFID-Valuation-Model.xlsx" download>Download</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="models-group-label">Tadawul — Riyadh (TASI)</div>
+                    <div class="models-grid">
+                        <div class="model-card">
+                            <div class="model-company">Almarai</div>
+                            <div class="model-meta">2280.SR · Consumer Staples</div>
+                            <div class="model-actions">
+                                <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fahmedwael.pages.dev%2Fmodels%2FAlmarai-2280-Valuation-Model.xlsx" target="_blank" rel="noopener noreferrer">Preview</a>
+                                <span class="sep">·</span>
+                                <a href="/models/Almarai-2280-Valuation-Model.xlsx" download>Download</a>
+                            </div>
+                        </div>
+                        <div class="model-card">
+                            <div class="model-company">Qassim Cement</div>
+                            <div class="model-meta">3040.SR · Materials</div>
+                            <div class="model-actions">
+                                <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fahmedwael.pages.dev%2Fmodels%2FQassim-Cement-3040-Valuation-Model.xlsx" target="_blank" rel="noopener noreferrer">Preview</a>
+                                <span class="sep">·</span>
+                                <a href="/models/Qassim-Cement-3040-Valuation-Model.xlsx" download>Download</a>
                             </div>
                         </div>
                     </div>
@@ -1314,8 +1473,7 @@
                         <span class="badge-live"><span class="dot"></span>Live</span>
                     </div>
                     <p class="project-desc">Created the reusable 5-year 3-statement template (IFRS/EAS) that underpins
-                        all nine company models, with base/bull/bear scenarios and interest schedules tied to real
-                        Egyptian borrowing costs.</p>
+                        every company model, with base/bull/bear scenarios and market-calibrated interest schedules.</p>
                     <a href="https://3-statement-model-engine.pages.dev/" target="_blank" rel="noopener noreferrer"
                         class="btn-demo"><i class="fas fa-external-link-alt"></i> Live</a>
                 </div>
