@@ -29,7 +29,11 @@
       "Bash(mv \"Almarai - 2280SR.xlsx\" \"Almarai-2280-Valuation-Model.xlsx\")",
       "Bash(mv \"Qassim Cement - 3040SR.xlsx\" \"Qassim-Cement-3040-Valuation-Model.xlsx\")",
       "Bash(mv \"SWDY Equity Research - Ahmed Wael.pdf\" \"Elsewedy-SWDY-Equity-Research.pdf\")",
-      "Bash(mv \"SWDY Equity Research - Ahmed Wael.pptx\" \"Elsewedy-SWDY-Equity-Research.pptx\")"
+      "Bash(mv \"SWDY Equity Research - Ahmed Wael.pptx\" \"Elsewedy-SWDY-Equity-Research.pptx\")",
+      "Bash(mv -f \"Almarai - 2280SR.xlsx\" \"Almarai-2280-Valuation-Model.xlsx\")",
+      "Bash(mv -f \"Qassim Cement - 3040SR.xlsx\" \"Qassim-Cement-3040-Valuation-Model.xlsx\")",
+      "Bash(ls -la Almarai* Qassim*)",
+      "Bash(ls -la *\" \"*)"
     ]
   }
 }
