@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; }
+  ::selection { background: #c2a05c; color: #0a1611; }
+  @keyframes tickerScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes pulseDot { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.82); } }
+  @keyframes revealUp { from { transform: translateY(20px); } to { transform: none; } }
+  a { color: inherit; }
+</style>
+</helmet>
+<div style="font-family: 'Archivo', system-ui, sans-serif; background: #f4f2ea; color: #16241d; -webkit-font-smoothing: antialiased; overflow-x: hidden;">
+
+  <!-- ===== TICKER ===== -->
+  <div style="background: #0a1611; height: 42px; display: flex; align-items: center; overflow: hidden; border-bottom: 1px solid rgba(194,160,92,.22);">
+    <div style="display: flex; width: max-content; animation: tickerScroll 48s linear infinite;">
+      <sc-for list="{{ ticker }}" as="t" hint-placeholder-count="8">
+        <div style="display: inline-flex; align-items: center; gap: 9px; padding: 0 26px; border-right: 1px solid rgba(255,255,255,.07); white-space: nowrap;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: .04em; color: #e9e6dc; font-weight: 500;">{{ t.t }}</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #7d9587;">{{ t.v }}</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: {{ t.c }};">{{ t.d }}</span>
+        </div>
+      </sc-for>
+      <sc-for list="{{ ticker }}" as="t" hint-placeholder-count="8">
+        <div style="display: inline-flex; align-items: center; gap: 9px; padding: 0 26px; border-right: 1px solid rgba(255,255,255,.07); white-space: nowrap;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: .04em; color: #e9e6dc; font-weight: 500;">{{ t.t }}</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #7d9587;">{{ t.v }}</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: {{ t.c }};">{{ t.d }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- ===== NAV ===== -->
+  <nav style="position: sticky; top: 0; z-index: 50; background: rgba(13,33,25,.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.08);">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 40px; height: 66px; display: flex; align-items: center; justify-content: space-between;">
+      <a href="#top" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+        <span style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border: 1px solid #c2a05c; color: #c2a05c; font-family: 'Newsreader', serif; font-size: 16px; font-weight: 500; letter-spacing: .02em;">A</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: .22em; color: #e9e6dc; font-weight: 500;">AWM</span>
+      </a>
+      <div style="display: flex; align-items: center; gap: 30px;">
+        <sc-for list="{{ navlinks }}" as="n" hint-placeholder-count="7">
+          <a data-nav href="{{ n.h }}" style="font-size: 12.5px; letter-spacing: .03em; color: #9fb3a8; text-decoration: none; transition: color .25s; font-weight: 500;" style-hover="color:#f4f2ea;">{{ n.l }}</a>
+        </sc-for>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header id="top" style="background: #0d2119; color: #f4f2ea; position: relative; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px); background-size: 64px 64px; pointer-events: none;"></div>
+    <div style="position: absolute; top: -20%; right: -10%; width: 620px; height: 620px; background: radial-gradient(circle, rgba(194,160,92,.14), transparent 65%); pointer-events: none;"></div>
+    <div style="max-width: 1180px; margin: 0 auto; padding: 96px 40px 78px; position: relative;">
+      <div data-reveal style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .28em; color: #c2a05c; margin-bottom: 30px;">INVESTMENT BANKING · PRIVATE EQUITY · EQUITY RESEARCH</div>
+      <h1 data-reveal data-reveal-delay="80" style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(46px, 8.5vw, 124px); line-height: .96; letter-spacing: -.022em; margin: 0; color: #f6f4ec;">Ahmed Wael<br>Metwally</h1>
+      <p data-reveal data-reveal-delay="160" style="font-family: 'Newsreader', serif; font-size: clamp(19px, 2.3vw, 27px); font-weight: 300; font-style: italic; color: #b7c8bf; margin: 28px 0 0; max-width: 760px; line-height: 1.45;">M&amp;A · Private Equity · Equity Research · Valuation · Financial Modeling — building institutional-grade models, one company at a time.</p>
+
+      <div data-reveal data-reveal-delay="230" style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 40px;">
+        <a href="#contact" style="display: inline-flex; align-items: center; gap: 10px; background: #c2a05c; color: #0d2119; padding: 15px 28px; text-decoration: none; font-weight: 600; font-size: 13.5px; letter-spacing: .02em; transition: background .25s, transform .25s;" style-hover="background:#d6b870;transform:translateY(-2px);">Get in Touch <span style="font-family:'IBM Plex Mono',monospace;">→</span></a>
+        <a href="#projects" style="display: inline-flex; align-items: center; gap: 10px; background: transparent; color: #f4f2ea; padding: 15px 28px; text-decoration: none; font-weight: 600; font-size: 13.5px; letter-spacing: .02em; border: 1px solid rgba(255,255,255,.24); transition: border-color .25s, background .25s;" style-hover="border-color:#c2a05c;background:rgba(255,255,255,.04);">View Projects</a>
+      </div>
+
+      <div data-reveal data-reveal-delay="300" style="display: flex; flex-wrap: wrap; gap: 26px; align-items: center; margin-top: 38px; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #8ba093; letter-spacing: .02em;">
+        <span>Cairo, Egypt</span>
+        <span style="color: rgba(255,255,255,.18);">/</span>
+        <a href="mailto:ahmedwaelmetwally@gmail.com" style="color: #b7c8bf; text-decoration: none;" style-hover="color:#c2a05c;">ahmedwaelmetwally@gmail.com</a>
+        <span style="color: rgba(255,255,255,.18);">/</span>
+        <a href="tel:+201032782667" style="color: #b7c8bf; text-decoration: none;" style-hover="color:#c2a05c;">+20 103 278 2667</a>
+      </div>
+
+      <!-- stats -->
+      <div data-reveal data-reveal-delay="360" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 64px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.08);">
+        <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+          <div style="background: #0d2119; padding: 30px 26px;">
+            <div style="font-family: 'Newsreader', serif; font-size: clamp(38px, 5vw, 58px); font-weight: 500; line-height: 1; color: #c2a05c;"><span data-count="{{ s.n }}" data-suffix="{{ s.suf }}">{{ s.n }}{{ s.suf }}</span></div>
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #8ba093; margin-top: 12px; line-height: 1.5;">{{ s.l }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" style="background: #f4f2ea; padding: 110px 0; scroll-margin-top: 80px;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 40px;">
+      <div style="display: grid; grid-template-columns: 0.85fr 1.4fr; gap: 64px;">
+        <div data-reveal>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .2em; color: #c2a05c;">01 — ABOUT</div>
+          <h2 style="font-family: 'Newsreader', serif; font-weight: 400; font-size: clamp(34px, 4.2vw, 52px); line-height: 1.04; letter-spacing: -.015em; margin: 18px 0 0; color: #16241d;">Who I Am</h2>
+          <div style="width: 46px; height: 2px; background: #c2a05c; margin-top: 26px;"></div>
+        </div>
+        <div data-reveal data-reveal-delay="120">
+          <p style="font-family: 'Newsreader', serif; font-size: clamp(19px, 1.7vw, 23px); line-height: 1.62; color: #2c3b33; font-weight: 300; margin: 0; text-wrap: pretty;">Finance &amp; Investment graduate (<strong style="font-weight:500;color:#16241d;">Georgia State University, J. Mack Robinson College of Business</strong>, 2024) and <strong style="font-weight:500;color:#16241d;">Financial Analyst at MCDR</strong> — Egypt's central securities depository. A <strong style="font-weight:500;color:#16241d;">CFA Level&nbsp;I Candidate</strong> holding <strong style="font-weight:500;color:#16241d;">Wall Street Prep (FMVC)</strong> and <strong style="font-weight:500;color:#16241d;">CFI (FMVA)</strong> certifications.</p>
+          <p style="font-family: 'Newsreader', serif; font-size: clamp(19px, 1.7vw, 23px); line-height: 1.62; color: #2c3b33; font-weight: 300; margin: 22px 0 0; text-wrap: pretty;">I've built full <strong style="font-weight:500;color:#16241d;">3-statement models and DCF valuations from scratch for fifteen listed companies</strong> — twelve on the EGX across nine sectors, two on Saudi Arabia's Tadawul, and Apple on NASDAQ — carrying each through to a <strong style="font-weight:500;color:#16241d;">fair value, price target, and buy/hold/sell call</strong>, with initiation-of-coverage research on Elsewedy and Juhayna, plus three live financial engines spanning multi-method valuation, M&amp;A modeling, and integrated 3-statement work.</p>
+          <p style="font-size: 14.5px; line-height: 1.6; color: #5f7a6c; margin: 26px 0 0;">Targeting analyst roles in investment banking, private equity, equity research, venture capital, and hedge funds across Egypt, the GCC, and international markets.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience" style="background: #0d2119; color: #f4f2ea; padding: 110px 0; scroll-margin-top: 80px;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 40px;">
+      <div data-reveal style="margin-bottom: 56px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .2em; color: #c2a05c;">02 — EXPERIENCE</div>
+        <h2 style="font-family: 'Newsreader', serif; font-weight: 400; font-size: clamp(34px, 4.2vw, 52px); line-height: 1.04; letter-spacing: -.015em; margin: 18px 0 0; color: #f6f4ec;">Career History</h2>
+      </div>
+      <div data-reveal data-reveal-delay="100" style="display: grid; grid-template-columns: 0.8fr 1.5fr; gap: 56px; border-top: 1px solid rgba(255,255,255,.12); padding-top: 44px;">
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #0d2119; background: #c2a05c; padding: 5px 11px; margin-bottom: 22px;">● Current Role</div>
+          <h3 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: 28px; margin: 0; color: #f6f4ec; line-height: 1.15;">Financial Analyst</h3>
+          <a href="https://www.mcsd.com.eg/en" target="_blank" rel="noopener" style="display: inline-block; color: #c2a05c; text-decoration: none; font-size: 14px; margin-top: 10px; font-weight: 500;" style-hover="text-decoration:underline;">MCDR — Misr for Central Clearing, Depository &amp; Registry ↗</a>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8ba093; margin-top: 18px; line-height: 1.9;">Nov 2024 – Present<br>Cairo, Egypt</div>
+          <p style="font-size: 13.5px; line-height: 1.6; color: #7d9587; margin-top: 18px;">Egypt's central securities depository and post-trade infrastructure operator for the EGX, regulated by the FRA.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0;">
+          <sc-for list="{{ expBullets }}" as="b" hint-placeholder-count="4">
+            <div style="display: grid; grid-template-columns: auto 1fr; gap: 18px; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,.09);">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #c2a05c; padding-top: 3px;">{{ b.i }}</span>
+              <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #d4ddd6;">{{ b.t }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" style="background: #f4f2ea; padding: 110px 0 90px; scroll-margin-top: 80px;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 40px;">
+      <div data-reveal style="max-width: 760px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .2em; color: #c2a05c;">03 — SELECTED WORK</div>
+        <h2 style="font-family: 'Newsreader', serif; font-weight: 400; font-size: clamp(34px, 4.2vw, 52px); line-height: 1.04; letter-spacing: -.015em; margin: 18px 0 0; color: #16241d;">Built for Finance</h2>
+        <p style="font-size: 16px; line-height: 1.6; color: #5f7a6c; margin: 22px 0 0;">From-scratch 3-statement models and DCF valuations across three markets, initiation-of-coverage equity research, and three live financial engines.</p>
+      </div>
+
+      <!-- Equity research -->
+      <div data-reveal style="margin-top: 70px;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-bottom: 1px solid rgba(20,40,30,.14); padding-bottom: 16px;">
+          <h3 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: 26px; margin: 0; color: #16241d;">Equity Research — Initiation of Coverage</h3>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8a9a90;">DCF-anchored · PT vs. market</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 30px;">
+          <sc-for list="{{ research }}" as="r" hint-placeholder-count="3">
+            <div style="background: #fbfaf4; border: 1px solid rgba(20,40,30,.1); padding: 28px 26px; display: flex; flex-direction: column;">
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .06em; color: #5f7a6c;">{{ r.ticker }}</span>
+                <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 5px 10px; color: {{ r.callFg }}; background: {{ r.callBg }};">{{ r.call }}</span>
+              </div>
+              <h4 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: 24px; margin: 16px 0 4px; color: #16241d; line-height: 1.15;">{{ r.name }}</h4>
+              <div style="font-size: 12.5px; color: #8a9a90; margin-bottom: 22px;">{{ r.sector }}</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(20,40,30,.1); border: 1px solid rgba(20,40,30,.1); margin-bottom: 14px;">
+                <div style="background: #fbfaf4; padding: 12px 14px;">
+                  <div style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: #8a9a90;">Price Target</div>
+                  <div style="font-family: 'Newsreader', serif; font-size: 25px; font-weight: 500; color: #16241d; margin-top: 4px;">{{ r.pt }}</div>
+                </div>
+                <div style="background: #fbfaf4; padding: 12px 14px;">
+                  <div style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: #8a9a90;">Current</div>
+                  <div style="font-family: 'Newsreader', serif; font-size: 25px; font-weight: 500; color: #16241d; margin-top: 4px;">{{ r.cur }}</div>
+                </div>
+              </div>
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: {{ r.moveColor }}; margin-bottom: 16px;">{{ r.move }}</div>
+              <p style="font-size: 13.5px; line-height: 1.55; color: #45554c; margin: 0 0 22px; flex: 1; text-wrap: pretty;">{{ r.thesis }}</p>
+              <div style="display: flex; gap: 18px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; padding-top: 16px; border-top: 1px solid rgba(20,40,30,.1);">
+                <a href="{{ r.pdf }}" target="_blank" rel="noopener" style="color: #16241d; text-decoration: none; font-weight: 600;" style-hover="color:#c2a05c;">Report ↗</a>
+                <a href="{{ r.pptx }}" target="_blank" rel="noopener" style="color: #8a9a90; text-decoration: none;" style-hover="color:#c2a05c;">Slides ↗</a>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- Model library -->
+      <div data-reveal style="margin-top: 78px;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-bottom: 1px solid rgba(20,40,30,.14); padding-bottom: 16px;">
+          <h3 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: 26px; margin: 0; color: #16241d;">Valuation &amp; 3-Statement Model Library</h3>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8a9a90;">15 companies · 3 markets · DCF + NAV</span>
+        </div>
+        <sc-for list="{{ markets }}" as="m" hint-placeholder-count="3">
+          <div style="margin-top: 34px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #c2a05c; font-weight: 500;">{{ m.label }}</span>
+              <span style="flex: 1; height: 1px; background: rgba(20,40,30,.1);"></span>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #8a9a90;">{{ m.count }}</span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
+              <sc-for list="{{ m.cos }}" as="c" hint-placeholder-count="3">
+                <div style="background: #fff; border: 1px solid rgba(20,40,30,.1); padding: 20px 20px 16px; transition: border-color .25s, transform .25s;" style-hover="border-color:#c2a05c;transform:translateY(-2px);">
+                  <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px;">
+                    <h4 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: 19px; margin: 0; color: #16241d; line-height: 1.2;">{{ c.name }}</h4>
+                    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #c2a05c; white-space: nowrap;">{{ c.ticker }}</span>
+                  </div>
+                  <div style="font-size: 12px; color: #8a9a90; margin: 6px 0 16px;">{{ c.sector }}</div>
+                  <div style="display: flex; gap: 16px; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; padding-top: 13px; border-top: 1px solid rgba(20,40,30,.08);">
+                    <a href="{{ c.pv }}" target="_blank" rel="noopener" style="color: #45554c; text-decoration: none; font-weight: 500;" style-hover="color:#c2a05c;">Preview</a>
+                    <a href="{{ c.dl }}" target="_blank" rel="noopener" style="color: #8a9a90; text-decoration: none;" style-hover="color:#c2a05c;">Download ↓</a>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <!-- Engines -->
+      <div data-reveal style="margin-top: 78px;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-bottom: 1px solid rgba(20,40,30,.14); padding-bottom: 16px;">
+          <h3 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: 26px; margin: 0; color: #16241d;">Live Financial Engines</h3>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8a9a90;">Deployed &amp; interactive</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 30px;">
+          <sc-for list="{{ engines }}" as="e" hint-placeholder-count="3">
+            <a href="{{ e.url }}" target="_blank" rel="noopener" style="text-decoration: none; background: #0d2119; color: #f4f2ea; padding: 30px 28px; display: flex; flex-direction: column; transition: transform .25s; min-height: 230px;" style-hover="transform:translateY(-4px);">
+              <div style="display: inline-flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: .14em; color: #c2a05c; margin-bottom: 22px;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #86b39a; display: inline-block; animation: pulseDot 1.8s ease-in-out infinite;"></span>LIVE</div>
+              <h4 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: 23px; margin: 0 0 14px; color: #f6f4ec; line-height: 1.2;">{{ e.name }}</h4>
+              <p style="font-size: 13.5px; line-height: 1.55; color: #9fb3a8; margin: 0; flex: 1;">{{ e.desc }}</p>
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #c2a05c; margin-top: 22px; font-weight: 500;">Open Engine →</div>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CERTIFICATIONS ===== -->
+  <section id="certifications" style="background: #0d2119; color: #f4f2ea; padding: 110px 0; scroll-margin-top: 80px;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 40px;">
+      <div data-reveal style="margin-bottom: 50px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .2em; color: #c2a05c;">04 — CREDENTIALS</div>
+        <h2 style="font-family: 'Newsreader', serif; font-weight: 400; font-size: clamp(34px, 4.2vw, 52px); line-height: 1.04; letter-spacing: -.015em; margin: 18px 0 0; color: #f6f4ec;">Certifications</h2>
+      </div>
+      <div data-reveal data-reveal-delay="100" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;">
+        <sc-for list="{{ certs }}" as="c" hint-placeholder-count="3">
+          <div style="border: 1px solid rgba(255,255,255,.12); padding: 30px 28px; display: flex; flex-direction: column; min-height: 200px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .1em; color: #c2a05c;">{{ c.year }}</span>
+            <h3 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: 22px; margin: 16px 0 8px; color: #f6f4ec; line-height: 1.25; flex: 1;">{{ c.name }}</h3>
+            <div style="font-size: 13.5px; color: #9fb3a8;">{{ c.issuer }}</div>
+            <sc-if value="{{ c.url }}" hint-placeholder-val="{{ true }}">
+              <a href="{{ c.url }}" target="_blank" rel="noopener" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #c2a05c; text-decoration: none; margin-top: 16px; font-weight: 500;" style-hover="text-decoration:underline;">View Credential ↗</a>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" style="background: #f4f2ea; padding: 110px 0; scroll-margin-top: 80px;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 40px;">
+      <div data-reveal style="margin-bottom: 54px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .2em; color: #c2a05c;">05 — EXPERTISE</div>
+        <h2 style="font-family: 'Newsreader', serif; font-weight: 400; font-size: clamp(34px, 4.2vw, 52px); line-height: 1.04; letter-spacing: -.015em; margin: 18px 0 0; color: #16241d;">Skills &amp; Tooling</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
+        <sc-for list="{{ skills }}" as="g" hint-placeholder-count="3">
+          <div data-reveal>
+            <h3 style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #5f7a6c; margin: 0 0 20px; padding-bottom: 14px; border-bottom: 1px solid rgba(20,40,30,.14);">{{ g.title }}</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 9px;">
+              <sc-for list="{{ g.items }}" as="i" hint-placeholder-count="6">
+                <span style="font-size: 13px; color: #2c3b33; background: #fff; border: 1px solid rgba(20,40,30,.12); padding: 8px 14px; font-weight: 500;">{{ i }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION ===== -->
+  <section id="education" style="background: #0d2119; color: #f4f2ea; padding: 110px 0; scroll-margin-top: 80px;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 40px;">
+      <div data-reveal style="display: grid; grid-template-columns: 0.8fr 1.5fr; gap: 56px;">
+        <div>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .2em; color: #c2a05c;">06 — EDUCATION</div>
+          <h2 style="font-family: 'Newsreader', serif; font-weight: 400; font-size: clamp(34px, 4.2vw, 52px); line-height: 1.04; letter-spacing: -.015em; margin: 18px 0 0; color: #f6f4ec;">Academic Background</h2>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,.12); padding-top: 36px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8ba093; margin-bottom: 16px;">2020 – 2024</div>
+          <h3 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: 30px; margin: 0; color: #f6f4ec; line-height: 1.2;">Bachelor of Finance &amp; Investment</h3>
+          <a href="https://robinson.gsu.edu/" target="_blank" rel="noopener" style="display: inline-block; color: #c2a05c; text-decoration: none; font-size: 15px; margin-top: 12px; font-weight: 500;" style-hover="text-decoration:underline;">Georgia State University, J. Mack Robinson College of Business ↗</a>
+          <p style="font-size: 15px; line-height: 1.6; color: #b7c8bf; margin: 26px 0 0; max-width: 620px;"><span style="color:#8ba093;">Relevant coursework —</span> Corporate Finance, Financial Statement Analysis, Investments, Financial Modeling &amp; Valuation, Capital Markets, Econometrics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" style="background: #0a1611; color: #f4f2ea; padding: 120px 0 100px; scroll-margin-top: 80px; position: relative; overflow: hidden;">
+    <div style="position: absolute; bottom: -25%; left: -8%; width: 560px; height: 560px; background: radial-gradient(circle, rgba(194,160,92,.12), transparent 65%); pointer-events: none;"></div>
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 40px; position: relative;">
+      <div data-reveal style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .2em; color: #c2a05c;">07 — CONTACT</div>
+      <h2 data-reveal data-reveal-delay="80" style="font-family: 'Newsreader', serif; font-weight: 400; font-size: clamp(40px, 6vw, 84px); line-height: 1.02; letter-spacing: -.02em; margin: 22px 0 0; color: #f6f4ec; max-width: 900px;">Let's build the<br>next deal together.</h2>
+      <p data-reveal data-reveal-delay="140" style="font-size: 17px; line-height: 1.6; color: #9fb3a8; margin: 28px 0 0; max-width: 640px;">Open to analyst opportunities across investment banking, private equity, equity research, venture capital, and hedge funds — Egypt, the GCC, and international markets.</p>
+      <div data-reveal data-reveal-delay="200" style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 42px;">
+        <a href="https://ahmedwael.pages.dev/Ahmed%20Wael%20Metwally%20-%20CV.pdf" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; background: #c2a05c; color: #0a1611; padding: 16px 30px; text-decoration: none; font-weight: 600; font-size: 14px; transition: background .25s, transform .25s;" style-hover="background:#d6b870;transform:translateY(-2px);">Download CV <span style="font-family:'IBM Plex Mono',monospace;">↓</span></a>
+        <a href="https://www.linkedin.com/in/ahmedwaelmetwally" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; background: transparent; color: #f4f2ea; padding: 16px 30px; text-decoration: none; font-weight: 600; font-size: 14px; border: 1px solid rgba(255,255,255,.24); transition: border-color .25s;" style-hover="border-color:#c2a05c;">LinkedIn ↗</a>
+        <a href="mailto:ahmedwaelmetwally@gmail.com" style="display: inline-flex; align-items: center; gap: 10px; background: transparent; color: #f4f2ea; padding: 16px 30px; text-decoration: none; font-weight: 600; font-size: 14px; border: 1px solid rgba(255,255,255,.24); transition: border-color .25s;" style-hover="border-color:#c2a05c;">Email</a>
+      </div>
+      <div data-reveal data-reveal-delay="260" style="display: flex; flex-wrap: wrap; gap: 26px; margin-top: 44px; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #7d9587;">
+        <a href="tel:+201032782667" style="color: #b7c8bf; text-decoration: none;" style-hover="color:#c2a05c;">+20 103 278 2667</a>
+        <span style="color: rgba(255,255,255,.18);">/</span>
+        <span>Cairo, Egypt</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="background: #0a1611; color: #6f8779; border-top: 1px solid rgba(255,255,255,.08); padding: 34px 0;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border: 1px solid rgba(194,160,92,.5); color: #c2a05c; font-family: 'Newsreader', serif; font-size: 14px;">A</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8ba093;">Ahmed Wael Metwally © 2026</span>
+      </div>
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .08em; color: #5f7367;">M&amp;A · PRIVATE EQUITY · EQUITY RESEARCH · VALUATION</div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const base = "https://ahmedwael.pages.dev/models/";
+    const co = (name, ticker, sector, file) => {
+      const dl = base + file;
+      return { name, ticker, sector, dl, pv: "https://view.officeapps.live.com/op/view.aspx?src=" + encodeURIComponent(dl) };
+    };
+    return {
+      ticker: [
+        { t: "EGX30", v: "30,142.6", d: "+0.84%", c: "#86b39a" },
+        { t: "ARCC.CA", v: "PT 80", d: "▲ +43%", c: "#86b39a" },
+        { t: "SWDY.CA", v: "PT 71", d: "▼ −22.3%", c: "#cf8a7e" },
+        { t: "JUFO.CA", v: "PT 22", d: "▼ −21.7%", c: "#cf8a7e" },
+        { t: "TASI", v: "12,418.4", d: "+0.31%", c: "#86b39a" },
+        { t: "2280.SR", v: "Almarai", d: "● Covered", c: "#9fb3a8" },
+        { t: "AAPL", v: "NASDAQ", d: "● Modeled", c: "#9fb3a8" },
+        { t: "EGP/USD", v: "48.62", d: "▼ −0.12%", c: "#cf8a7e" },
+      ],
+      navlinks: [
+        { l: "About", h: "#about" },
+        { l: "Experience", h: "#experience" },
+        { l: "Projects", h: "#projects" },
+        { l: "Certifications", h: "#certifications" },
+        { l: "Skills", h: "#skills" },
+        { l: "Education", h: "#education" },
+        { l: "Contact", h: "#contact" },
+      ],
+      stats: [
+        { n: 15, suf: "", l: "Companies Modeled" },
+        { n: 3, suf: "", l: "Live Financial Engines" },
+        { n: 3, suf: "", l: "Professional Certifications" },
+        { n: 9, suf: "", l: "EGX Sectors Covered" },
+      ],
+      expBullets: [
+        { i: "01", t: "Valued EGX-listed companies through detailed DCF and 3-statement models, presented the investment cases to the CFO, and recommended which opportunities the firm should pursue." },
+        { i: "02", t: "Analyzed financial statements under EAS and IFRS — revenue drivers, margins, cash conversion, and earnings quality — to separate businesses that can sustain their numbers from those that only look cheap." },
+        { i: "03", t: "Screened EGX sectors for new investment ideas, building the shortlist of names that earned a full valuation." },
+        { i: "04", t: "Tracked the firm's investment portfolio for sector concentration and exposure risk, flagging build-ups before they became problems." },
+      ],
+      research: [
+        { ticker: "ARCC.CA", name: "Arabian Cement", sector: "Building Materials & Cement", call: "Overweight", callBg: "rgba(134,179,154,.18)", callFg: "#2f6b4e", pt: "EGP 80", cur: "EGP 56.11", move: "+43% Upside", moveColor: "#2f6b4e", thesis: "Trading at a 43% discount to intrinsic value, with a net-cash balance sheet and a post-devaluation earnings step-change not yet in the share price.", pdf: "https://ahmedwael.pages.dev/models/Arabian-Cement-ARCC-Equity-Research.pdf", pptx: "https://ahmedwael.pages.dev/models/Arabian-Cement-ARCC-Equity-Research.pptx" },
+        { ticker: "SWDY.CA", name: "Elsewedy Electric", sector: "Cables, Energy & EPC Infrastructure", call: "Underweight", callBg: "rgba(207,138,126,.18)", callFg: "#a8503f", pt: "EGP 71", cur: "EGP 91.19", move: "−22.3% Downside", moveColor: "#a8503f", thesis: "At 91 EGP the market prices in >12% perpetual FCF growth — above Egypt's nominal GDP; our DCF supports 71 EGP.", pdf: "https://ahmedwael.pages.dev/models/Elsewedy-SWDY-Equity-Research.pdf", pptx: "https://ahmedwael.pages.dev/models/Elsewedy-SWDY-Equity-Research.pptx" },
+        { ticker: "JUFO.CA", name: "Juhayna Food Industries", sector: "Dairy & Beverage", call: "Underweight", callBg: "rgba(207,138,126,.18)", callFg: "#a8503f", pt: "EGP 22", cur: "EGP 28.09", move: "−21.7% Downside", moveColor: "#a8503f", thesis: "Input-cost pressure and a stretched multiple leave little margin of safety; our DCF lands at 22 EGP against a 28 EGP market price.", pdf: "https://ahmedwael.pages.dev/models/Juhayna-JUFO-Equity-Research.pdf", pptx: "https://ahmedwael.pages.dev/models/Juhayna-JUFO-Equity-Research.pptx" },
+      ],
+      markets: [
+        { label: "EGX — Cairo", count: "12 companies · 9 sectors", cos: [
+          co("Arabian Cement", "ARCC.CA", "Materials / Cement", "Arabian-Cement-ARCC-Valuation-Model.xlsx"),
+          co("Oriental Weavers", "ORWE.CA", "Home Textiles / Carpets", "Oriental-Weavers-ORWE-Valuation-Model.xlsx"),
+          co("Ibnsina Pharma", "ISPH.CA", "Healthcare / Distribution", "Ibnsina-Pharma-ISPH-Valuation-Model.xlsx"),
+          co("Telecom Egypt", "ETEL.CA", "Telecom", "Telecom-Egypt-ETEL-Valuation-Model.xlsx"),
+          co("E-finance", "EFIH.CA", "Fintech", "E-finance-EFIH-Valuation-Model.xlsx"),
+          co("Talaat Moustafa", "TMGH.CA", "Real Estate", "Talaat-Moustafa-TMGH-Valuation-Model.xlsx"),
+          co("Elsewedy Electric", "SWDY.CA", "Industrials", "Elsewedy-Electric-SWDY-Valuation-Model.xlsx"),
+          co("Fawry", "FWRY.CA", "Fintech", "Fawry-FWRY-Valuation-Model.xlsx"),
+          co("Cleopatra Hospital", "CLHO.CA", "Healthcare", "Cleopatra-Hospital-CLHO-Valuation-Model.xlsx"),
+          co("Juhayna", "JUFO.CA", "Consumer Staples", "Juhayna-JUFO-Valuation-Model.xlsx"),
+          co("Eastern Company", "EAST.CA", "Tobacco", "Eastern-Company-EAST-Valuation-Model.xlsx"),
+          co("Edita Food", "EFID.CA", "Consumer Staples", "Edita-EFID-Valuation-Model.xlsx"),
+        ] },
+        { label: "Tadawul — Riyadh (TASI)", count: "2 companies", cos: [
+          co("Almarai", "2280.SR", "Consumer Staples", "Almarai-2280-Valuation-Model.xlsx"),
+          co("Qassim Cement", "3040.SR", "Materials", "Qassim-Cement-3040-Valuation-Model.xlsx"),
+        ] },
+        { label: "NASDAQ — New York", count: "1 company", cos: [
+          co("Apple", "AAPL", "Technology", "Apple-AAPL-Valuation-Model.xlsx"),
+        ] },
+      ],
+      engines: [
+        { name: "Multi-Method Valuation Engine", desc: "Runs DCF, comps, DDM, DuPont, EVA, and Altman/Piotroski scoring on any EGX name and outputs a one-page valuation summary.", url: "https://wolf-valuation-engine.pages.dev/" },
+        { name: "M&A Modeling Engine", desc: "End-to-end M&A model — merger math, LBO, accretion/dilution, and synergies — with rates and EAS accounting set to the Egyptian market.", url: "https://valor-ma-engine.pages.dev/" },
+        { name: "3-Statement Model Engine", desc: "Reusable 5-year 3-statement template (IFRS/EAS) underpinning every company model, with base/bull/bear scenarios and market-calibrated interest schedules.", url: "https://3-statement-model-engine.pages.dev/" },
+      ],
+      certs: [
+        { year: "In Progress", name: "CFA Level I Candidate", issuer: "CFA Institute", url: "" },
+        { year: "2026", name: "Financial & Valuation Modeling (FMVC)", issuer: "Wall Street Prep", url: "" },
+        { year: "2025", name: "Financial Modeling & Valuation Analyst (FMVA)", issuer: "Corporate Finance Institute", url: "http://credentials.corporatefinanceinstitute.com/96cc4829-968e-462b-b284-2556c7262a40" },
+      ],
+      skills: [
+        { title: "Financial Modeling", items: ["3-Statement Modeling", "DCF", "LBO", "Comparable Company Analysis", "Precedent Transactions", "Merger Model", "Accretion / Dilution"] },
+        { title: "Valuation & Analysis", items: ["WACC", "Terminal Value", "Sensitivity & Scenario", "Relative Valuation", "NAV / RNAV", "Dividend Discount Model"] },
+        { title: "Tools", items: ["Bloomberg Terminal", "Capital IQ", "Excel (Advanced)", "PowerPoint", "Python"] },
+      ],
+    };
+  }
+
+  componentDidMount() {
+    // Content is visible by default (opacity:1). Reveal is pure enhancement via a
+    // CSS @keyframes animation with fill-mode:both, which holds its final frame
+    // reliably even in runtimes where opacity transitions fail to composite.
+    const reveals = Array.prototype.slice.call(document.querySelectorAll("[data-reveal]"));
+    const reveal = (el) => {
+      if (el.__shown) return;
+      el.__shown = true;
+      const d = parseFloat(el.getAttribute("data-reveal-delay") || "0");
+      el.style.willChange = "opacity, transform";
+      el.style.animation = "revealUp .85s cubic-bezier(.22,.61,.36,1) " + d + "ms both";
+    };
+    const checkReveals = () => {
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      for (let i = reveals.length - 1; i >= 0; i--) {
+        const el = reveals[i];
+        if (el.__shown) continue;
+        const r = el.getBoundingClientRect();
+        if (r.top < vh * 0.88 && r.bottom > 0) reveal(el);
+      }
+    };
+    checkReveals();
+    requestAnimationFrame(checkReveals);
+    window.addEventListener("scroll", checkReveals, { passive: true });
+    window.addEventListener("resize", checkReveals, { passive: true });
+    // Safety net: reveal everything after 2.5s no matter what
+    setTimeout(() => reveals.forEach(reveal), 2500);
+
+    const animateCount = (el) => {
+      const target = parseFloat(el.getAttribute("data-count"));
+      const suffix = el.getAttribute("data-suffix") || "";
+      if (isNaN(target)) return;
+      const dur = 1500;
+      const start = performance.now();
+      const step = (now) => {
+        const p = Math.min((now - start) / dur, 1);
+        const e = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * e) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    setTimeout(() => {
+      document.querySelectorAll("[data-count]").forEach(animateCount);
+    }, 350);
+
+    const navLinks = Array.prototype.slice.call(document.querySelectorAll("[data-nav]"));
+    const sections = Array.prototype.slice.call(document.querySelectorAll("section[id]"));
+    const spy = () => {
+      const mid = (window.innerHeight || 0) * 0.4;
+      let active = null;
+      sections.forEach((s) => {
+        const r = s.getBoundingClientRect();
+        if (r.top <= mid && r.bottom > mid) active = s.getAttribute("id");
+      });
+      navLinks.forEach((l) => { l.style.color = (active && l.getAttribute("href") === "#" + active) ? "#d6b870" : "#9fb3a8"; });
+    };
+    spy();
+    window.addEventListener("scroll", spy, { passive: true });
+  }
+}
+</script>
+</body>
+</html>

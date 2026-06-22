@@ -4,1138 +4,1341 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed Wael Metwally — Equity Valuation · Financial Modeling · M&A</title>
+    <title>Ahmed Wael Metwally — Equity Research · Financial Modeling · M&amp;A</title>
     <meta name="description"
         content="Finance & Investment graduate and Financial Analyst at MCDR (Egypt's central securities depository). CFA Level I Candidate. Built full 3-statement models and DCF valuations from scratch for fifteen listed companies — twelve on the EGX, two on Saudi Arabia's Tadawul, and Apple on NASDAQ — carrying each through to a fair value, price target, and buy/hold/sell call, with initiation-of-coverage equity research on Elsewedy and Juhayna, plus three live financial engines. Targeting investment banking, private equity, equity research, venture capital, and hedge fund analyst roles across Egypt, the GCC, and international markets.">
     <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230A0E17'/%3E%3Ctext x='32' y='40' font-family='serif' font-weight='bold' font-size='20' fill='%23C9A84C' text-anchor='middle'%3EAWM%3C/text%3E%3C/svg%3E">
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230d2119'/%3E%3Crect x='6' y='6' width='52' height='52' fill='none' stroke='%23c2a05c' stroke-width='2'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23c2a05c' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:wght@700;900&family=Sora:wght@300;400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* ═══════════ DESIGN TOKENS ═══════════ */
         :root {
-            --bg-primary: #0A0E17;
-            --bg-secondary: #0F1623;
-            --bg-card: #141B2D;
-            --accent-gold: #C9A84C;
-            --accent-blue: #3B82F6;
-            --accent-glow: #3B82F620;
-            --text-primary: #F0F4FF;
-            --text-secondary: #8892A4;
-            --text-muted: #4A5568;
-            --border: #1E2D45;
-            --gold-glow: #C9A84C15;
-            --ease: cubic-bezier(.4, 0, .2, 1);
-            --ff-display: 'Playfair Display', serif;
-            --ff-mono: 'IBM Plex Mono', monospace;
-            --ff-body: 'Sora', sans-serif;
+            --green-base: #0d2119;
+            --green-deep: #0a1611;
+            --head-dark: #f6f4ec;
+            --cream: #f4f2ea;
+            --cream-card: #fbfaf4;
+            --white: #ffffff;
+            --ink: #16241d;
+            --ink-body: #2c3b33;
+            --ink-muted: #45554c;
+            --sage: #9fb3a8;
+            --sage-soft: #b7c8bf;
+            --sage-faint: #8ba093;
+            --sage-ink: #5f7a6c;
+            --gold: #c2a05c;
+            --gold-bright: #d6b870;
+            --pos-dark: #86b39a;
+            --neg-dark: #cf8a7e;
+
+            --serif: 'Newsreader', Georgia, serif;
+            --sans: 'Archivo', system-ui, sans-serif;
+            --mono: 'IBM Plex Mono', monospace;
+
+            --container: 1180px;
         }
 
         /* ═══════════ RESET ═══════════ */
-        *,
-        *::before,
-        *::after {
+        * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0
         }
 
         html {
             scroll-behavior: smooth;
-            font-size: 16px
         }
 
         body {
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: var(--ff-body);
-            line-height: 1.7;
+            margin: 0;
+            font-family: var(--sans);
+            background: var(--cream);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            position: relative
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: .035;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")
         }
 
         a {
             color: inherit;
-            text-decoration: none
         }
 
-        ul {
-            list-style: none
+        ::selection {
+            background: var(--gold);
+            color: var(--green-deep);
         }
 
         img {
             max-width: 100%;
-            display: block
         }
 
-        /* ═══════════ UTILITY ═══════════ */
+        /* ═══════════ KEYFRAMES ═══════════ */
+        @keyframes tickerScroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes pulseDot {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: .35;
+                transform: scale(.82);
+            }
+        }
+
+        /* Reveal animates transform ONLY — opacity stays 1 so content is never hidden. */
+        @keyframes revealUp {
+            from {
+                transform: translateY(20px);
+            }
+
+            to {
+                transform: none;
+            }
+        }
+
+        .reveal.is-revealed {
+            animation: revealUp .85s cubic-bezier(.22, .61, .36, 1) var(--reveal-delay, 0ms) both;
+            will-change: transform;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .reveal.is-revealed,
+            .ticker-track,
+            .live-dot {
+                animation: none !important;
+            }
+        }
+
+        /* ═══════════ LAYOUT ═══════════ */
         .container {
-            max-width: 1100px;
+            max-width: var(--container);
             margin: 0 auto;
-            padding: 0 24px
+            padding: 0 40px;
         }
 
-        .section {
-            padding: 100px 0;
-            position: relative
+        section {
+            scroll-margin-top: 80px;
         }
 
-        .section-divider {
-            height: 1px;
-            background: var(--accent-gold);
-            opacity: .3;
-            margin: 0 auto;
-            max-width: 1100px
-        }
-
-        .gold {
-            color: var(--accent-gold)
-        }
-
-        .section-label {
-            font-family: var(--ff-mono);
-            font-size: .75rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--accent-gold);
-            margin-bottom: 12px;
-            display: block
+        .eyebrow {
+            font-family: var(--mono);
+            font-size: 12px;
+            letter-spacing: .2em;
+            color: var(--gold);
         }
 
         .section-title {
-            font-family: var(--ff-display);
-            font-weight: 900;
-            font-size: clamp(1.8rem, 4vw, 2.6rem);
-            margin-bottom: 40px;
-            line-height: 1.2
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: clamp(34px, 4.2vw, 52px);
+            line-height: 1.04;
+            letter-spacing: -.015em;
+            margin: 18px 0 0;
         }
 
-        /* reveal animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity .7s var(--ease), transform .7s var(--ease)
+        .on-dark {
+            background: var(--green-base);
+            color: var(--cream);
         }
 
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0)
+        .on-dark .section-title,
+        .on-dark h3,
+        .on-dark h4 {
+            color: var(--head-dark);
         }
 
-        /* ═══════════ NAVBAR ═══════════ */
-        .navbar {
-            position: fixed;
+        .on-light .section-title {
+            color: var(--ink);
+        }
+
+        /* ═══════════ TICKER ═══════════ */
+        .ticker {
+            background: var(--green-deep);
+            height: 42px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(194, 160, 92, .22);
+        }
+
+        .ticker-track {
+            display: flex;
+            width: max-content;
+            animation: tickerScroll 48s linear infinite;
+        }
+
+        .ticker-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 0 26px;
+            border-right: 1px solid rgba(255, 255, 255, .07);
+            white-space: nowrap;
+            font-family: var(--mono);
+            font-size: 11.5px;
+        }
+
+        .ticker-sym {
+            letter-spacing: .04em;
+            color: #e9e6dc;
+            font-weight: 500;
+        }
+
+        .ticker-val {
+            color: #7d9587;
+        }
+
+        /* ═══════════ NAV ═══════════ */
+        .nav {
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(10, 14, 23, .72);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border-bottom: 1px solid rgba(30, 45, 69, .5);
-            transition: background .3s var(--ease)
+            z-index: 50;
+            background: rgba(13, 33, 25, .92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
         }
 
-        .navbar .container {
+        .nav-inner {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 40px;
+            height: 66px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 64px
         }
 
-        .nav-logo {
-            font-family: var(--ff-display);
-            font-weight: 700;
-            font-size: 1.15rem;
-            color: var(--accent-gold)
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .monogram {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-family: var(--serif);
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: .02em;
+        }
+
+        .brand-mark {
+            font-family: var(--mono);
+            font-size: 12.5px;
+            letter-spacing: .22em;
+            color: #e9e6dc;
+            font-weight: 500;
         }
 
         .nav-links {
             display: flex;
-            gap: 28px
+            align-items: center;
+            gap: 30px;
         }
 
         .nav-links a {
-            font-family: var(--ff-mono);
-            font-size: .78rem;
-            color: var(--text-secondary);
-            letter-spacing: .5px;
-            position: relative;
-            padding: 4px 0;
-            transition: color .3s var(--ease)
+            font-size: 12.5px;
+            letter-spacing: .03em;
+            color: var(--sage);
+            text-decoration: none;
+            transition: color .25s;
+            font-weight: 500;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 1.5px;
-            background: var(--accent-gold);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform .4s var(--ease)
+        .nav-links a:hover {
+            color: var(--cream);
         }
 
-        .nav-links a:hover,
         .nav-links a.active {
-            color: var(--text-primary)
+            color: var(--gold-bright);
         }
 
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            transform: scaleX(1);
-            transform-origin: left
-        }
-
-        .hamburger {
+        .nav-toggle {
             display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 4px;
             background: none;
-            border: none
+            border: 1px solid rgba(255, 255, 255, .2);
+            color: var(--cream);
+            width: 38px;
+            height: 34px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
         }
 
-        .hamburger span {
-            display: block;
-            width: 22px;
-            height: 2px;
-            background: var(--text-primary);
-            border-radius: 2px;
-            transition: all .3s var(--ease)
+        /* ═══════════ BUTTONS ═══════════ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: .02em;
+            transition: background .25s, transform .25s, border-color .25s;
         }
 
-        .hamburger.open span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px)
+        .btn .glyph {
+            font-family: var(--mono);
         }
 
-        .hamburger.open span:nth-child(2) {
-            opacity: 0
+        .btn-gold {
+            background: var(--gold);
+            color: var(--green-base);
         }
 
-        .hamburger.open span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px)
+        .btn-gold:hover {
+            background: var(--gold-bright);
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--cream);
+            border: 1px solid rgba(255, 255, 255, .24);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, .04);
         }
 
         /* ═══════════ HERO ═══════════ */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 80px;
+            background: var(--green-base);
+            color: var(--cream);
             position: relative;
-            overflow: hidden
+            overflow: hidden;
         }
 
-        .hero::after {
-            content: '';
+        .hero-grid-overlay {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, .028) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, .028) 1px, transparent 1px);
+            background-size: 64px 64px;
+            pointer-events: none;
+        }
+
+        .hero-glow {
             position: absolute;
             top: -20%;
             right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-            pointer-events: none
+            width: 620px;
+            height: 620px;
+            background: radial-gradient(circle, rgba(194, 160, 92, .14), transparent 65%);
+            pointer-events: none;
         }
 
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
+        .hero-inner {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 96px 40px 78px;
             position: relative;
-            z-index: 1
         }
 
-        .hero-greeting {
-            font-family: var(--ff-mono);
-            font-size: .85rem;
-            color: var(--accent-gold);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            opacity: 0;
-            animation: fadeSlideUp .8s var(--ease) .2s forwards
+        .hero-eyebrow {
+            font-family: var(--mono);
+            font-size: 12px;
+            letter-spacing: .28em;
+            color: var(--gold);
+            margin-bottom: 30px;
         }
 
-        .hero-name {
-            font-family: var(--ff-display);
-            font-weight: 900;
-            font-size: clamp(2.8rem, 7vw, 5rem);
-            line-height: 1.05;
-            opacity: 0;
-            animation: fadeSlideUp .8s var(--ease) .4s forwards
+        .hero h1 {
+            font-family: var(--serif);
+            font-weight: 500;
+            font-size: clamp(46px, 8.5vw, 124px);
+            line-height: .96;
+            letter-spacing: -.022em;
+            margin: 0;
+            color: var(--head-dark);
         }
 
-        .hero-name .last {
-            display: block;
-            color: var(--accent-gold)
+        .hero-subtitle {
+            font-family: var(--serif);
+            font-size: clamp(19px, 2.3vw, 27px);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--sage-soft);
+            margin: 28px 0 0;
+            max-width: 760px;
+            line-height: 1.45;
         }
 
-        .hero-role {
-            font-family: var(--ff-mono);
-            font-size: clamp(.95rem, 1.8vw, 1.15rem);
-            color: var(--text-secondary);
-            min-height: 1.6em;
-            margin-top: 8px;
-            opacity: 0;
-            animation: fadeSlideUp .8s var(--ease) .6s forwards
-        }
-
-        .hero-role {
-            word-wrap: break-word;
-            overflow-wrap: break-word
-        }
-
-        .hero-cta-row {
+        .hero-actions {
             display: flex;
-            gap: 16px;
-            margin-top: 24px;
             flex-wrap: wrap;
-            opacity: 0;
-            animation: fadeSlideUp .8s var(--ease) .8s forwards
+            gap: 14px;
+            margin-top: 40px;
         }
 
-        .btn {
-            font-family: var(--ff-mono);
-            font-size: .82rem;
-            padding: 12px 28px;
-            border-radius: 4px;
-            letter-spacing: .5px;
-            transition: all .35s var(--ease);
-            cursor: pointer;
-            display: inline-flex;
+        .hero-actions .btn {
+            padding: 15px 28px;
+            font-size: 13.5px;
+        }
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 26px;
             align-items: center;
-            gap: 8px;
-            border: none
+            margin-top: 38px;
+            font-family: var(--mono);
+            font-size: 12.5px;
+            color: var(--sage-faint);
+            letter-spacing: .02em;
         }
 
-        .btn-gold {
-            background: var(--accent-gold);
-            color: var(--bg-primary);
-            font-weight: 500
+        .contact-row a {
+            color: var(--sage-soft);
+            text-decoration: none;
+            transition: color .25s;
         }
 
-        .btn-gold:hover {
-            background: #d4b35a;
-            box-shadow: 0 0 24px var(--gold-glow)
+        .contact-row a:hover {
+            color: var(--gold);
         }
 
-        .btn-outline {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--border)
+        .contact-row .sep {
+            color: rgba(255, 255, 255, .18);
         }
 
-        .btn-outline:hover {
-            border-color: var(--accent-gold);
-            color: var(--accent-gold)
-        }
-
-        .hero-location {
-            font-family: var(--ff-mono);
-            font-size: .78rem;
-            color: var(--text-muted);
-            margin-top: 16px;
-            opacity: 0;
-            animation: fadeSlideUp .8s var(--ease) 1s forwards
-        }
-
-        /* ═══════════ STATS ═══════════ */
         .stats {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border)
-        }
-
-        .stats .container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            padding: 48px 24px
+            gap: 1px;
+            margin-top: 64px;
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .08);
         }
 
-        .stat-item {
-            text-align: center
+        .stat {
+            background: var(--green-base);
+            padding: 30px 26px;
         }
 
-        .stat-number {
-            font-family: var(--ff-display);
-            font-weight: 900;
-            font-size: clamp(1.6rem, 3vw, 2.4rem);
-            color: var(--accent-gold);
-            display: flex;
-            align-items: baseline;
-            justify-content: center;
-            gap: 2px
-        }
-
-        .stat-number .suffix {
-            font-size: .6em;
-            color: var(--accent-gold)
+        .stat-num {
+            font-family: var(--serif);
+            font-size: clamp(38px, 5vw, 58px);
+            font-weight: 500;
+            line-height: 1;
+            color: var(--gold);
         }
 
         .stat-label {
-            font-family: var(--ff-mono);
-            font-size: .72rem;
-            color: var(--text-secondary);
-            margin-top: 6px;
-            letter-spacing: .5px;
-            line-height: 1.5
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--sage-faint);
+            margin-top: 12px;
+            line-height: 1.5;
         }
 
         /* ═══════════ ABOUT ═══════════ */
-        .about-text {
-            font-family: var(--ff-body);
-            font-size: 1.05rem;
-            color: var(--text-secondary);
-            line-height: 1.9;
-            max-width: 820px
+        .about {
+            background: var(--cream);
+            padding: 110px 0;
         }
 
-        .about-text strong {
-            color: var(--text-primary);
-            font-weight: 600
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.85fr 1.4fr;
+            gap: 64px;
+        }
+
+        .rule {
+            width: 46px;
+            height: 2px;
+            background: var(--gold);
+            margin-top: 26px;
+        }
+
+        .about p.lead {
+            font-family: var(--serif);
+            font-size: clamp(19px, 1.7vw, 23px);
+            line-height: 1.62;
+            color: var(--ink-body);
+            font-weight: 300;
+            margin: 0;
+            text-wrap: pretty;
+        }
+
+        .about p.lead+p.lead {
+            margin-top: 22px;
+        }
+
+        .about p.lead strong {
+            font-weight: 500;
+            color: var(--ink);
+        }
+
+        .about .note {
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: var(--sage-ink);
+            margin: 26px 0 0;
         }
 
         /* ═══════════ EXPERIENCE ═══════════ */
-        .exp-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 36px;
-            margin-bottom: 28px;
-            position: relative;
-            transition: border-color .35s var(--ease)
+        .experience {
+            padding: 110px 0;
         }
 
-        .exp-card:hover {
-            border-color: rgba(201, 168, 76, .35)
+        .section-head {
+            margin-bottom: 56px;
         }
 
-        .exp-card.featured {
-            border-left: 3px solid var(--accent-gold)
+        .exp-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.5fr;
+            gap: 56px;
+            border-top: 1px solid rgba(255, 255, 255, .12);
+            padding-top: 44px;
         }
 
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 16px
+        .tag-current {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--green-base);
+            background: var(--gold);
+            padding: 5px 11px;
+            margin-bottom: 22px;
         }
 
         .exp-role {
-            font-family: var(--ff-display);
-            font-weight: 700;
-            font-size: 1.3rem
+            font-family: var(--serif);
+            font-weight: 500;
+            font-size: 28px;
+            margin: 0;
+            line-height: 1.15;
         }
 
-        .exp-company {
-            font-family: var(--ff-body);
-            font-size: .95rem;
-            color: var(--accent-gold);
-            margin-top: 4px
+        .link-gold {
+            display: inline-block;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color .25s;
         }
 
-        .exp-company a {
-            color: var(--accent-gold);
+        .link-gold:hover {
             text-decoration: underline;
-            text-underline-offset: 3px
         }
 
         .exp-meta {
-            font-family: var(--ff-mono);
-            font-size: .75rem;
-            color: var(--text-muted);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 4px;
-            white-space: nowrap
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--sage-faint);
+            margin-top: 18px;
+            line-height: 1.9;
         }
 
-        .badge {
-            font-family: var(--ff-mono);
-            font-size: .65rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-weight: 500
-        }
-
-        .badge-gold {
-            background: rgba(201, 168, 76, .15);
-            color: var(--accent-gold);
-            border: 1px solid rgba(201, 168, 76, .3)
+        .exp-desc {
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: #7d9587;
+            margin-top: 18px;
         }
 
         .exp-bullets {
-            margin-top: 16px;
             display: flex;
             flex-direction: column;
-            gap: 10px
         }
 
-        .exp-bullets li {
-            font-family: var(--ff-body);
-            font-size: .88rem;
-            color: var(--text-secondary);
-            padding-left: 20px;
-            position: relative;
-            line-height: 1.7
+        .exp-bullet {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 18px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .09);
         }
 
-        .exp-bullets li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--accent-gold)
+        .exp-bullet .idx {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--gold);
+            padding-top: 3px;
         }
 
-        .exp-note {
-            font-family: var(--ff-body);
-            font-size: .88rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-top: 12px;
-            font-style: italic
+        .exp-bullet p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #d4ddd6;
         }
 
         /* ═══════════ PROJECTS ═══════════ */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 28px
+        .projects {
+            background: var(--cream);
+            padding: 110px 0 90px;
         }
 
-        .project-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 36px;
-            position: relative;
-            transition: all .4s var(--ease);
-            overflow: hidden
+        .projects-intro {
+            max-width: 760px;
         }
 
-        .project-card::before {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            border-radius: 8px;
-            padding: 1px;
-            background: linear-gradient(135deg, transparent 40%, var(--accent-gold) 100%);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity .4s var(--ease);
-            pointer-events: none
+        .projects-intro p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--sage-ink);
+            margin: 22px 0 0;
         }
 
-        .project-card:hover {
-            transform: translateY(-4px)
+        .block {
+            margin-top: 70px;
         }
 
-        .project-card:hover::before {
-            opacity: 1
+        .block.spaced {
+            margin-top: 78px;
         }
 
-        .project-card.featured-project {
-            grid-column: 1/-1
-        }
-
-        .project-top {
+        .block-head {
             display: flex;
+            align-items: baseline;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 12px
-        }
-
-        .project-title {
-            font-family: var(--ff-display);
-            font-weight: 700;
-            font-size: 1.25rem
-        }
-
-        .project-subtitle {
-            font-family: var(--ff-mono);
-            font-size: .78rem;
-            color: var(--accent-gold);
-            margin-top: 4px
-        }
-
-        .badge-live {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-family: var(--ff-mono);
-            font-size: .65rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: #4ade80;
-            background: rgba(74, 222, 128, .1);
-            padding: 4px 12px;
-            border-radius: 20px;
-            border: 1px solid rgba(74, 222, 128, .25)
-        }
-
-        .badge-live .dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #4ade80;
-            animation: pulse 2s infinite
-        }
-
-        .project-desc {
-            font-family: var(--ff-body);
-            font-size: .88rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin: 16px 0
-        }
-
-        .project-tags {
-            display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 20px
+            gap: 12px;
+            border-bottom: 1px solid rgba(20, 40, 30, .14);
+            padding-bottom: 16px;
         }
 
-        .tag {
-            font-family: var(--ff-mono);
-            font-size: .7rem;
-            color: var(--accent-blue);
-            background: rgba(59, 130, 246, .08);
-            padding: 4px 12px;
-            border-radius: 4px;
-            border: 1px solid rgba(59, 130, 246, .15)
+        .block-head h3 {
+            font-family: var(--serif);
+            font-weight: 500;
+            font-size: 26px;
+            margin: 0;
+            color: var(--ink);
         }
 
-        .btn-demo {
-            font-family: var(--ff-mono);
-            font-size: .78rem;
-            padding: 10px 24px;
-            border-radius: 4px;
-            background: transparent;
-            color: var(--accent-gold);
-            border: 1px solid var(--accent-gold);
-            cursor: pointer;
-            transition: all .3s var(--ease);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px
+        .block-caption {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: #8a9a90;
         }
 
-        .btn-demo:hover {
-            background: rgba(201, 168, 76, .1);
-            box-shadow: 0 0 20px var(--gold-glow)
-        }
-
-        /* ═══════════ MODEL CARDS ═══════════ */
-        .models-grid {
+        .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 14px;
-            margin-top: 20px
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 30px;
         }
 
-        .model-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 18px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            transition: border-color .3s var(--ease)
-        }
-
-        .model-card:hover {
-            border-color: rgba(201, 168, 76, .35)
-        }
-
-        .model-company {
-            font-family: var(--ff-body);
-            font-weight: 600;
-            font-size: .9rem;
-            color: var(--text-primary)
-        }
-
-        .model-meta {
-            font-family: var(--ff-mono);
-            font-size: .7rem;
-            color: var(--text-muted)
-        }
-
-        .model-actions {
-            margin-top: 10px;
-            font-family: var(--ff-mono);
-            font-size: .72rem;
-            display: flex;
-            align-items: center;
-            gap: 10px
-        }
-
-        .model-actions a {
-            color: var(--accent-gold);
-            transition: color .3s var(--ease)
-        }
-
-        .model-actions a:hover {
-            color: #d4b35a
-        }
-
-        .model-actions .sep {
-            color: var(--border)
-        }
-
-        /* ═══════════ EQUITY RESEARCH SUB-BLOCK ═══════════ */
-        .research-eyebrow {
-            font-family: var(--ff-mono);
-            font-size: .7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--accent-gold);
-            margin: 4px 0 16px
-        }
-
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin-bottom: 8px
-        }
-
+        /* research cards */
         .research-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 20px 22px;
+            background: var(--cream-card);
+            border: 1px solid rgba(20, 40, 30, .1);
+            padding: 28px 26px;
             display: flex;
             flex-direction: column;
-            gap: 6px;
-            transition: border-color .3s var(--ease)
         }
 
-        .research-card:hover {
-            border-color: rgba(201, 168, 76, .35)
-        }
-
-        .research-head {
+        .research-top {
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: flex-start;
-            gap: 12px
         }
 
-        .research-company {
-            font-family: var(--ff-body);
+        .research-ticker {
+            font-family: var(--mono);
+            font-size: 12px;
+            letter-spacing: .06em;
+            color: var(--sage-ink);
+        }
+
+        .call-badge {
+            font-family: var(--mono);
+            font-size: 10.5px;
             font-weight: 600;
-            font-size: .95rem;
-            color: var(--text-primary)
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: 5px 10px;
+        }
+
+        .call-over {
+            color: #2f6b4e;
+            background: rgba(134, 179, 154, .18);
+        }
+
+        .call-under {
+            color: #a8503f;
+            background: rgba(207, 138, 126, .18);
+        }
+
+        .research-card h4 {
+            font-family: var(--serif);
+            font-weight: 500;
+            font-size: 24px;
+            margin: 16px 0 4px;
+            color: var(--ink);
+            line-height: 1.15;
         }
 
         .research-sector {
-            font-family: var(--ff-mono);
-            font-size: .7rem;
-            color: var(--text-muted);
-            margin-top: 2px
+            font-size: 12.5px;
+            color: #8a9a90;
+            margin-bottom: 22px;
         }
 
-        .rating-chip {
-            flex-shrink: 0;
-            font-family: var(--ff-mono);
-            font-size: .6rem;
-            letter-spacing: 1px;
+        .stat-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: rgba(20, 40, 30, .1);
+            border: 1px solid rgba(20, 40, 30, .1);
+            margin-bottom: 14px;
+        }
+
+        .stat-pair > div {
+            background: var(--cream-card);
+            padding: 12px 14px;
+        }
+
+        .stat-pair .lbl {
+            font-family: var(--mono);
+            font-size: 9.5px;
+            letter-spacing: .1em;
             text-transform: uppercase;
+            color: #8a9a90;
+        }
+
+        .stat-pair .val {
+            font-family: var(--serif);
+            font-size: 25px;
             font-weight: 500;
-            padding: 4px 10px;
-            border-radius: 20px;
-            color: var(--accent-gold);
-            border: 1px solid var(--accent-gold);
-            background: rgba(201, 168, 76, .08)
+            color: var(--ink);
+            margin-top: 4px;
         }
 
-        .research-metrics {
+        .move {
+            font-family: var(--mono);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .move.up {
+            color: #2f6b4e;
+        }
+
+        .move.down {
+            color: #a8503f;
+        }
+
+        .thesis {
+            font-size: 13.5px;
+            line-height: 1.55;
+            color: var(--ink-muted);
+            margin: 0 0 22px;
+            flex: 1;
+            text-wrap: pretty;
+        }
+
+        .card-links {
             display: flex;
-            flex-wrap: wrap;
-            gap: 4px 16px;
-            margin-top: 6px;
-            font-family: var(--ff-mono);
-            font-size: .72rem;
-            color: var(--text-secondary)
+            gap: 18px;
+            font-family: var(--mono);
+            font-size: 12px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(20, 40, 30, .1);
         }
 
-        .research-metrics .val {
-            color: var(--text-primary)
+        .card-links a {
+            text-decoration: none;
+            transition: color .25s;
         }
 
-        .research-thesis {
-            font-family: var(--ff-body);
-            font-size: .8rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-top: 4px
+        .card-links a.primary {
+            color: var(--ink);
+            font-weight: 600;
         }
 
-        .research-actions {
-            margin-top: 10px;
-            font-family: var(--ff-mono);
-            font-size: .72rem;
+        .card-links a.secondary {
+            color: #8a9a90;
+        }
+
+        .card-links a:hover {
+            color: var(--gold);
+        }
+
+        /* model library */
+        .market-group {
+            margin-top: 34px;
+        }
+
+        .market-head {
             display: flex;
             align-items: center;
-            gap: 10px
+            gap: 12px;
+            margin-bottom: 18px;
         }
 
-        .research-actions a {
-            color: var(--accent-gold);
-            transition: color .3s var(--ease)
-        }
-
-        .research-actions a:hover {
-            color: #d4b35a
-        }
-
-        .research-actions .sep {
-            color: var(--border)
-        }
-
-        .models-group-label {
-            font-family: var(--ff-mono);
-            font-size: .7rem;
-            letter-spacing: 2px;
+        .market-label {
+            font-family: var(--mono);
+            font-size: 12px;
+            letter-spacing: .14em;
             text-transform: uppercase;
-            color: var(--text-secondary);
-            margin: 24px 0 2px
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .market-rule {
+            flex: 1;
+            height: 1px;
+            background: rgba(20, 40, 30, .1);
+        }
+
+        .market-count {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: #8a9a90;
+        }
+
+        .company-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .company-card {
+            background: var(--white);
+            border: 1px solid rgba(20, 40, 30, .1);
+            padding: 20px 20px 16px;
+            transition: border-color .25s, transform .25s;
+        }
+
+        .company-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .company-top {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .company-card h4 {
+            font-family: var(--serif);
+            font-weight: 500;
+            font-size: 19px;
+            margin: 0;
+            color: var(--ink);
+            line-height: 1.2;
+        }
+
+        .company-ticker {
+            font-family: var(--mono);
+            font-size: 10.5px;
+            color: var(--gold);
+            white-space: nowrap;
+        }
+
+        .company-sector {
+            font-size: 12px;
+            color: #8a9a90;
+            margin: 6px 0 16px;
+        }
+
+        .company-links {
+            display: flex;
+            gap: 16px;
+            font-family: var(--mono);
+            font-size: 11.5px;
+            padding-top: 13px;
+            border-top: 1px solid rgba(20, 40, 30, .08);
+        }
+
+        .company-links a {
+            text-decoration: none;
+            transition: color .25s;
+        }
+
+        .company-links a.primary {
+            color: var(--ink-muted);
+            font-weight: 500;
+        }
+
+        .company-links a.secondary {
+            color: #8a9a90;
+        }
+
+        .company-links a:hover {
+            color: var(--gold);
+        }
+
+        /* engines */
+        .engine-card {
+            text-decoration: none;
+            background: var(--green-base);
+            color: var(--cream);
+            padding: 30px 28px;
+            display: flex;
+            flex-direction: column;
+            transition: transform .25s;
+            min-height: 230px;
+        }
+
+        .engine-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .live-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--mono);
+            font-size: 10.5px;
+            letter-spacing: .14em;
+            color: var(--gold);
+            margin-bottom: 22px;
+        }
+
+        .live-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--pos-dark);
+            display: inline-block;
+            animation: pulseDot 1.8s ease-in-out infinite;
+        }
+
+        .engine-card h4 {
+            font-family: var(--serif);
+            font-weight: 500;
+            font-size: 23px;
+            margin: 0 0 14px;
+            color: var(--head-dark);
+            line-height: 1.2;
+        }
+
+        .engine-card p {
+            font-size: 13.5px;
+            line-height: 1.55;
+            color: var(--sage);
+            margin: 0;
+            flex: 1;
+        }
+
+        .engine-open {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--gold);
+            margin-top: 22px;
+            font-weight: 500;
         }
 
         /* ═══════════ CERTIFICATIONS ═══════════ */
-        .certs-grid {
+        .certs {
+            padding: 110px 0;
+        }
+
+        .certs .section-head {
+            margin-bottom: 50px;
+        }
+
+        .cert-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
         }
 
         .cert-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 28px;
-            transition: border-color .35s var(--ease);
+            border: 1px solid rgba(255, 255, 255, .12);
+            padding: 30px 28px;
             display: flex;
             flex-direction: column;
-            gap: 10px
-        }
-
-        .cert-card:hover {
-            border-color: rgba(201, 168, 76, .35)
-        }
-
-        .cert-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            background: rgba(201, 168, 76, .1);
-            color: var(--accent-gold)
-        }
-
-        .cert-name {
-            font-family: var(--ff-body);
-            font-weight: 600;
-            font-size: .92rem;
-            line-height: 1.4
-        }
-
-        .cert-issuer {
-            font-family: var(--ff-mono);
-            font-size: .72rem;
-            color: var(--text-muted)
+            min-height: 200px;
         }
 
         .cert-year {
-            font-family: var(--ff-mono);
-            font-size: .72rem;
-            color: var(--accent-gold)
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: .1em;
+            color: var(--gold);
+        }
+
+        .cert-card h3 {
+            font-family: var(--serif);
+            font-weight: 500;
+            font-size: 22px;
+            margin: 16px 0 8px;
+            color: var(--head-dark);
+            line-height: 1.25;
+            flex: 1;
+        }
+
+        .cert-issuer {
+            font-size: 13.5px;
+            color: var(--sage);
         }
 
         .cert-link {
-            font-family: var(--ff-mono);
-            font-size: .72rem;
-            color: var(--accent-blue);
-            transition: color .3s
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--gold);
+            text-decoration: none;
+            margin-top: 16px;
+            font-weight: 500;
         }
 
         .cert-link:hover {
-            color: var(--accent-gold)
+            text-decoration: underline;
         }
 
         /* ═══════════ SKILLS ═══════════ */
-        .skills-group {
-            margin-bottom: 36px
+        .skills {
+            background: var(--cream);
+            padding: 110px 0;
         }
 
-        .skills-group-title {
-            font-family: var(--ff-mono);
-            font-size: .78rem;
-            letter-spacing: 2px;
+        .skills .section-head {
+            margin-bottom: 54px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .skill-group h3 {
+            font-family: var(--mono);
+            font-size: 12px;
+            letter-spacing: .14em;
             text-transform: uppercase;
-            color: var(--accent-gold);
-            margin-bottom: 16px
+            color: var(--sage-ink);
+            margin: 0 0 20px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(20, 40, 30, .14);
         }
 
-        .skills-tags {
+        .chips {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px
+            gap: 9px;
         }
 
-        .skill-tag {
-            font-family: var(--ff-mono);
-            font-size: .78rem;
-            color: var(--text-secondary);
-            background: var(--bg-card);
-            padding: 8px 18px;
-            border-radius: 4px;
-            border: 1px solid var(--border);
-            transition: all .3s var(--ease)
-        }
-
-        .skill-tag:hover {
-            border-color: var(--accent-gold);
-            color: var(--accent-gold);
-            transform: translateY(-2px)
+        .chip {
+            font-size: 13px;
+            color: var(--ink-body);
+            background: var(--white);
+            border: 1px solid rgba(20, 40, 30, .12);
+            padding: 8px 14px;
+            font-weight: 500;
         }
 
         /* ═══════════ EDUCATION ═══════════ */
-        .edu-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 36px
+        .education {
+            padding: 110px 0;
         }
 
-        .edu-degree {
-            font-family: var(--ff-display);
-            font-weight: 700;
-            font-size: 1.3rem;
-            margin-bottom: 4px
+        .edu-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.5fr;
+            gap: 56px;
         }
 
-        .edu-school {
-            font-family: var(--ff-body);
-            font-size: .95rem;
-            color: var(--accent-gold);
-            margin-bottom: 12px
+        .edu-body {
+            border-top: 1px solid rgba(255, 255, 255, .12);
+            padding-top: 36px;
         }
 
-        .edu-details {
-            font-family: var(--ff-mono);
-            font-size: .78rem;
-            color: var(--text-muted);
+        .edu-dates {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--sage-faint);
+            margin-bottom: 16px;
+        }
+
+        .edu-body h3 {
+            font-family: var(--serif);
+            font-weight: 500;
+            font-size: 30px;
+            margin: 0;
+            color: var(--head-dark);
+            line-height: 1.2;
+        }
+
+        .edu-body .link-gold {
+            font-size: 15px;
+            margin-top: 12px;
+        }
+
+        .edu-course {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--sage-soft);
+            margin: 26px 0 0;
+            max-width: 620px;
+        }
+
+        .edu-course .muted {
+            color: var(--sage-faint);
+        }
+
+        /* ═══════════ CONTACT ═══════════ */
+        .contact {
+            background: var(--green-deep);
+            color: var(--cream);
+            padding: 120px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-glow {
+            position: absolute;
+            bottom: -25%;
+            left: -8%;
+            width: 560px;
+            height: 560px;
+            background: radial-gradient(circle, rgba(194, 160, 92, .12), transparent 65%);
+            pointer-events: none;
+        }
+
+        .contact-inner {
+            position: relative;
+        }
+
+        .contact h2 {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: clamp(40px, 6vw, 84px);
+            line-height: 1.02;
+            letter-spacing: -.02em;
+            margin: 22px 0 0;
+            color: var(--head-dark);
+            max-width: 900px;
+        }
+
+        .contact-lead {
+            font-size: 17px;
+            line-height: 1.6;
+            color: var(--sage);
+            margin: 28px 0 0;
+            max-width: 640px;
+        }
+
+        .contact-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px
+            gap: 14px;
+            margin-top: 42px;
         }
 
-        .edu-project {
-            margin-top: 16px;
-            padding-top: 16px;
-            border-top: 1px solid var(--border);
-            font-family: var(--ff-body);
-            font-size: .88rem;
-            color: var(--text-secondary)
+        .contact-actions .btn {
+            padding: 16px 30px;
+            font-size: 14px;
         }
 
-        .edu-project strong {
-            color: var(--text-primary)
+        .contact-actions .btn-gold {
+            color: var(--green-deep);
         }
 
-        /* ═══════════ CTA ═══════════ */
-        .cta {
-            text-align: center
-        }
-
-        .cta-headline {
-            font-family: var(--ff-display);
-            font-weight: 900;
-            font-size: clamp(1.6rem, 4vw, 2.4rem);
-            margin-bottom: 16px
-        }
-
-        .cta-sub {
-            font-family: var(--ff-body);
-            font-size: 1rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 36px
-        }
-
-        .cta-buttons {
+        .contact-foot {
             display: flex;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap
+            flex-wrap: wrap;
+            gap: 26px;
+            margin-top: 44px;
+            font-family: var(--mono);
+            font-size: 12.5px;
+            color: #7d9587;
+        }
+
+        .contact-foot a {
+            color: var(--sage-soft);
+            text-decoration: none;
+            transition: color .25s;
+        }
+
+        .contact-foot a:hover {
+            color: var(--gold);
+        }
+
+        .contact-foot .sep {
+            color: rgba(255, 255, 255, .18);
         }
 
         /* ═══════════ FOOTER ═══════════ */
         .footer {
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid var(--border)
+            background: var(--green-deep);
+            color: #6f8779;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            padding: 34px 0;
         }
 
-        .footer-main {
-            font-family: var(--ff-mono);
-            font-size: .78rem;
-            color: var(--text-secondary)
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
         }
 
-        .footer-sub {
-            font-family: var(--ff-mono);
-            font-size: .68rem;
-            color: var(--text-muted);
-            margin-top: 8px
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        /* ═══════════ KEYFRAMES ═══════════ */
-        @keyframes fadeSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px)
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
+        .footer-mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border: 1px solid rgba(194, 160, 92, .5);
+            color: var(--gold);
+            font-family: var(--serif);
+            font-size: 14px;
         }
 
-        @keyframes blink {
-            50% {
-                opacity: 0
-            }
+        .footer-name {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--sage-faint);
         }
 
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1
-            }
-
-            50% {
-                opacity: .4
-            }
+        .footer-tags {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: .08em;
+            color: #5f7367;
         }
 
         /* ═══════════ RESPONSIVE ═══════════ */
-        @media(max-width:768px) {
+        @media (max-width: 900px) {
+            .container,
+            .nav-inner,
+            .hero-inner {
+                padding-left: 28px;
+                padding-right: 28px;
+            }
+
+            .nav-toggle {
+                display: inline-flex;
+            }
+
             .nav-links {
-                position: fixed;
-                top: 64px;
+                position: absolute;
+                top: 66px;
+                left: 0;
                 right: 0;
-                width: 260px;
-                height: calc(100vh - 64px);
-                background: rgba(15, 22, 35, .97);
-                backdrop-filter: blur(20px);
                 flex-direction: column;
-                padding: 32px 24px;
-                gap: 24px;
-                transform: translateX(100%);
-                transition: transform .35s var(--ease)
+                align-items: flex-start;
+                gap: 0;
+                background: rgba(13, 33, 25, .98);
+                backdrop-filter: blur(14px);
+                -webkit-backdrop-filter: blur(14px);
+                border-bottom: 1px solid rgba(255, 255, 255, .08);
+                padding: 8px 28px 16px;
+                display: none;
             }
 
             .nav-links.open {
-                transform: translateX(0)
+                display: flex;
             }
 
-            .hamburger {
-                display: flex
+            .nav-links a {
+                width: 100%;
+                padding: 12px 0;
+                font-size: 14px;
+                border-bottom: 1px solid rgba(255, 255, 255, .06);
             }
 
-            .stats .container {
+            .about-grid,
+            .exp-grid,
+            .edu-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .grid-3,
+            .company-grid,
+            .cert-grid,
+            .skills-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-                padding: 36px 24px
             }
 
-            .exp-header {
-                flex-direction: column
-            }
-
-            .exp-meta {
-                align-items: flex-start
-            }
-
-            .certs-grid {
-                grid-template-columns: 1fr
-            }
-
-            .research-grid {
-                grid-template-columns: 1fr
-            }
-
-            .hero-name {
-                font-size: clamp(2.2rem, 8vw, 3.2rem)
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        @media(max-width:480px) {
-            .section {
-                padding: 64px 0
+        @media (max-width: 600px) {
+            .container,
+            .nav-inner,
+            .hero-inner {
+                padding-left: 20px;
+                padding-right: 20px;
             }
 
-            .stats .container {
-                grid-template-columns: 1fr
+            .hero-inner {
+                padding-top: 64px;
+                padding-bottom: 56px;
             }
 
-            .hero-cta-row {
-                flex-direction: column
+            .about,
+            .experience,
+            .projects,
+            .certs,
+            .skills,
+            .education {
+                padding-top: 64px;
+                padding-bottom: 64px;
             }
 
-            .btn {
-                width: 100%;
-                justify-content: center
+            .contact {
+                padding: 72px 0 64px;
             }
 
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center
+            .grid-3,
+            .company-grid,
+            .cert-grid,
+            .skills-grid,
+            .stats {
+                grid-template-columns: 1fr;
             }
 
-            .cta-buttons .btn {
-                width: 100%;
-                max-width: 300px
+            .block,
+            .block.spaced {
+                margin-top: 56px;
             }
 
-            .edu-details {
-                flex-direction: column;
-                gap: 6px
+            .section-head {
+                margin-bottom: 40px;
             }
         }
     </style>
@@ -1143,566 +1346,588 @@
 
 <body>
 
-    <!-- ═══════════ NAVBAR ═══════════ -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <a href="#" class="nav-logo">AWM</a>
-            <div class="nav-links" id="navLinks">
-                <a href="#about">About</a><a href="#experience">Experience</a>
-                <a href="#projects">Projects</a><a href="#certifications">Certifications</a>
-                <a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a>
+    <!-- ===== TICKER ===== -->
+    <div class="ticker" aria-hidden="true">
+        <div class="ticker-track" id="ticker-track">
+            <!-- two identical sets are injected here for a seamless loop -->
+        </div>
+    </div>
+
+    <!-- ===== NAV ===== -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#top" class="brand">
+                <span class="monogram">A</span>
+                <span class="brand-mark">AWM</span>
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a data-nav href="#about">About</a>
+                <a data-nav href="#experience">Experience</a>
+                <a data-nav href="#projects">Projects</a>
+                <a data-nav href="#certifications">Certifications</a>
+                <a data-nav href="#skills">Skills</a>
+                <a data-nav href="#education">Education</a>
+                <a data-nav href="#contact">Contact</a>
             </div>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
         </div>
     </nav>
 
-    <!-- ═══════════ HERO ═══════════ -->
-    <section class="hero" id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <span class="hero-greeting">INVESTMENT BANKING · PRIVATE EQUITY · EQUITY RESEARCH</span>
-                <h1 class="hero-name">Ahmed <br>Wael<span class="last"> Metwally</span></h1>
-                <div class="hero-role"><span id="tagline">M&amp;A · Private Equity · Equity Research · Valuation · Financial Modeling</span></div>
-                <div class="hero-cta-row">
-                    <a href="#contact" class="btn btn-gold">Get in Touch</a>
-                    <a href="#projects" class="btn btn-outline">View Projects</a>
+    <!-- ===== HERO ===== -->
+    <header id="top" class="hero">
+        <div class="hero-grid-overlay"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-inner">
+            <div class="hero-eyebrow reveal">INVESTMENT BANKING · PRIVATE EQUITY · EQUITY RESEARCH</div>
+            <h1 class="reveal" style="--reveal-delay:80ms">Ahmed Wael<br>Metwally</h1>
+            <p class="hero-subtitle reveal" style="--reveal-delay:160ms">M&amp;A · Private Equity · Equity Research ·
+                Valuation · Financial Modeling — building institutional-grade models, one company at a time.</p>
+
+            <div class="hero-actions reveal" style="--reveal-delay:230ms">
+                <a href="#contact" class="btn btn-gold">Get in Touch <span class="glyph">→</span></a>
+                <a href="#projects" class="btn btn-ghost">View Projects</a>
+            </div>
+
+            <div class="contact-row reveal" style="--reveal-delay:300ms">
+                <span>Cairo, Egypt</span>
+                <span class="sep">/</span>
+                <a href="mailto:ahmedwaelmetwally@gmail.com">ahmedwaelmetwally@gmail.com</a>
+                <span class="sep">/</span>
+                <a href="tel:+201032782667">+20 103 278 2667</a>
+            </div>
+
+            <div class="stats reveal" style="--reveal-delay:360ms">
+                <div class="stat">
+                    <div class="stat-num" data-count="15">15</div>
+                    <div class="stat-label">Companies Modeled</div>
                 </div>
-                <p class="hero-location"><i class="fas fa-map-marker-alt"></i>&ensp;Cairo, Egypt &ensp;·&ensp;
-                    <a href="mailto:ahmedwaelmetwally@gmail.com">ahmedwaelmetwally@gmail.com</a> &ensp;·&ensp;
-                    <a href="tel:+201032782667">+20 103 278 2667</a></p>
+                <div class="stat">
+                    <div class="stat-num" data-count="3">3</div>
+                    <div class="stat-label">Live Financial Engines</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num" data-count="3">3</div>
+                    <div class="stat-label">Professional Certifications</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num" data-count="9">9</div>
+                    <div class="stat-label">EGX Sectors Covered</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="about on-light">
+        <div class="container">
+            <div class="about-grid">
+                <div class="reveal">
+                    <div class="eyebrow">01 — ABOUT</div>
+                    <h2 class="section-title">Who I Am</h2>
+                    <div class="rule"></div>
+                </div>
+                <div class="reveal" style="--reveal-delay:120ms">
+                    <p class="lead">Finance &amp; Investment graduate (<strong>Georgia State University, J. Mack Robinson
+                            College of Business</strong>, 2024) and <strong>Financial Analyst at MCDR</strong> — Egypt's
+                        central securities depository. A <strong>CFA Level&nbsp;I Candidate</strong> holding <strong>Wall
+                            Street Prep (FMVC)</strong> and <strong>CFI (FMVA)</strong> certifications.</p>
+                    <p class="lead">I've built full <strong>3-statement models and DCF valuations from scratch for
+                            fifteen listed companies</strong> — twelve on the EGX across nine sectors, two on Saudi
+                        Arabia's Tadawul, and Apple on NASDAQ — carrying each through to a <strong>fair value, price
+                            target, and buy/hold/sell call</strong>, with initiation-of-coverage research on Elsewedy and
+                        Juhayna, plus three live financial engines spanning multi-method valuation, M&amp;A modeling, and
+                        integrated 3-statement work.</p>
+                    <p class="note">Targeting analyst roles in investment banking, private equity, equity research,
+                        venture capital, and hedge funds across Egypt, the GCC, and international markets.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════ STATS ═══════════ -->
-    <section class="stats reveal" id="stats">
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience" class="experience on-dark">
         <div class="container">
-            <div class="stat-item">
-                <div class="stat-number"><span class="counter" data-target="15">0</span></div>
-                <div class="stat-label">Companies Modeled</div>
+            <div class="section-head reveal">
+                <div class="eyebrow">02 — EXPERIENCE</div>
+                <h2 class="section-title">Career History</h2>
             </div>
-            <div class="stat-item">
-                <div class="stat-number"><span class="counter" data-target="3">0</span></div>
-                <div class="stat-label">Live Financial Engines Built</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number"><span class="counter" data-target="3">0</span></div>
-                <div class="stat-label">Professional Certifications</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number"><span class="counter" data-target="1">0</span><span class="suffix">+</span>
+            <div class="exp-grid reveal" style="--reveal-delay:100ms">
+                <div>
+                    <div class="tag-current">● Current Role</div>
+                    <h3 class="exp-role">Financial Analyst</h3>
+                    <a class="link-gold" href="https://www.mcsd.com.eg/en" target="_blank" rel="noopener"
+                        style="font-size:14px;margin-top:10px;">MCDR — Misr for Central Clearing, Depository &amp;
+                        Registry ↗</a>
+                    <div class="exp-meta">Nov 2024 – Present<br>Cairo, Egypt</div>
+                    <p class="exp-desc">Egypt's central securities depository and post-trade infrastructure operator for
+                        the EGX, regulated by the FRA.</p>
                 </div>
-                <div class="stat-label">Years at Egypt's CSD</div>
+                <div class="exp-bullets">
+                    <div class="exp-bullet">
+                        <span class="idx">01</span>
+                        <p>Valued EGX-listed companies through detailed DCF and 3-statement models, presented the
+                            investment cases to the CFO, and recommended which opportunities the firm should pursue.</p>
+                    </div>
+                    <div class="exp-bullet">
+                        <span class="idx">02</span>
+                        <p>Analyzed financial statements under EAS and IFRS — revenue drivers, margins, cash conversion,
+                            and earnings quality — to separate businesses that can sustain their numbers from those that
+                            only look cheap.</p>
+                    </div>
+                    <div class="exp-bullet">
+                        <span class="idx">03</span>
+                        <p>Screened EGX sectors for new investment ideas, building the shortlist of names that earned a
+                            full valuation.</p>
+                    </div>
+                    <div class="exp-bullet">
+                        <span class="idx">04</span>
+                        <p>Tracked the firm's investment portfolio for sector concentration and exposure risk, flagging
+                            build-ups before they became problems.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <div class="section-divider"></div>
 
-    <!-- ═══════════ ABOUT ═══════════ -->
-    <section class="section reveal" id="about">
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="projects on-light">
         <div class="container">
-            <span class="section-label">01 — About</span>
-            <h2 class="section-title">Who I Am</h2>
-            <p class="about-text">Finance &amp; Investment graduate (<strong>Georgia State University, J. Mack
-                Robinson College of Business</strong>, 2024) and <strong>Financial Analyst at MCDR</strong> — Egypt's
-                central securities depository. <strong>CFA Level I Candidate</strong>, with <strong>Wall Street Prep
-                (FMVC)</strong> and <strong>CFI (FMVA)</strong> financial modeling certifications. Built full
-                <strong>3-statement models and DCF valuations from scratch for fifteen listed companies</strong> — twelve on
-                the <strong>EGX</strong> across nine sectors, two on Saudi Arabia's <strong>Tadawul</strong>, and
-                <strong>Apple on NASDAQ</strong> —
-                carrying each through to a <strong>fair value, price target, and buy/hold/sell call</strong>, and
-                publishing <strong>initiation-of-coverage equity research</strong> on Elsewedy and Juhayna — alongside
-                three live financial engines spanning <strong>multi-method valuation</strong>, <strong>M&amp;A
-                modeling</strong>, and <strong>integrated 3-statement modeling</strong>. Targeting analyst roles in
-                <strong>investment banking</strong>, <strong>private equity</strong>, <strong>equity research</strong>,
-                <strong>venture capital</strong>, and <strong>hedge funds</strong> across Egypt, the GCC, and
-                international markets.
-            </p>
-        </div>
-    </section>
-    <div class="section-divider"></div>
+            <div class="projects-intro reveal">
+                <div class="eyebrow">03 — SELECTED WORK</div>
+                <h2 class="section-title">Built for Finance</h2>
+                <p>From-scratch 3-statement models and DCF valuations across three markets, initiation-of-coverage equity
+                    research, and three live financial engines.</p>
+            </div>
 
-    <!-- ═══════════ EXPERIENCE ═══════════ -->
-    <section class="section reveal" id="experience">
-        <div class="container">
-            <span class="section-label">02 — Experience</span>
-            <h2 class="section-title">Career History</h2>
-
-            <div class="exp-card featured">
-                <div class="exp-header">
-                    <div>
-                        <div class="exp-role">Financial Analyst</div>
-                        <div class="exp-company"><a href="https://www.mcsd.com.eg/en" target="_blank"
-                                rel="noopener noreferrer">MCDR — Misr for Central Clearing, Depository and Registry</a>
+            <!-- 5a. Equity research -->
+            <div class="block reveal">
+                <div class="block-head">
+                    <h3>Equity Research — Initiation of Coverage</h3>
+                    <span class="block-caption">DCF-anchored · PT vs. market</span>
+                </div>
+                <div class="grid-3">
+                    <div class="research-card">
+                        <div class="research-top">
+                            <span class="research-ticker">ARCC.CA</span>
+                            <span class="call-badge call-over">Overweight</span>
+                        </div>
+                        <h4>Arabian Cement</h4>
+                        <div class="research-sector">Building Materials &amp; Cement</div>
+                        <div class="stat-pair">
+                            <div>
+                                <div class="lbl">Price Target</div>
+                                <div class="val">EGP 80</div>
+                            </div>
+                            <div>
+                                <div class="lbl">Current</div>
+                                <div class="val">EGP 56.11</div>
+                            </div>
+                        </div>
+                        <div class="move up">+43% Upside</div>
+                        <p class="thesis">Trading at a 43% discount to intrinsic value, with a net-cash balance sheet and
+                            a post-devaluation earnings step-change not yet in the share price.</p>
+                        <div class="card-links">
+                            <a class="primary"
+                                href="https://ahmedwael.pages.dev/models/Arabian-Cement-ARCC-Equity-Research.pdf"
+                                target="_blank" rel="noopener">Report ↗</a>
+                            <a class="secondary"
+                                href="https://ahmedwael.pages.dev/models/Arabian-Cement-ARCC-Equity-Research.pptx"
+                                target="_blank" rel="noopener">Slides ↗</a>
                         </div>
                     </div>
-                    <div class="exp-meta"><span class="badge badge-gold">Current Role</span><span>November 2024 –
-                            Present</span><span>Cairo, Egypt</span></div>
+                    <div class="research-card">
+                        <div class="research-top">
+                            <span class="research-ticker">SWDY.CA</span>
+                            <span class="call-badge call-under">Underweight</span>
+                        </div>
+                        <h4>Elsewedy Electric</h4>
+                        <div class="research-sector">Cables, Energy &amp; EPC Infrastructure</div>
+                        <div class="stat-pair">
+                            <div>
+                                <div class="lbl">Price Target</div>
+                                <div class="val">EGP 71</div>
+                            </div>
+                            <div>
+                                <div class="lbl">Current</div>
+                                <div class="val">EGP 91.19</div>
+                            </div>
+                        </div>
+                        <div class="move down">−22.3% Downside</div>
+                        <p class="thesis">At 91 EGP the market prices in &gt;12% perpetual FCF growth — above Egypt's
+                            nominal GDP; our DCF supports 71 EGP.</p>
+                        <div class="card-links">
+                            <a class="primary"
+                                href="https://ahmedwael.pages.dev/models/Elsewedy-SWDY-Equity-Research.pdf"
+                                target="_blank" rel="noopener">Report ↗</a>
+                            <a class="secondary"
+                                href="https://ahmedwael.pages.dev/models/Elsewedy-SWDY-Equity-Research.pptx"
+                                target="_blank" rel="noopener">Slides ↗</a>
+                        </div>
+                    </div>
+                    <div class="research-card">
+                        <div class="research-top">
+                            <span class="research-ticker">JUFO.CA</span>
+                            <span class="call-badge call-under">Underweight</span>
+                        </div>
+                        <h4>Juhayna Food Industries</h4>
+                        <div class="research-sector">Dairy &amp; Beverage</div>
+                        <div class="stat-pair">
+                            <div>
+                                <div class="lbl">Price Target</div>
+                                <div class="val">EGP 22</div>
+                            </div>
+                            <div>
+                                <div class="lbl">Current</div>
+                                <div class="val">EGP 28.09</div>
+                            </div>
+                        </div>
+                        <div class="move down">−21.7% Downside</div>
+                        <p class="thesis">Input-cost pressure and a stretched multiple leave little margin of safety; our
+                            DCF lands at 22 EGP against a 28 EGP market price.</p>
+                        <div class="card-links">
+                            <a class="primary"
+                                href="https://ahmedwael.pages.dev/models/Juhayna-JUFO-Equity-Research.pdf"
+                                target="_blank" rel="noopener">Report ↗</a>
+                            <a class="secondary"
+                                href="https://ahmedwael.pages.dev/models/Juhayna-JUFO-Equity-Research.pptx"
+                                target="_blank" rel="noopener">Slides ↗</a>
+                        </div>
+                    </div>
                 </div>
-                <p class="exp-note">Egypt's central securities depository (CSD) and post-trade infrastructure operator
-                    for the Egyptian Exchange (EGX), regulated by FRA.</p>
-                <ul class="exp-bullets">
-                    <li>Valued EGX-listed companies through detailed DCF and 3-statement models, presented the
-                        investment cases to the CFO, and recommended which opportunities the firm should pursue.</li>
-                    <li>Analyzed company financial statements under EAS and IFRS — revenue drivers, margins, cash
-                        conversion, and earnings quality — to separate businesses that can sustain their numbers from
-                        those that only look cheap.</li>
-                    <li>Screened EGX sectors for new investment ideas, building the shortlist of names that earned a
-                        full valuation.</li>
-                    <li>Tracked the firm's investment portfolio for sector concentration and exposure risk, flagging
-                        build-ups before they became problems.</li>
-                </ul>
+            </div>
+
+            <!-- 5b. Model library -->
+            <div class="block spaced reveal">
+                <div class="block-head">
+                    <h3>Valuation &amp; 3-Statement Model Library</h3>
+                    <span class="block-caption">15 companies · 3 markets · DCF + NAV</span>
+                </div>
+                <div id="model-library">
+                    <!-- market groups injected here -->
+                </div>
+            </div>
+
+            <!-- 5c. Engines -->
+            <div class="block spaced reveal">
+                <div class="block-head">
+                    <h3>Live Financial Engines</h3>
+                    <span class="block-caption">Deployed &amp; interactive</span>
+                </div>
+                <div class="grid-3">
+                    <a class="engine-card" href="https://wolf-valuation-engine.pages.dev/" target="_blank"
+                        rel="noopener">
+                        <div class="live-tag"><span class="live-dot"></span>LIVE</div>
+                        <h4>Multi-Method Valuation Engine</h4>
+                        <p>Runs DCF, comps, DDM, DuPont, EVA, and Altman/Piotroski scoring on any EGX name and outputs a
+                            one-page valuation summary.</p>
+                        <div class="engine-open">Open Engine →</div>
+                    </a>
+                    <a class="engine-card" href="https://valor-ma-engine.pages.dev/" target="_blank" rel="noopener">
+                        <div class="live-tag"><span class="live-dot"></span>LIVE</div>
+                        <h4>M&amp;A Modeling Engine</h4>
+                        <p>End-to-end M&amp;A model — merger math, LBO, accretion/dilution, and synergies — with rates
+                            and EAS accounting set to the Egyptian market.</p>
+                        <div class="engine-open">Open Engine →</div>
+                    </a>
+                    <a class="engine-card" href="https://3-statement-model-engine.pages.dev/" target="_blank"
+                        rel="noopener">
+                        <div class="live-tag"><span class="live-dot"></span>LIVE</div>
+                        <h4>3-Statement Model Engine</h4>
+                        <p>Reusable 5-year 3-statement template (IFRS/EAS) underpinning every company model, with
+                            base/bull/bear scenarios and market-calibrated interest schedules.</p>
+                        <div class="engine-open">Open Engine →</div>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
-    <div class="section-divider"></div>
 
-    <!-- ═══════════ PROJECTS ═══════════ -->
-    <section class="section reveal" id="projects">
+    <!-- ===== CERTIFICATIONS ===== -->
+    <section id="certifications" class="certs on-dark">
         <div class="container">
-            <span class="section-label">03 — Projects</span>
-            <h2 class="section-title">Built for Finance</h2>
-            <div class="projects-grid">
-
-                <div class="project-card featured-project" id="equity-models">
-                    <div class="project-top">
-                        <div>
-                            <div class="project-title">Equity Valuation &amp; 3-Statement Models — EGX, Tadawul &amp; US-Listed Companies</div>
-                        </div>
-                    </div>
-                    <p class="project-desc">Built full 3-statement models and DCF valuations from scratch for twelve
-                        EGX-listed companies across nine sectors, with NAV/RNAV added for the real-estate developer.</p>
-                    <p class="project-desc">Applied the same from-scratch approach to international names — Almarai
-                        (2280.SR) and Qassim Cement (3040.SR) on Saudi Tadawul, and Apple (AAPL) on NASDAQ —
-                        recalibrating WACC and assumptions to each market.</p>
-                    <p class="project-desc">Carried each model through to a fair value, a price target, and a
-                        buy/hold/sell call against the prevailing market price.</p>
-
-                    <div class="research-eyebrow">Equity Research — Initiation of Coverage</div>
-                    <div class="research-grid">
-                        <div class="research-card">
-                            <div class="research-head">
-                                <div>
-                                    <div class="research-company">Arabian Cement · ARCC.CA</div>
-                                    <div class="research-sector">Building Materials &amp; Cement</div>
-                                </div>
-                                <span class="rating-chip">Overweight</span>
-                            </div>
-                            <div class="research-metrics">
-                                <span>Price Target <span class="val">EGP 80</span></span>
-                                <span>Current <span class="val">EGP 56.11</span></span>
-                                <span>Upside <span class="val">+43%</span></span>
-                            </div>
-                            <p class="research-thesis">Trading at a 43% discount to intrinsic value, with a net-cash
-                                balance sheet and a post-devaluation earnings step-change not yet in the share price.</p>
-                            <div class="research-actions">
-                                <a href="/models/Arabian-Cement-ARCC-Equity-Research.pdf" target="_blank" rel="noopener noreferrer">Read Report</a>
-                                <span class="sep">·</span>
-                                <a href="/models/Arabian-Cement-ARCC-Equity-Research.pptx" download>Slides</a>
-                            </div>
-                        </div>
-                        <div class="research-card">
-                            <div class="research-head">
-                                <div>
-                                    <div class="research-company">Elsewedy Electric · SWDY.CA</div>
-                                    <div class="research-sector">Cables, Energy &amp; EPC Infrastructure</div>
-                                </div>
-                                <span class="rating-chip">Underweight</span>
-                            </div>
-                            <div class="research-metrics">
-                                <span>Price Target <span class="val">EGP 71</span></span>
-                                <span>Current <span class="val">EGP 91.19</span></span>
-                                <span>Downside <span class="val">(22.3)%</span></span>
-                            </div>
-                            <p class="research-thesis">At 91 EGP the market prices &gt;12% perpetual FCF growth — above
-                                Egypt's nominal GDP; our DCF supports 71 EGP.</p>
-                            <div class="research-actions">
-                                <a href="/models/Elsewedy-SWDY-Equity-Research.pdf" target="_blank" rel="noopener noreferrer">Read Report</a>
-                                <span class="sep">·</span>
-                                <a href="/models/Elsewedy-SWDY-Equity-Research.pptx" download>Slides</a>
-                            </div>
-                        </div>
-                        <div class="research-card">
-                            <div class="research-head">
-                                <div>
-                                    <div class="research-company">Juhayna Food Industries · JUFO.CA</div>
-                                    <div class="research-sector">Dairy &amp; Beverage</div>
-                                </div>
-                                <span class="rating-chip">Underweight</span>
-                            </div>
-                            <div class="research-metrics">
-                                <span>Price Target <span class="val">EGP 22</span></span>
-                                <span>Current <span class="val">EGP 28.09</span></span>
-                                <span>Downside <span class="val">(21.7)%</span></span>
-                            </div>
-                            <div class="research-actions">
-                                <a href="/models/Juhayna-JUFO-Equity-Research.pdf" target="_blank" rel="noopener noreferrer">Read Report</a>
-                                <span class="sep">·</span>
-                                <a href="/models/Juhayna-JUFO-Equity-Research.pptx" download>Slides</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="models-group-label">EGX — Cairo</div>
-                    <div class="models-grid">
-                        <div class="model-card">
-                            <div class="model-company">Arabian Cement</div>
-                            <div class="model-meta">ARCC.CA · Materials / Cement</div>
-                            <div class="model-actions">
-                                <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fahmedwael.pages.dev%2Fmodels%2FArabian-Cement-ARCC-Valuation-Model.xlsx" target="_blank" rel="noopener noreferrer">Preview</a>
-                                <span class="sep">·</span>
-                                <a href="/models/Arabian-Cement-ARCC-Valuation-Model.xlsx" download>Download</a>
-                            </div>
-                        </div>
-                        <div class="model-card">
-                            <div class="model-company">Oriental Weavers</div>
-                            <div class="model-meta">ORWE.CA · Home Textiles / Carpets</div>
-                            <div class="model-actions">
-                                <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fahmedwael.pages.dev%2Fmodels%2FOriental-Weavers-ORWE-Valuation-Model.xlsx" target="_blank" rel="noopener noreferrer">Preview</a>
-                                <span class="sep">·</span>
-                                <a href="/models/Oriental-Weavers-ORWE-Valuation-Model.xlsx" download>Download</a>
-                            </div>
-                        </div>
-                        <div class="model-card">
-                            <div class="model-company">Ibnsina Pharma</div>
-                            <div class="model-meta">ISPH.CA · Healthcare / Pharma Distribution</div>
-                            <div class="model-actions">
-                                <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fahmedwael.pages.dev%2Fmodels%2FIbnsina-Pharma-ISPH-Valuation-Model.xlsx" target="_blank" rel="noopener noreferrer">Preview</a>
-                                <span class="sep">·</span>
-                                <a href="/models/Ibnsina-Pharma-ISPH-Valuation-Model.xlsx" download>Download</a>
-                            </div>
-                        </div>
-                        <div class="model-card">
-                            <div class="model-company">Telecom Egypt</div>
-                            <div class="model-meta">ETEL.CA · Telecom</div>
-                            <div class="model-actions">
-                                <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fahmedwael.pages.dev%2Fmodels%2FTelecom-Egypt-ETEL-Valuation-Model.xlsx" target="_blank" rel="noopener noreferrer">Preview</a>
-                                <span class="sep">·</span>
-                                <a href="/models/Telecom-Egypt-ETEL-Valuation-Model.xlsx" download>Download</a>
-                            </div>
-                        </div>
-                        <div class="model-card">
-                            <div class="model-company">E-finance</div>
-                            <div class="model-meta">EFIH.CA · Fintech</div>
-                            <div class="model-actions">
-                                <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fahmedwael.pages.dev%2Fmodels%2FE-finance-EFIH-Valuation-Model.xlsx" target="_blank" rel="noopener noreferrer">Preview</a>
-                                <span class="sep">·</span>
-                                <a href="/models/E-finance-EFIH-Valuation-Model.xlsx" download>Download</a>
-                            </div>
-                        </div>
-                        <div class="model-card">
-                            <div class="model-company">Talaat Moustafa Group</div>
-                            <div class="model-meta">TMGH.CA · Real Estate</div>
-                            <div class="model-actions">
-                                <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fahmedwael.pages.dev%2Fmodels%2FTalaat-Moustafa-TMGH-Valuation-Model.xlsx" target="_blank" rel="noopener noreferrer">Preview</a>
-                                <span class="sep">·</span>
-                                <a href="/models/Talaat-Moustafa-TMGH-Valuation-Model.xlsx" download>Download</a>
-                            </div>
-                        </div>
-                        <div class="model-card">
-                            <div class="model-company">Elsewedy Electric</div>
-                            <div class="model-meta">SWDY.CA · Industrials</div>
-                            <div class="model-actions">
-                                <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fahmedwael.pages.dev%2Fmodels%2FElsewedy-Electric-SWDY-Valuation-Model.xlsx" target="_blank" rel="noopener noreferrer">Preview</a>
-                                <span class="sep">·</span>
-                                <a href="/models/Elsewedy-Electric-SWDY-Valuation-Model.xlsx" download>Download</a>
-                            </div>
-                        </div>
-                        <div class="model-card">
-                            <div class="model-company">Fawry</div>
-                            <div class="model-meta">FWRY.CA · Fintech</div>
-                            <div class="model-actions">
-                                <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fahmedwael.pages.dev%2Fmodels%2FFawry-FWRY-Valuation-Model.xlsx" target="_blank" rel="noopener noreferrer">Preview</a>
-                                <span class="sep">·</span>
-                                <a href="/models/Fawry-FWRY-Valuation-Model.xlsx" download>Download</a>
-                            </div>
-                        </div>
-                        <div class="model-card">
-                            <div class="model-company">Cleopatra Hospital Group</div>
-                            <div class="model-meta">CLHO.CA · Healthcare</div>
-                            <div class="model-actions">
-                                <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fahmedwael.pages.dev%2Fmodels%2FCleopatra-Hospital-CLHO-Valuation-Model.xlsx" target="_blank" rel="noopener noreferrer">Preview</a>
-                                <span class="sep">·</span>
-                                <a href="/models/Cleopatra-Hospital-CLHO-Valuation-Model.xlsx" download>Download</a>
-                            </div>
-                        </div>
-                        <div class="model-card">
-                            <div class="model-company">Juhayna Food Industries</div>
-                            <div class="model-meta">JUFO.CA · Consumer Staples</div>
-                            <div class="model-actions">
-                                <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fahmedwael.pages.dev%2Fmodels%2FJuhayna-JUFO-Valuation-Model.xlsx" target="_blank" rel="noopener noreferrer">Preview</a>
-                                <span class="sep">·</span>
-                                <a href="/models/Juhayna-JUFO-Valuation-Model.xlsx" download>Download</a>
-                            </div>
-                        </div>
-                        <div class="model-card">
-                            <div class="model-company">Eastern Company</div>
-                            <div class="model-meta">EAST.CA · Tobacco</div>
-                            <div class="model-actions">
-                                <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fahmedwael.pages.dev%2Fmodels%2FEastern-Company-EAST-Valuation-Model.xlsx" target="_blank" rel="noopener noreferrer">Preview</a>
-                                <span class="sep">·</span>
-                                <a href="/models/Eastern-Company-EAST-Valuation-Model.xlsx" download>Download</a>
-                            </div>
-                        </div>
-                        <div class="model-card">
-                            <div class="model-company">Edita Food Industries</div>
-                            <div class="model-meta">EFID.CA · Consumer Staples</div>
-                            <div class="model-actions">
-                                <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fahmedwael.pages.dev%2Fmodels%2FEdita-EFID-Valuation-Model.xlsx" target="_blank" rel="noopener noreferrer">Preview</a>
-                                <span class="sep">·</span>
-                                <a href="/models/Edita-EFID-Valuation-Model.xlsx" download>Download</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="models-group-label">Tadawul — Riyadh (TASI)</div>
-                    <div class="models-grid">
-                        <div class="model-card">
-                            <div class="model-company">Almarai</div>
-                            <div class="model-meta">2280.SR · Consumer Staples</div>
-                            <div class="model-actions">
-                                <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fahmedwael.pages.dev%2Fmodels%2FAlmarai-2280-Valuation-Model.xlsx" target="_blank" rel="noopener noreferrer">Preview</a>
-                                <span class="sep">·</span>
-                                <a href="/models/Almarai-2280-Valuation-Model.xlsx" download>Download</a>
-                            </div>
-                        </div>
-                        <div class="model-card">
-                            <div class="model-company">Qassim Cement</div>
-                            <div class="model-meta">3040.SR · Materials</div>
-                            <div class="model-actions">
-                                <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fahmedwael.pages.dev%2Fmodels%2FQassim-Cement-3040-Valuation-Model.xlsx" target="_blank" rel="noopener noreferrer">Preview</a>
-                                <span class="sep">·</span>
-                                <a href="/models/Qassim-Cement-3040-Valuation-Model.xlsx" download>Download</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="models-group-label">NASDAQ — New York</div>
-                    <div class="models-grid">
-                        <div class="model-card">
-                            <div class="model-company">Apple</div>
-                            <div class="model-meta">AAPL · Technology</div>
-                            <div class="model-actions">
-                                <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fahmedwael.pages.dev%2Fmodels%2FApple-AAPL-Valuation-Model.xlsx" target="_blank" rel="noopener noreferrer">Preview</a>
-                                <span class="sep">·</span>
-                                <a href="/models/Apple-AAPL-Valuation-Model.xlsx" download>Download</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card featured-project">
-                    <div class="project-top">
-                        <div>
-                            <div class="project-title">Multi-Method Valuation Engine</div>
-                        </div>
-                        <span class="badge-live"><span class="dot"></span>Live</span>
-                    </div>
-                    <p class="project-desc">Built a valuation tool that runs DCF, comps, DDM, DuPont, EVA, and
-                        Altman/Piotroski scoring on any EGX name and outputs a one-page valuation summary.</p>
-                    <a href="https://wolf-valuation-engine.pages.dev/" target="_blank" rel="noopener noreferrer"
-                        class="btn-demo"><i class="fas fa-external-link-alt"></i> Live</a>
-                </div>
-
-                <div class="project-card featured-project">
-                    <div class="project-top">
-                        <div>
-                            <div class="project-title">M&amp;A Modeling Engine</div>
-                        </div>
-                        <span class="badge-live"><span class="dot"></span>Live</span>
-                    </div>
-                    <p class="project-desc">Designed an end-to-end M&amp;A model — merger math, LBO, accretion/dilution,
-                        and synergies — with rates and accounting treatment (EAS) set to the Egyptian market.</p>
-                    <a href="https://valor-ma-engine.pages.dev/" target="_blank" rel="noopener noreferrer"
-                        class="btn-demo"><i class="fas fa-external-link-alt"></i> Live</a>
-                </div>
-
-                <div class="project-card featured-project">
-                    <div class="project-top">
-                        <div>
-                            <div class="project-title">3-Statement Financial Model Engine</div>
-                        </div>
-                        <span class="badge-live"><span class="dot"></span>Live</span>
-                    </div>
-                    <p class="project-desc">Created the reusable 5-year 3-statement template (IFRS/EAS) that underpins
-                        every company model, with base/bull/bear scenarios and market-calibrated interest schedules.</p>
-                    <a href="https://3-statement-model-engine.pages.dev/" target="_blank" rel="noopener noreferrer"
-                        class="btn-demo"><i class="fas fa-external-link-alt"></i> Live</a>
-                </div>
-
+            <div class="section-head reveal">
+                <div class="eyebrow">04 — CREDENTIALS</div>
+                <h2 class="section-title">Certifications</h2>
             </div>
-        </div>
-    </section>
-    <div class="section-divider"></div>
-
-    <!-- ═══════════ CERTIFICATIONS ═══════════ -->
-    <section class="section reveal" id="certifications">
-        <div class="container">
-            <span class="section-label">04 — Certifications</span>
-            <h2 class="section-title">Credentials</h2>
-            <div class="certs-grid">
-
+            <div class="cert-grid reveal" style="--reveal-delay:100ms">
                 <div class="cert-card">
-                    <div class="cert-icon"><i class="fas fa-medal"></i></div>
-                    <div class="cert-name">CFA Level I Candidate</div>
+                    <span class="cert-year">In Progress</span>
+                    <h3>CFA Level I Candidate</h3>
                     <div class="cert-issuer">CFA Institute</div>
-                    <div class="cert-year">In Progress</div>
                 </div>
-
                 <div class="cert-card">
-                    <div class="cert-icon"><i class="fas fa-chart-line"></i></div>
-                    <div class="cert-name">Financial &amp; Valuation Modeling Certification (FMVC)</div>
+                    <span class="cert-year">2026</span>
+                    <h3>Financial &amp; Valuation Modeling (FMVC)</h3>
                     <div class="cert-issuer">Wall Street Prep</div>
-                    <div class="cert-year">2026</div>
                 </div>
-
                 <div class="cert-card">
-                    <div class="cert-icon"><i class="fas fa-chart-line"></i></div>
-                    <div class="cert-name">Financial Modeling &amp; Valuation Analyst (FMVA)</div>
+                    <span class="cert-year">2025</span>
+                    <h3>Financial Modeling &amp; Valuation Analyst (FMVA)</h3>
                     <div class="cert-issuer">Corporate Finance Institute</div>
-                    <div class="cert-year">2025</div>
-                    <a href="http://credentials.corporatefinanceinstitute.com/96cc4829-968e-462b-b284-2556c7262a40"
-                        target="_blank" rel="noopener noreferrer" class="cert-link">View Credential →</a>
+                    <a class="cert-link"
+                        href="http://credentials.corporatefinanceinstitute.com/96cc4829-968e-462b-b284-2556c7262a40"
+                        target="_blank" rel="noopener">View Credential ↗</a>
                 </div>
-
             </div>
         </div>
     </section>
-    <div class="section-divider"></div>
 
-    <!-- ═══════════ SKILLS ═══════════ -->
-    <section class="section reveal" id="skills">
+    <!-- ===== SKILLS ===== -->
+    <section id="skills" class="skills on-light">
         <div class="container">
-            <span class="section-label">05 — Skills</span>
-            <h2 class="section-title">Expertise</h2>
-
-            <div class="skills-group">
-                <div class="skills-group-title">Financial Modeling</div>
-                <div class="skills-tags">
-                    <span class="skill-tag">3-Statement Modeling</span><span class="skill-tag">DCF</span><span
-                        class="skill-tag">LBO</span><span class="skill-tag">Comparable Company Analysis</span><span
-                        class="skill-tag">Precedent Transactions</span><span class="skill-tag">Merger Model</span><span
-                        class="skill-tag">Accretion/Dilution</span>
-                </div>
+            <div class="section-head reveal">
+                <div class="eyebrow">05 — EXPERTISE</div>
+                <h2 class="section-title">Skills &amp; Tooling</h2>
             </div>
-
-            <div class="skills-group">
-                <div class="skills-group-title">Valuation &amp; Analysis</div>
-                <div class="skills-tags">
-                    <span class="skill-tag">WACC</span><span class="skill-tag">Terminal Value</span><span
-                        class="skill-tag">Sensitivity &amp; Scenario Analysis</span><span class="skill-tag">Relative
-                        Valuation</span><span class="skill-tag">NAV/RNAV</span><span class="skill-tag">Dividend
-                        Discount Model</span>
+            <div class="skills-grid">
+                <div class="skill-group reveal">
+                    <h3>Financial Modeling</h3>
+                    <div class="chips">
+                        <span class="chip">3-Statement Modeling</span>
+                        <span class="chip">DCF</span>
+                        <span class="chip">LBO</span>
+                        <span class="chip">Comparable Company Analysis</span>
+                        <span class="chip">Precedent Transactions</span>
+                        <span class="chip">Merger Model</span>
+                        <span class="chip">Accretion / Dilution</span>
+                    </div>
                 </div>
-            </div>
-
-            <div class="skills-group">
-                <div class="skills-group-title">Tools</div>
-                <div class="skills-tags">
-                    <span class="skill-tag">Bloomberg Terminal</span><span class="skill-tag">Capital IQ</span><span
-                        class="skill-tag">Microsoft Excel (Advanced)</span><span
-                        class="skill-tag">PowerPoint</span><span class="skill-tag">Python</span>
+                <div class="skill-group reveal">
+                    <h3>Valuation &amp; Analysis</h3>
+                    <div class="chips">
+                        <span class="chip">WACC</span>
+                        <span class="chip">Terminal Value</span>
+                        <span class="chip">Sensitivity &amp; Scenario</span>
+                        <span class="chip">Relative Valuation</span>
+                        <span class="chip">NAV / RNAV</span>
+                        <span class="chip">Dividend Discount Model</span>
+                    </div>
+                </div>
+                <div class="skill-group reveal">
+                    <h3>Tools</h3>
+                    <div class="chips">
+                        <span class="chip">Bloomberg Terminal</span>
+                        <span class="chip">Capital IQ</span>
+                        <span class="chip">Excel (Advanced)</span>
+                        <span class="chip">PowerPoint</span>
+                        <span class="chip">Python</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <div class="section-divider"></div>
 
-    <!-- ═══════════ EDUCATION ═══════════ -->
-    <section class="section reveal" id="education">
+    <!-- ===== EDUCATION ===== -->
+    <section id="education" class="education on-dark">
         <div class="container">
-            <span class="section-label">06 — Education</span>
-            <h2 class="section-title">Academic Background</h2>
-            <div class="edu-card">
-                <div class="edu-degree">Bachelor of Finance and Investment</div>
-                <div class="edu-school"><a href="https://robinson.gsu.edu/" target="_blank"
-                        rel="noopener noreferrer">Georgia State University, J. Mack Robinson College of Business</a>
+            <div class="edu-grid reveal">
+                <div>
+                    <div class="eyebrow">06 — EDUCATION</div>
+                    <h2 class="section-title">Academic Background</h2>
                 </div>
-                <div class="edu-details">
-                    <span><i class="fas fa-calendar-alt"></i>&ensp;2020 – 2024</span>
+                <div class="edu-body">
+                    <div class="edu-dates">2020 – 2024</div>
+                    <h3>Bachelor of Finance &amp; Investment</h3>
+                    <a class="link-gold" href="https://robinson.gsu.edu/" target="_blank" rel="noopener">Georgia State
+                        University, J. Mack Robinson College of Business ↗</a>
+                    <p class="edu-course"><span class="muted">Relevant coursework —</span> Corporate Finance, Financial
+                        Statement Analysis, Investments, Financial Modeling &amp; Valuation, Capital Markets,
+                        Econometrics.</p>
                 </div>
-                <div class="edu-project"><strong>Relevant Coursework:</strong> Corporate Finance, Financial Statement
-                    Analysis, Investments, Financial Modeling &amp; Valuation, Capital Markets, Econometrics.</div>
-            </div>
-        </div>
-    </section>
-    <div class="section-divider"></div>
-
-    <!-- ═══════════ CONTACT ═══════════ -->
-    <section class="section cta reveal" id="contact">
-        <div class="container">
-            <span class="section-label">07 — Contact</span>
-            <h2 class="cta-headline">Let's Build the Next Deal Together</h2>
-            <p class="cta-sub">Open to analyst opportunities across investment banking, private equity, equity
-                research, venture capital, and hedge funds — Egypt, the GCC, and international markets.</p>
-            <div class="cta-buttons">
-                <a href="/Ahmed%20Wael%20Metwally%20-%20CV.pdf" download="Ahmed Wael Metwally - CV.pdf" class="btn btn-gold"
-                    target="_blank" rel="noopener noreferrer"><i class="fas fa-download"></i> Download CV</a>
-                <a href="https://www.linkedin.com/in/ahmedwaelmetwally" target="_blank" rel="noopener noreferrer"
-                    class="btn btn-outline"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
-                <a href="mailto:ahmedwaelmetwally@gmail.com" class="btn btn-outline"><i class="fas fa-envelope"></i>
-                    Send an Email</a>
-                <a href="tel:+201032782667" class="btn btn-outline"><i class="fas fa-phone"></i>
-                    Call +20 103 278 2667</a>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════ FOOTER ═══════════ -->
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="contact">
+        <div class="contact-glow"></div>
+        <div class="container contact-inner">
+            <div class="eyebrow reveal">07 — CONTACT</div>
+            <h2 class="reveal" style="--reveal-delay:80ms">Let's build the<br>next deal together.</h2>
+            <p class="contact-lead reveal" style="--reveal-delay:140ms">Open to analyst opportunities across investment
+                banking, private equity, equity research, venture capital, and hedge funds — Egypt, the GCC, and
+                international markets.</p>
+            <div class="contact-actions reveal" style="--reveal-delay:200ms">
+                <a class="btn btn-gold" href="https://ahmedwael.pages.dev/Ahmed%20Wael%20Metwally%20-%20CV.pdf"
+                    target="_blank" rel="noopener">Download CV <span class="glyph">↓</span></a>
+                <a class="btn btn-ghost" href="https://www.linkedin.com/in/ahmedwaelmetwally" target="_blank"
+                    rel="noopener">LinkedIn ↗</a>
+                <a class="btn btn-ghost" href="mailto:ahmedwaelmetwally@gmail.com">Email</a>
+            </div>
+            <div class="contact-foot reveal" style="--reveal-delay:260ms">
+                <a href="tel:+201032782667">+20 103 278 2667</a>
+                <span class="sep">/</span>
+                <span>Cairo, Egypt</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-main">Ahmed Wael Metwally © 2026 · Cairo, Egypt · M&amp;A · Private Equity · Equity Research</div>
-            <div class="footer-sub">Built by Ahmed Wael in Egypt · Bloomberg Terminal Aesthetic</div>
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="footer-mark">A</span>
+                <span class="footer-name">Ahmed Wael Metwally © 2026</span>
+            </div>
+            <div class="footer-tags">M&amp;A · PRIVATE EQUITY · EQUITY RESEARCH · VALUATION</div>
         </div>
     </footer>
 
     <script>
-        /* ═══════════ SCROLL REVEAL ═══════════ */
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target) } })
-        }, { threshold: .15 });
-        document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+        (function () {
+            "use strict";
 
-        /* ═══════════ COUNTER ANIMATION ═══════════ */
-        const cio = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    document.querySelectorAll(".counter").forEach(c => {
-                        const target = +c.dataset.target, duration = 1500; let start = null;
-                        function step(ts) {
-                            if (!start) start = ts; const p = Math.min((ts - start) / duration, 1);
-                            c.textContent = Math.floor(p * target); if (p < 1) requestAnimationFrame(step); else c.textContent = target
-                        }
-                        requestAnimationFrame(step)
-                    }); cio.unobserve(e.target)
+            // ----- Ticker (rendered twice for a seamless loop) -----
+            var ticker = [
+                { t: "EGX30", v: "30,142.6", d: "+0.84%", c: "#86b39a" },
+                { t: "ARCC.CA", v: "PT 80", d: "▲ +43%", c: "#86b39a" },
+                { t: "SWDY.CA", v: "PT 71", d: "▼ −22.3%", c: "#cf8a7e" },
+                { t: "JUFO.CA", v: "PT 22", d: "▼ −21.7%", c: "#cf8a7e" },
+                { t: "TASI", v: "12,418.4", d: "+0.31%", c: "#86b39a" },
+                { t: "2280.SR", v: "Almarai", d: "● Covered", c: "#9fb3a8" },
+                { t: "AAPL", v: "NASDAQ", d: "● Modeled", c: "#9fb3a8" },
+                { t: "EGP/USD", v: "48.62", d: "▼ −0.12%", c: "#cf8a7e" }
+            ];
+            var track = document.getElementById("ticker-track");
+            if (track) {
+                var setHTML = ticker.map(function (t) {
+                    return '<div class="ticker-item">' +
+                        '<span class="ticker-sym">' + t.t + '</span>' +
+                        '<span class="ticker-val">' + t.v + '</span>' +
+                        '<span style="color:' + t.c + '">' + t.d + '</span>' +
+                        '</div>';
+                }).join("");
+                track.innerHTML = setHTML + setHTML;
+            }
+
+            // ----- Model library -----
+            var base = "https://ahmedwael.pages.dev/models/";
+            function co(name, ticker, sector, file) {
+                var dl = base + file;
+                var pv = "https://view.officeapps.live.com/op/view.aspx?src=" + encodeURIComponent(dl);
+                return { name: name, ticker: ticker, sector: sector, dl: dl, pv: pv };
+            }
+            var markets = [
+                { label: "EGX — Cairo", count: "12 companies · 9 sectors", cos: [
+                    co("Arabian Cement", "ARCC.CA", "Materials / Cement", "Arabian-Cement-ARCC-Valuation-Model.xlsx"),
+                    co("Oriental Weavers", "ORWE.CA", "Home Textiles / Carpets", "Oriental-Weavers-ORWE-Valuation-Model.xlsx"),
+                    co("Ibnsina Pharma", "ISPH.CA", "Healthcare / Distribution", "Ibnsina-Pharma-ISPH-Valuation-Model.xlsx"),
+                    co("Telecom Egypt", "ETEL.CA", "Telecom", "Telecom-Egypt-ETEL-Valuation-Model.xlsx"),
+                    co("E-finance", "EFIH.CA", "Fintech", "E-finance-EFIH-Valuation-Model.xlsx"),
+                    co("Talaat Moustafa", "TMGH.CA", "Real Estate", "Talaat-Moustafa-TMGH-Valuation-Model.xlsx"),
+                    co("Elsewedy Electric", "SWDY.CA", "Industrials", "Elsewedy-Electric-SWDY-Valuation-Model.xlsx"),
+                    co("Fawry", "FWRY.CA", "Fintech", "Fawry-FWRY-Valuation-Model.xlsx"),
+                    co("Cleopatra Hospital", "CLHO.CA", "Healthcare", "Cleopatra-Hospital-CLHO-Valuation-Model.xlsx"),
+                    co("Juhayna", "JUFO.CA", "Consumer Staples", "Juhayna-JUFO-Valuation-Model.xlsx"),
+                    co("Eastern Company", "EAST.CA", "Tobacco", "Eastern-Company-EAST-Valuation-Model.xlsx"),
+                    co("Edita Food", "EFID.CA", "Consumer Staples", "Edita-EFID-Valuation-Model.xlsx")
+                ] },
+                { label: "Tadawul — Riyadh (TASI)", count: "2 companies", cos: [
+                    co("Almarai", "2280.SR", "Consumer Staples", "Almarai-2280-Valuation-Model.xlsx"),
+                    co("Qassim Cement", "3040.SR", "Materials", "Qassim-Cement-3040-Valuation-Model.xlsx")
+                ] },
+                { label: "NASDAQ — New York", count: "1 company", cos: [
+                    co("Apple", "AAPL", "Technology", "Apple-AAPL-Valuation-Model.xlsx")
+                ] }
+            ];
+            var lib = document.getElementById("model-library");
+            if (lib) {
+                lib.innerHTML = markets.map(function (m) {
+                    var cards = m.cos.map(function (c) {
+                        return '<div class="company-card">' +
+                            '<div class="company-top">' +
+                            '<h4>' + c.name + '</h4>' +
+                            '<span class="company-ticker">' + c.ticker + '</span>' +
+                            '</div>' +
+                            '<div class="company-sector">' + c.sector + '</div>' +
+                            '<div class="company-links">' +
+                            '<a class="primary" href="' + c.pv + '" target="_blank" rel="noopener">Preview</a>' +
+                            '<a class="secondary" href="' + c.dl + '" target="_blank" rel="noopener">Download ↓</a>' +
+                            '</div>' +
+                            '</div>';
+                    }).join("");
+                    return '<div class="market-group">' +
+                        '<div class="market-head">' +
+                        '<span class="market-label">' + m.label + '</span>' +
+                        '<span class="market-rule"></span>' +
+                        '<span class="market-count">' + m.count + '</span>' +
+                        '</div>' +
+                        '<div class="company-grid">' + cards + '</div>' +
+                        '</div>';
+                }).join("");
+            }
+
+            // ----- Scroll reveal (transform only; content visible by default) -----
+            var reveals = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+            function show(el) {
+                if (el.__shown) return;
+                el.__shown = true;
+                el.classList.add("is-revealed");
+            }
+            if ("IntersectionObserver" in window) {
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        if (e.isIntersecting) { show(e.target); io.unobserve(e.target); }
+                    });
+                }, { rootMargin: "0px 0px -12% 0px" });
+                reveals.forEach(function (el) { io.observe(el); });
+            } else {
+                reveals.forEach(show);
+            }
+            // Safety net: reveal everything after 2.5s no matter what
+            setTimeout(function () { reveals.forEach(show); }, 2500);
+
+            // ----- Count-up stats -----
+            function animateCount(el) {
+                var target = parseFloat(el.getAttribute("data-count"));
+                if (isNaN(target)) return;
+                var dur = 1500, start = performance.now();
+                function step(now) {
+                    var p = Math.min((now - start) / dur, 1);
+                    var e = 1 - Math.pow(1 - p, 3);
+                    el.textContent = Math.round(target * e);
+                    if (p < 1) requestAnimationFrame(step);
                 }
-            })
-        }, { threshold: .3 });
-        cio.observe(document.getElementById("stats"));
+                requestAnimationFrame(step);
+            }
+            setTimeout(function () {
+                document.querySelectorAll("[data-count]").forEach(animateCount);
+            }, 350);
 
-        /* ═══════════ NAV ACTIVE LINK ═══════════ */
-        const sections = document.querySelectorAll("section[id]");
-        const navLinks = document.querySelectorAll(".nav-links a");
-        const sio = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + e.target.id))
-                }
-            })
-        }, { threshold: .25, rootMargin: "-80px 0px -40% 0px" });
-        sections.forEach(s => sio.observe(s));
+            // ----- Scroll-spy -----
+            var navLinks = Array.prototype.slice.call(document.querySelectorAll("[data-nav]"));
+            var sections = Array.prototype.slice.call(document.querySelectorAll("section[id]"));
+            function spy() {
+                var mid = (window.innerHeight || 0) * 0.4;
+                var active = null;
+                sections.forEach(function (s) {
+                    var r = s.getBoundingClientRect();
+                    if (r.top <= mid && r.bottom > mid) active = s.getAttribute("id");
+                });
+                navLinks.forEach(function (l) {
+                    if (active && l.getAttribute("href") === "#" + active) l.classList.add("active");
+                    else l.classList.remove("active");
+                });
+            }
+            spy();
+            window.addEventListener("scroll", spy, { passive: true });
 
-        /* ═══════════ MOBILE MENU ═══════════ */
-        const hamburger = document.getElementById("hamburger");
-        const navLinksEl = document.getElementById("navLinks");
-        hamburger.addEventListener("click", () => {
-            hamburger.classList.toggle("open"); navLinksEl.classList.toggle("open")
-        });
-        navLinksEl.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
-            hamburger.classList.remove("open"); navLinksEl.classList.remove("open")
-        }));
+            // ----- Mobile menu -----
+            var toggle = document.getElementById("nav-toggle");
+            var menu = document.getElementById("nav-links");
+            if (toggle && menu) {
+                toggle.addEventListener("click", function () {
+                    var open = menu.classList.toggle("open");
+                    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+                });
+                menu.addEventListener("click", function (e) {
+                    if (e.target.tagName === "A") {
+                        menu.classList.remove("open");
+                        toggle.setAttribute("aria-expanded", "false");
+                    }
+                });
+            }
+        })();
     </script>
 </body>
 
