@@ -33,7 +33,12 @@
       "Bash(mv -f \"Almarai - 2280SR.xlsx\" \"Almarai-2280-Valuation-Model.xlsx\")",
       "Bash(mv -f \"Qassim Cement - 3040SR.xlsx\" \"Qassim-Cement-3040-Valuation-Model.xlsx\")",
       "Bash(ls -la Almarai* Qassim*)",
-      "Bash(ls -la *\" \"*)"
+      "Bash(ls -la *\" \"*)",
+      "Bash(pip install *)",
+      "Bash(mv \"ARCC - Equity Research.pptx\" \"Arabian-Cement-ARCC-Equity-Research.pptx\")",
+      "Bash(mv \"ARCC - Equity Research.pdf\" \"Arabian-Cement-ARCC-Equity-Research.pdf\")",
+      "Bash(rm -f '~$ARCC - Equity Research.pptx')",
+      "Read(//d/d/Portfolio/**)"
     ]
   }
 }
