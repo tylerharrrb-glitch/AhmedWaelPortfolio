@@ -21,6 +21,25 @@
   <meta name="twitter:title" content="Ahmed Wael Metwally — Investment Banking · M&amp;A · Valuation">
   <meta name="twitter:description" content="Investment Banking Analyst at Intercap Capital, Cairo. Valuation models across EGX, Tadawul, NASDAQ and a private UK company, financial modeling engines, and published equity research.">
   <meta name="twitter:image" content="https://ahmedwael.pages.dev/og-image.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "url": "https://ahmedwael.pages.dev/",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Ahmed Wael Metwally",
+      "url": "https://ahmedwael.pages.dev/",
+      "jobTitle": "Investment Banking Analyst",
+      "worksFor": { "@type": "Organization", "name": "Intercap Capital" },
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Georgia State University", "url": "https://www.gsu.edu/" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Cairo", "addressCountry": "EG" },
+      "email": "mailto:ahmedwaelmetwally@gmail.com",
+      "sameAs": ["https://www.linkedin.com/in/ahmedwaelmetwally"],
+      "knowsAbout": ["Mergers and acquisitions", "Capital raising", "Equity valuation", "Financial modeling", "Discounted cash flow", "Equity research"]
+    }
+  }
+  </script>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23f4f1ea'/%3E%3Crect x='4.5' y='4.5' width='55' height='55' fill='none' stroke='%231b1a17' stroke-width='1'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%231c4a3e' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -211,10 +230,60 @@
       .bullets li { font-size: 15px; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    /* ── Focus & skip link ──────────────────────────────── */
+    :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+    .engine:focus-visible { outline-offset: -4px; }
+    main:focus { outline: none; }
+    .skip { position: absolute; left: var(--gutter); top: -60px; z-index: 30; padding: 10px 16px; background: var(--ink); color: var(--paper); font-size: 13px; font-weight: 500; letter-spacing: .04em; }
+    .skip:focus { top: 10px; color: var(--paper); text-decoration: none; }
+
+    /* ── Print ──────────────────────────────────────────── */
+    @media print {
+      @page { margin: 16mm 14mm; }
+      :root { --paper: #fff; --gutter: 0px; }
+      body { font-size: 10pt; background: #fff; }
+      .page { min-height: 0; }
+      .site-header, .skip, .hero .actions, .btn-solid, .lib-files, .lib-head span:last-child, .r-files, .engine .open { display: none !important; }
+      .hero { padding: 0 0 20pt; }
+      .hero .eyebrow { margin-bottom: 10pt; }
+      .hero h1 { font-size: 34pt; }
+      .hero-sub { margin-top: 10pt; font-size: 14pt; }
+      .section { padding: 0 0 20pt; }
+      .section .container { padding-top: 14pt; }
+      .lead { font-size: 12pt; }
+      .section-title { font-size: 18pt; }
+      .experience .split.head, .research .split.head { margin-bottom: 14pt; }
+      .role { padding: 14pt 0; }
+      .bullets li { font-size: 10pt; padding: 6pt 0; }
+      .library, .engines { margin-top: 22pt; }
+      .scroll-x { overflow: visible; }
+      .lib, table { min-width: 0; }
+      .lib-head, .lib-row { grid-template-columns: 70px minmax(0, 1.3fr) minmax(0, 1.2fr) minmax(0, 1fr); gap: 10px; }
+      .lib-row { padding: 6pt 0; font-size: 9.5pt; }
+      .lib-name { font-size: 11pt; }
+      .lib-sector, .lib-scope { font-size: 9pt; }
+      .lib-row:hover, tbody tr:hover { background: none; }
+      .engine-grid { grid-template-columns: repeat(3, 1fr); }
+      .engine { min-height: 0; padding: 12pt; gap: 6pt; }
+      .engine .name { font-size: 13pt; }
+      .engine .desc { font-size: 9pt; }
+      .engine::after { content: attr(href); font-family: var(--mono); font-size: 8pt; color: var(--muted); }
+      tbody td { padding: 8pt 8pt; }
+      .r-thesis { font-size: 9pt; }
+      .contact { padding-bottom: 0; }
+      .contact h2 { font-size: 18pt; }
+      .contact .actions { flex-direction: column; gap: 4pt; margin-top: 12pt; }
+      .contact .btn { border: 0; padding: 0; }
+      .contact .btn[href^="http"]::after { content: " · " attr(href); font-family: var(--mono); font-size: 8.5pt; color: var(--muted); }
+      .lib-row, tbody tr, .role, .bullets li, .engine, .list > div { break-inside: avoid; }
+      .market-head, .sub-head, h2, h3 { break-after: avoid; }
+    }
   </style>
 </head>
 <body>
 <div class="page">
+  <a class="skip" href="#main">Skip to content</a>
 
   <header class="site-header">
     <div class="container">
@@ -231,6 +300,7 @@
     </div>
   </header>
 
+  <main id="main" tabindex="-1">
   <section id="top" class="hero">
     <div class="container">
       <div>
@@ -627,6 +697,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <footer class="site-footer">
     <div class="container">
