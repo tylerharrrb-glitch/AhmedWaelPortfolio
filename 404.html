@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page not found — Ahmed Wael Metwally</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23f4f1ea'/%3E%3Crect x='4.5' y='4.5' width='55' height='55' fill='none' stroke='%231b1a17' stroke-width='1'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%231c4a3e' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@400;500;600&family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f4f1ea;
+      --ink: #1b1a17;
+      --ink-2: #4a4842;
+      --muted: #6a675f;
+      --green: #1c4a3e;
+      --rule: #1b1a17;
+      --serif: 'Libre Caslon Text', Georgia, 'Times New Roman', serif;
+      --sans: 'Libre Franklin', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --mono: 'Fragment Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+      --container: 1240px;
+      --gutter: clamp(20px, 4vw, 56px);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    a { color: var(--green); text-decoration: none; transition: color .2s; }
+    a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+    ::selection { background: var(--green); color: var(--paper); }
+    h1 { font-family: var(--serif); font-weight: 400; margin: 0; }
+    p { margin: 0; text-wrap: pretty; }
+    .container { max-width: var(--container); margin: 0 auto; }
+    .page { min-height: 100vh; display: flex; flex-direction: column; }
+
+    .site-header { border-bottom: 1px solid rgba(27, 26, 23, .18); padding: 0 var(--gutter); }
+    .site-header .container { height: 60px; display: flex; align-items: center; }
+    .brand { font-family: var(--serif); font-size: 15px; letter-spacing: .02em; color: var(--ink); white-space: nowrap; }
+    .brand:hover { color: var(--green); text-decoration: none; }
+
+    .notfound { padding: clamp(56px, 8vw, 120px) var(--gutter); }
+    .notfound .container { border-top: 1px solid var(--rule); padding-top: 36px; display: grid; grid-template-columns: minmax(160px, .6fr) minmax(0, 1.6fr); gap: clamp(24px, 5vw, 80px); }
+    .eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; color: var(--green); }
+    .notfound h1 { font-size: clamp(40px, 6vw, 84px); line-height: 1; letter-spacing: -.015em; text-wrap: balance; }
+    .notfound .sub { font-family: var(--serif); font-style: italic; font-size: clamp(19px, 2vw, 24px); line-height: 1.45; color: var(--ink-2); margin-top: 28px; max-width: 560px; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 40px; }
+    .btn { display: inline-block; padding: 12px 22px; font-size: 13px; font-weight: 500; letter-spacing: .04em; border: 1px solid var(--ink); color: var(--ink); transition: background .2s, color .2s, border-color .2s; }
+    .btn:hover { border-color: var(--green); color: var(--green); text-decoration: none; }
+    .btn-solid { background: var(--ink); color: var(--paper); }
+    .btn-solid:hover { background: var(--green); border-color: var(--green); color: var(--paper); }
+
+    .site-footer { margin-top: auto; border-top: 1px solid rgba(27, 26, 23, .18); padding: 22px var(--gutter); }
+    .site-footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+
+    @media (max-width: 900px) {
+      .notfound .container { grid-template-columns: 1fr; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">Ahmed Wael Metwally</a>
+    </div>
+  </header>
+
+  <section class="notfound">
+    <div class="container">
+      <div class="eyebrow">404 &nbsp;Not found</div>
+      <div>
+        <h1>This page doesn't exist.</h1>
+        <p class="sub">The link may be out of date, or a file may have been renamed. Valuation models and research are all listed on the main page.</p>
+        <div class="actions">
+          <a class="btn btn-solid" href="/">Back to homepage</a>
+          <a class="btn" href="/#work">Model library</a>
+          <a class="btn" href="/#research">Research</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>Ahmed Wael Metwally © 2026 · Cairo, Egypt</span>
+      <span>Investment banking · M&amp;A · Valuation</span>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
